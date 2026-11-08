@@ -17,7 +17,7 @@ composition.
 |---|---|---|---|
 | PLS-DA | 88 % | 60 % | T1, half of T2 |
 | PLS-R (cut-off on predicted composition) | 98 % | 80 % | T5 |
-| MT-DNN class head | 100 % | 84 % | T1 |
+| MT-DNN class head | 100 % | 80 % | T1 |
 | MT-DNN-R (cut-off on predicted composition) | 100 % | 80 % | T1 |
 
 A scan-level random split (54 of 55 samples on both sides) hides these false positives completely

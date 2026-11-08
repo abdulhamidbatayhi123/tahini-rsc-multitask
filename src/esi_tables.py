@@ -80,13 +80,61 @@ table("Table S5 Exploratory sample-level agreement rule (leave-one-lot-out; 5 au
       ["Rule", "Seed", "Authentic lots flagged", "Blends missed (level, adulterant, lot)"], rows,
       "Source: results/consensus.json (src/s04_consensus.py).")
 
-# S6 full-range sensitivity, if available
+# S6 effect of amendment A2 (MT-DNN refit on all training samples); point estimates, before = results/v1_A1
 m = pd.read_csv(RESULTS / "metrics.csv")
+old = pd.read_csv(RESULTS / "v1_A1" / "metrics.csv")
+rows = []
+for scheme in ("holdout", "lolo", "random"):
+    for level in ("sample", "scan"):
+        for model in ("MT-DNN", "MT-DNN-R"):
+            sel = lambda d: d[(d.scheme == scheme) & (d.level == level) & (d.model == model) & (d.regions == "chem")]
+            o, n = sel(old), sel(m)
+            if o.empty or n.empty:
+                continue
+            o, n = o.iloc[0], n.iloc[0]
+            pair = lambda k, f: f"{f(o[k])} / {f(n[k])}"
+            pct = lambda v: f"{100 * v:.1f}"
+            rows.append([scheme, level, model, pair("sensitivity", pct), pair("specificity", pct),
+                         pair("auc", lambda v: f"{v:.3f}"), pair("rmsep_tahini", lambda v: f"{v:.2f}"),
+                         pair("lod", lambda v: f"{v:.2f}") if level == "sample" and model == "MT-DNN" else ""])
+table("Table S6 MT-DNN results before / after amendment A2 (refit on all training samples; chemically informative "
+      "regions; point estimates, means over five seeds). PLS results are not affected by A2.",
+      ["Validation", "Level", "Route", "Sensitivity (%)", "Specificity (%)", "AUC", "RMSEP (% tahini)", "LOD (%)"], rows,
+      "Source: results/v1_A1/metrics.csv (before) and results/metrics.csv (after).")
+
+# S8 supplementary analyses (src/s05_extra.py)
+ex = json.loads((RESULTS / "extra.json").read_text())
+rows = []
+for fam, res in ex["paired"].items():
+    for r in res:
+        rows.append(["Paired routes, " + fam, "seed " + str(r["seed"]) if r["seed"] >= 0 else "–",
+                     f"class right / regression wrong: {r['class_right_reg_wrong']}; reverse: {r['class_wrong_reg_right']}; "
+                     f"exact McNemar p = {r['p_exact']:.2f}"])
+for model, lw in ex["lowest_level_95"].items():
+    lev = ex["detection_by_level"][model]
+    low = "; ".join(f"{float(k):.0f} %: {100 * v:.0f}" for k, v in lev.items() if v < 0.95)
+    rows.append(["Detection by level, " + model, "–", f"every level ≥ {lw:.0f} % flagged in ≥ 95 % of scans; "
+                 f"levels below 95 %: {low or 'none'}"])
+for model, v in ex["pure_excluded"]["sample_sensitivity"].items():
+    rows.append(["Without pure adulterants, " + model, "–",
+                 f"sample sensitivity {100 * v['all']:.1f} % (50 blends) / {100 * v['no_pure']:.1f} % (48 blends)"])
+for model in ("PLS-R", "MT-DNN"):
+    a, b = ex["pure_excluded"][model]["all"], ex["pure_excluded"][model]["no_pure"]
+    rows.append(["Without pure adulterants, " + model, "–", f"slope {a['slope']:.3f} / {b['slope']:.3f}; "
+                 f"LOD {a['lod']:.1f} / {b['lod']:.1f} % adulterant"])
+rows.append(["PLS-R blank by lot", "–", "; ".join(f"{k}: {v['mean']:.1f} ± {v['sd']:.1f} %"
+                                                  for k, v in ex["pls_blank_by_lot"].items())])
+rows.append(["PLS-R LOD, lot left out of the blank", "–", "; ".join(f"{k}: {v['lod']:.1f} %"
+                                                                   for k, v in ex["pls_lod_leave_lot_out_of_blank"].items())])
+table("Table S8 Supplementary analyses (leave-one-lot-out, chemically informative regions; added at review stage).",
+      ["Analysis", "Seed", "Result"], rows,
+      "Source: results/extra.json (src/s05_extra.py). Each nominal level occurs in one lot only, so detection by "
+      "level is confounded with the lot effect (lot T1 holds the 4 % blends).")
+
+# S7 full-range sensitivity, if available
 full = m[(m.regions == "full")]
 if not full.empty:
     rows = []
-    for (s, model), r in m[(m.level == "scan")].set_index(["scheme", "model"]).sort_index().iterrows():
-        pass
     for scheme in ("holdout", "lolo", "random"):
         for model in ("PLS-DA", "PLS-R", "MT-DNN", "MT-DNN-R"):
             c = m[(m.scheme == scheme) & (m.level == "scan") & (m.model == model) & (m.regions == "chem")]
@@ -97,7 +145,7 @@ if not full.empty:
             rows.append([scheme, model, f"{100 * c.sensitivity:.1f} / {100 * f.sensitivity:.1f}",
                          f"{100 * c.specificity:.1f} / {100 * f.specificity:.1f}",
                          f"{c.rmsep_tahini:.2f} / {f.rmsep_tahini:.2f}"])
-    table("Table S6 Sensitivity analysis: chemically informative regions (752 channels) / full 600–4000 cm⁻¹ range "
+    table("Table S7 Sensitivity analysis: chemically informative regions (752 channels) / full 600–4000 cm⁻¹ range "
           "(scan level).", ["Validation", "Route", "Sensitivity (%)", "Specificity (%)", "RMSEP (% tahini)"], rows,
           "Source: results/metrics.csv (regions chem and full).")
 

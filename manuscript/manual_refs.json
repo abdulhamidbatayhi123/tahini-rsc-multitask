@@ -58,7 +58,8 @@
  "kacurakova2001": {
   "override": true,
   "authors": [
-   "M. Kačuráková"
+   "M. Kačuráková",
+   "R. H. Wilson"
   ],
   "journal": "Carbohydrate Polymers",
   "year": 2001,
@@ -66,7 +67,19 @@
   "pages": "291–303",
   "doi": "10.1016/s0144-8617(00)00245-9",
   "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
-  "verified": false,
-  "note": "Crossref and OpenAlex list one author with a damaged name (KacurÃ¡kovÃ¡); the article is usually cited as M. Kačuráková and R. H. Wilson. Confirm the author list on the publisher page (doi.org/10.1016/S0144-8617(00)00245-9) before submission."
+  "verified": true,
+  "note": "Crossref/OpenAlex record of the article has one damaged author name; the Wiley ChemInform record of the same article (doi:10.1002/chin.200123299) lists M. Kacurakova and R. H. Wilson, as do citing articles.",
+  "checked": "2026-11-09 Crossref + OpenAlex (10.1002/chin.200123299); ScienceDirect page refused automated access"
+ },
+ "ich2023": {
+  "type": "web",
+  "authors": [
+   "ICH"
+  ],
+  "title": "International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023",
+  "url": "https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf",
+  "accessed": "November 2026",
+  "verified": true,
+  "checked": "2026-11-09: PDF downloaded and read; section 3.2.3.3 gives DL = 3.3σ/S and QL = 10σ/S, sigma from the SD of blank responses; 3.2.3.1 visual evaluation with samples of known concentration"
  }
 }

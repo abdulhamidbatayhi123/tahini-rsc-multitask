@@ -6,7 +6,7 @@
   "script_sha256": "8a390a86b637e4e7f10c6bd1b62c07a39bdd6732ad5a83f0da5ac5d49f51ce22",
   "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
   "inputs_sha256": {
-    "pred_holdout_chem.csv": "a4bc16d2c196e867b2023eb291a7913fd46a94e5a56e3f7e70b8874299a17423",
-    "metrics.csv": "e6899f9e4f3c7cfb4bec9d4508a81e54b19bb2bae52b5952e5fb42d760b4d1ff"
+    "pred_holdout_chem.csv": "06a57f9982c2fb9bdba3abe6d6e85669db8b392b918d80f8420a5f6714b3c782",
+    "metrics.csv": "6ca876d8c1c598cd55b469fa2019e70eddcce607049ec770592288780ef48cbe"
   }
 }

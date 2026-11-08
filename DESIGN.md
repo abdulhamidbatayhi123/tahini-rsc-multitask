@@ -95,3 +95,19 @@ Labelled exploratory in the paper; none changes a primary metric.
 - Wording: the plan called the hold-out the primary partition; the manuscript treats leave-one-lot-out as
   the main test because the hold-out holds a single authentic lot (decided after seeing that the hold-out
   specificity rests on one sample). Both are reported in full.
+
+## Review-stage analyses (2026-11-09, after the A2 results; requested by an internal adversarial review)
+All exploratory; none changes a reported primary result.
+- S8 (`src/s05_extra.py` -> `results/extra.json`): exact McNemar test of class route vs regression route per model family
+  on the 55 withheld samples; share of blend scans flagged per nominal level (each level lies in one lot, so this is
+  confounded with the lot effect); sensitivity, slope and LOD without the two pure-adulterant samples; PLS blank by lot and
+  LOD with each lot left out of the blank.
+- One-class baseline (`src/s06_oneclass.py`): PCA T²/Q fitted on authentic training scans only, limits = mean + 3 SD of
+  out-of-fold statistics (leave-one-training-lot-out), the same rule as the regression routes.
+
+## Corrections ledger
+- 2026-11-08 A2: MT-DNN retrained on all training samples (early-stopping samples had been excluded from training).
+- 2026-11-08: sample-level bootstrap merged duplicate draws; fixed (each draw relabelled), all intervals recomputed.
+- 2026-11-09 text: PLS-DA misses at 32/36 % ("most" -> "about a third"); Foods LOD range attribution (pooled
+  out-of-fold, not nested lot-out); T2 largest departure is 717 cm-1, not 1709; "about twice" -> "two and a half times";
+  LOD convention cited to ICH Q2(R2), not Allegrini & Olivieri; Kačuráková & Wilson author list.

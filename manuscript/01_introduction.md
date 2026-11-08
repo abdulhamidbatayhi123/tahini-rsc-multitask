@@ -7,7 +7,7 @@ peanut is a major allergen and tahini consumers who avoid peanut have no reason 
 sold as tahini have been recalled for undeclared peanut.[@fsa2018] Targeted reference methods exist:
 gas chromatography of the fatty acids detects foreign oils in sesame oil;[@peng2015] real-time PCR
 and liquid chromatography–mass spectrometry detect allergenic nuts at mg kg<sup>−1</sup>
-levels;[@torricelli2020;@new2020] and nuclear magnetic resonance spectroscopy detects peanut in other
+levels;[@stephan2004;@torricelli2020;@new2020] and nuclear magnetic resonance spectroscopy detects peanut in other
 foods.[@schmitt2020] They are slow, need trained staff and answer only the question they
 were designed for. A rapid screen that flags a suspect sample and estimates how much of it is not
 tahini would decide which samples are worth sending to such a laboratory.
@@ -23,7 +23,7 @@ calibration models on them.[@batayhi2026] The chemistry makes the task hard: the
 dominated by the same triglyceride bands, so adulteration changes the intensity of shared bands rather
 than adding new ones.[@batayhi2026] The standard chemometric answer is a pair of models, partial
 least-squares discriminant analysis (PLS-DA) for the yes-or-no decision and PLS regression for the
-amount.[@wold2001]
+amount.[@wold2001;@brereton2014]
 
 Neural networks can replace such pairs with one model. In multitask learning, related outputs share a
 common hidden representation and are trained together, so that each task can act as a regulariser for
@@ -43,14 +43,15 @@ replicate scans of one sample are far more alike than scans of different samples
 are split at random between training and test sets, the model is tested on near-copies of its training
 data, and the reported accuracy measures memory rather than generalisation; this form of data leakage
 is a recognised cause of irreproducible results in spectroscopy and machine learning.[@guo2017;@kapoor2023]
-At least one of the multitask studies above divided its spectra, which included repeated measurements
-of each blend, between cross-validation folds at random,[@qin2026] so how such networks behave on new
-material is largely unknown. On the present data the
+At least one of the multitask studies above divided its samples, each measured repeatedly, between
+cross-validation folds at random without stating that the repeated measurements were kept together,[@qin2026]
+so how such networks behave on new material is largely unknown. On the present data the
 difference is large: a scan-level random split, the default of most machine-learning tutorials, puts
-54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, when a whole
-production lot was withheld, the detection limits rose to 9–22 % adulterant and authentic tahini from
-the lots least like the others was flagged as adulterated.[@batayhi2026]
-<!-- 54 of 55: audit/check_split.py. LOD 8.9-21.6 % and T1/T5 false positives: Foods 15:3639 Section 3.2 and Table 5. Qin 2026 random 5-fold: T-TR1 (full text read by cs); re-verify wording before submission. -->
+54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, with each
+authentic lot serving as the blank while it was withheld, the detection limits were 8.9–21.6 % adulterant,
+and authentic tahini from the lots least like the others was flagged as adulterated;[@batayhi2026] on
+other ATR–FTIR adulteration data, withholding whole brands degraded every model we tested.[@batayhi2026b]
+<!-- 54 of 55: audit/check_split.py. LOD 8.9-21.6 % (pooled out-of-fold, each authentic lot as blank; nested LOLO 10.3-19.5 %) and T1/T5 false positives: Foods 15:3639 Section 3.2 and Table 5 (T-TR2 fix). Qin 2026: 'all samples were randomly divided into five mutually exclusive subsets' (T-TR2 wording). Foods 15:2949 abstract: 'leave-one-brand-out validation degraded every model' (read live 2026-11-09). -->
 
 The present study uses the released tahini spectra[@batayhi2026] to ask three questions under
 validation that withholds whole physical samples and whole production lots. First, does a multitask

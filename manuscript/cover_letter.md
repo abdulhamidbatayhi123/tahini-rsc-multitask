@@ -1,4 +1,4 @@
-<!-- DRAFT. Numbers to be finalised after the A2 rerun; corresponding author (M. Arici, as in Foods 15:3639) to confirm. -->
+<!-- DRAFT. Numbers to be finalised after the A2 rerun; corresponding author M. Özgölet (user, 2026-11-09). -->
 
 Dear Editor,
 
@@ -45,4 +45,4 @@ There are no conflicts of interest to declare. Possible reviewers can be provide
 
 Yours sincerely,
 
-Muhammet Arici, on behalf of all authors (Arzu Yılmaz, Abdulhamid Batayhi, Muhammed Özgölet and Muhammet Arici)
+Muhammed Özgölet, on behalf of all authors (Arzu Yılmaz, Abdulhamid Batayhi, Muhammed Özgölet and Muhammet Arici)

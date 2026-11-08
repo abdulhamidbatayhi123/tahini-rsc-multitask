@@ -58,7 +58,8 @@
  "kacurakova2001": {
   "override": true,
   "authors": [
-   "M. Kačuráková"
+   "M. Kačuráková",
+   "R. H. Wilson"
   ],
   "journal": "Carbohydrate Polymers",
   "year": 2001,
@@ -66,8 +67,20 @@
   "pages": "291–303",
   "doi": "10.1016/s0144-8617(00)00245-9",
   "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
-  "verified": false,
-  "note": "Crossref and OpenAlex list one author with a damaged name (KacurÃ¡kovÃ¡); the article is usually cited as M. Kačuráková and R. H. Wilson. Confirm the author list on the publisher page (doi.org/10.1016/S0144-8617(00)00245-9) before submission."
+  "verified": true,
+  "note": "Crossref/OpenAlex record of the article has one damaged author name; the Wiley ChemInform record of the same article (doi:10.1002/chin.200123299) lists M. Kacurakova and R. H. Wilson, as do citing articles.",
+  "checked": "2026-11-09 Crossref + OpenAlex (10.1002/chin.200123299); ScienceDirect page refused automated access"
+ },
+ "ich2023": {
+  "type": "web",
+  "authors": [
+   "ICH"
+  ],
+  "title": "International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023",
+  "url": "https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf",
+  "accessed": "November 2026",
+  "verified": true,
+  "checked": "2026-11-09: PDF downloaded and read; section 3.2.3.3 gives DL = 3.3σ/S and QL = 10σ/S, sigma from the SD of blank responses; 3.2.3.1 visual evaluation with samples of known concentration"
  },
  "batayhi2026": {
   "authors": [
@@ -85,7 +98,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "batayhi2026b": {
   "authors": [
@@ -102,7 +115,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "barnes1989": {
   "authors": [
@@ -119,7 +132,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "allegrini2014": {
   "authors": [
@@ -135,7 +148,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "wold2001": {
   "authors": [
@@ -152,7 +165,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "kucukcelebioglu2026": {
   "authors": [
@@ -170,7 +183,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "ozulku2017": {
   "authors": [
@@ -189,7 +202,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "peng2015": {
   "authors": [
@@ -209,7 +222,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "muresan2016": {
   "authors": [
@@ -231,7 +244,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "ozen2024": {
   "authors": [
@@ -248,7 +261,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "guillen1997": {
   "authors": [
@@ -264,7 +277,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "barth2007": {
   "authors": [
@@ -279,7 +292,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "rohman2010": {
   "authors": [
@@ -295,7 +308,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "schmitt2020": {
   "authors": [
@@ -315,7 +328,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "esslinger2014": {
   "authors": [
@@ -332,7 +345,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "field2007": {
   "authors": [
@@ -348,7 +361,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "cui2018": {
   "authors": [
@@ -364,7 +377,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "torricelli2020": {
   "authors": [
@@ -383,7 +396,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "new2020": {
   "authors": [
@@ -404,7 +417,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "keithellakpam2025": {
   "authors": [
@@ -423,7 +436,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "vera2025": {
   "authors": [
@@ -441,7 +454,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "caruana1997": {
   "authors": [
@@ -456,7 +469,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "kapoor2023": {
   "authors": [
@@ -472,7 +485,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "qin2026": {
   "authors": [
@@ -492,7 +505,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "liang2024": {
   "authors": [
@@ -516,7 +529,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "zeng2026": {
   "authors": [
@@ -536,7 +549,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "ning2026": {
   "authors": [
@@ -554,7 +567,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
  },
  "guo2017": {
   "authors": [
@@ -572,6 +585,56 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-08 Crossref"
+  "checked": "2026-11-09 Crossref"
+ },
+ "ismail1993": {
+  "authors": [
+   "A. A. Ismail",
+   "F. R. van de Voort",
+   "G. Emo",
+   "J. Sedman"
+  ],
+  "journal": "J Americ Oil Chem Soc",
+  "year": 1993,
+  "volume": "70",
+  "pages": "335–341",
+  "doi": "10.1007/bf02552703",
+  "title": "Rapid quantitative determination of free fatty acids in fats and oils by fourier transform infrared spectroscopy",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-09 Crossref"
+ },
+ "stephan2004": {
+  "authors": [
+   "O. Stephan",
+   "S. Vieths"
+  ],
+  "journal": "J. Agric. Food Chem.",
+  "year": 2004,
+  "volume": "52",
+  "pages": "3754–3760",
+  "doi": "10.1021/jf035178u",
+  "title": "Development of a Real-Time PCR and a Sandwich ELISA for Detection of Potentially Allergenic Trace Amounts of Peanut (\n                    <i>Arachis hypogaea</i>\n                    ) in Processed Foods",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-09 Crossref"
+ },
+ "brereton2014": {
+  "authors": [
+   "R. G. Brereton",
+   "G. R. Lloyd"
+  ],
+  "journal": "Journal of Chemometrics",
+  "year": 2014,
+  "volume": "28",
+  "pages": "213–225",
+  "doi": "10.1002/cem.2609",
+  "title": "Partial least squares discriminant analysis: taking the magic away",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-09 Crossref"
  }
 }

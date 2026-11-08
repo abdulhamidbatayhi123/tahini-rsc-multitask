@@ -23,7 +23,8 @@ code showed that the network never trained on its early-stopping samples, which 
 removed one or two of the four training authentic lots from training in most fits. The network is now
 retrained on all training samples for the number of epochs chosen by early stopping. Table S6 compares
 the results before and after A2. The same review found that duplicate draws were merged in the
-sample-level bootstrap; this was corrected for all reported intervals.
+sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
+detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS.
 
 ## S3 Training histories
 

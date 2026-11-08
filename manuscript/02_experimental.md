@@ -29,7 +29,7 @@ two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
 band (about 2250–2400 cm<sup>−1</sup>) and the water-vapour rotation lines above 3550 cm<sup>−1</sup> were excluded because
 they record the state of the optical path, not the sample. The full 600–4000 cm<sup>−1</sup> range was run as a
-sensitivity analysis (ESI).
+sensitivity analysis (ESI, Table S7).
 <!-- n_channels_chem=752: results/f1_numbers.json -->
 
 ### 2.3 Multitask network
@@ -96,9 +96,12 @@ operating characteristic curve (AUC), at scan level and, after averaging the sca
 sample level. The adulterant was taken as identified when the larger predicted adulterant fraction
 belonged to the true adulterant. Quantification was scored on the tahini fraction by the coefficient of
 determination (R<sup>2</sup>), the root-mean-square error of prediction (RMSEP) and the mean absolute error. The
-limit of detection followed the calibration-slope convention of ref. [#batayhi2026], LOD = 3.3σ/S, where σ is the
-SD of the predicted adulterant fraction of withheld authentic scans and S the slope of predicted on
-nominal adulterant fraction.[@allegrini2014] In leave-one-lot-out validation the predictions of the five
+limit of detection followed the calibration-slope convention of ICH Q2(R2)[@ich2023] used in ref. [#batayhi2026],
+LOD = 3.3σ/S, where σ is the SD of the predicted adulterant fraction of withheld authentic scans and S the
+slope of predicted on nominal adulterant fraction; the more rigorous multivariate LOD interval of
+Allegrini and Olivieri[@allegrini2014] was not used, for comparability with the earlier study. Because a
+bounded output and a lot-wise bias both distort σ, the share of blend scans flagged at each nominal
+level is also reported, the empirical alternative that the guideline allows. In leave-one-lot-out validation the predictions of the five
 withheld lots are pooled, so σ includes the differences between authentic lots; within the hold-out test
 set, which holds a single authentic lot, σ reflects replicate scatter only and the LOD is given for
 comparison. All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that

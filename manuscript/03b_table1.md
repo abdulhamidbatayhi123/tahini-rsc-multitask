@@ -1,22 +1,22 @@
-Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means over five seeds. Quantification and identification are properties of the composition output and are shown once per model family. The hold-out test set contains a single authentic lot, so its specificity rests on one authentic sample; in leave-one-lot-out validation five authentic samples, one per lot, are withheld.
+Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means over five seeds. Quantification and identification are properties of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single authentic lot; in leave-one-lot-out validation five authentic samples, one per lot, are withheld.
 
 | Validation | Level | Route | Sensitivity (%) | Specificity (%) | AUC | RMSEP (%) | R² | Identification (%) |
 |---|---|---|---|---|---|---|---|---|
-| Grouped hold-out | sample | PLS-DA | 87.5 (77.8–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) |  |  |  |
-| Grouped hold-out | sample | PLS-R | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) | 1.42 (1.15–1.62) | 0.997 (0.995–0.998) | 100.0 (100.0–100.0) |
-| Grouped hold-out | sample | MT-DNN | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) | 3.98 (3.19–4.56) | 0.979 (0.961–0.986) | 100.0 (100.0–100.0) |
-| Grouped hold-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) |  |  |  |
-| Grouped hold-out | scan | PLS-DA | 90.3 (74.2–100.0) | 100.0 (100.0–100.0) | 0.999 (0.997–1.000) |  |  |  |
-| Grouped hold-out | scan | PLS-R | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) | 1.93 (1.69–2.30) | 0.997 (0.987–0.997) | 100.0 (100.0–100.0) |
-| Grouped hold-out | scan | MT-DNN | 99.6 (98.8–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) | 4.02 (2.67–5.58) | 0.985 (0.933–0.992) | 99.8 (99.5–100.0) |
-| Grouped hold-out | scan | MT-DNN-R | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 1.000 (1.000–1.000) |  |  |  |
-| Leave-one-lot-out | sample | PLS-DA | 88.0 (81.2–94.4) | 60.0 (0.0–100.0) | 0.888 (0.750–1.000) |  |  |  |
-| Leave-one-lot-out | sample | PLS-R | 98.0 (96.4–100.0) | 80.0 (50.0–100.0) | 0.984 (0.943–1.000) | 3.80 (3.08–4.34) | 0.985 (0.979–0.991) | 96.0 (92.9–100.0) |
-| Leave-one-lot-out | sample | MT-DNN | 100.0 (100.0–100.0) | 84.0 (60.0–100.0) | 0.998 (0.994–1.000) | 4.64 (3.89–5.21) | 0.978 (0.968–0.985) | 97.2 (95.3–100.0) |
-| Leave-one-lot-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 80.0 (50.0–100.0) | 0.998 (0.994–1.000) |  |  |  |
+| Grouped hold-out | sample | PLS-DA | 87.5 (68.8–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) |  |  |  |
+| Grouped hold-out | sample | PLS-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 1.42 (1.09–1.70) | 0.997 (0.994–0.999) | 100.0 (100.0–100.0) |
+| Grouped hold-out | sample | MT-DNN | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 3.79 (2.89–4.55) | 0.980 (0.958–0.990) | 100.0 (100.0–100.0) |
+| Grouped hold-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) |  |  |  |
+| Grouped hold-out | scan | PLS-DA | 90.3 (74.2–100.0) | 100.0 (one authentic sample) | 0.999 (0.997–1.000) |  |  |  |
+| Grouped hold-out | scan | PLS-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 1.93 (1.69–2.30) | 0.997 (0.987–0.997) | 100.0 (100.0–100.0) |
+| Grouped hold-out | scan | MT-DNN | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 3.95 (2.58–5.53) | 0.986 (0.934–0.993) | 100.0 (100.0–100.0) |
+| Grouped hold-out | scan | MT-DNN-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) |  |  |  |
+| Leave-one-lot-out | sample | PLS-DA | 88.0 (77.8–96.1) | 60.0 (0.0–100.0) | 0.888 (0.690–1.000) |  |  |  |
+| Leave-one-lot-out | sample | PLS-R | 98.0 (93.8–100.0) | 80.0 (33.3–100.0) | 0.988 (0.951–1.000) | 3.80 (2.98–4.62) | 0.985 (0.976–0.991) | 96.0 (90.4–100.0) |
+| Leave-one-lot-out | sample | MT-DNN | 100.0 (100.0–100.0) | 80.0 (33.3–100.0) | 0.998 (0.992–1.000) | 4.55 (3.80–5.28) | 0.979 (0.968–0.986) | 97.2 (94.3–100.0) |
+| Leave-one-lot-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 80.0 (33.3–100.0) | 1.000 (1.000–1.000) |  |  |  |
 | Leave-one-lot-out | scan | PLS-DA | 88.5 (79.5–95.9) | 69.6 (27.1–100.0) | 0.871 (0.655–0.997) |  |  |  |
 | Leave-one-lot-out | scan | PLS-R | 97.4 (94.4–100.0) | 79.7 (33.0–100.0) | 0.986 (0.950–1.000) | 4.87 (3.37–6.58) | 0.979 (0.953–0.990) | 97.2 (93.5–100.0) |
-| Leave-one-lot-out | scan | MT-DNN | 99.7 (99.2–100.0) | 83.5 (48.3–100.0) | 0.995 (0.983–1.000) | 4.11 (3.26–5.24) | 0.985 (0.973–0.990) | 97.0 (93.8–99.9) |
-| Leave-one-lot-out | scan | MT-DNN-R | 99.3 (98.3–100.0) | 80.6 (37.6–100.0) | 0.999 (0.997–1.000) |  |  |  |
+| Leave-one-lot-out | scan | MT-DNN | 100.0 (99.8–100.0) | 79.9 (34.8–100.0) | 0.996 (0.986–1.000) | 3.95 (3.17–4.99) | 0.986 (0.976–0.990) | 97.2 (94.4–99.9) |
+| Leave-one-lot-out | scan | MT-DNN-R | 100.0 (99.9–100.0) | 80.1 (33.5–100.0) | 1.000 (0.999–1.000) |  |  |  |
 
 <!-- generated by src/t1_table.py from results/metrics.csv; do not edit by hand -->

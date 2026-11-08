@@ -5,8 +5,9 @@ sunflower and peanut paste, identified the adulterant and estimated its amount f
 spectrum about as well as the chemometric pair of PLS-DA and PLS regression, when whole production
 lots were withheld. Three conclusions follow for infrared screening of pastes.
 
-First, the decision is best taken from the predicted composition. The classification head added a
-second output to calibrate without improving sensitivity or specificity, and PLS-DA was the least
+First, on grounds of parsimony the decision is best taken from the predicted composition. The
+classification head added a second output to calibrate with no detectable gain in sensitivity or
+specificity (with five lots, small differences could not be detected), and PLS-DA was the least
 stable route of all. A cut-off on the predicted tahini fraction, set from authentic training samples
 alone, gives the decision in composition units together with the amount and identity of the
 adulterant.
@@ -20,7 +21,8 @@ splits even more so, hide this behaviour completely.
 
 Third, because the two families fail on different lots, combining them is a promising and cheap way
 to protect specificity. In this set, requiring both composition routes to agree removed every false
-positive at the cost of one 4 % blend. This rule was found after the results were known and rests on
+positive at the cost of one 4 % blend; the first part follows by construction once the two families
+reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
 five authentic lots; it needs testing on new lots, other suppliers and a second instrument before it
 can support routine screening. For any such use, the authentic reference set must cover the variation
 between lots that the screen will meet,[@esslinger2014] and a positive result should be confirmed by a targeted method.

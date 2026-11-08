@@ -40,6 +40,8 @@ ABBR = {  # CASSI / ISO 4 abbreviations for journals whose Crossref record gives
     "Journal of AOAC INTERNATIONAL": "J. AOAC Int.", "Journal of AOAC International": "J. AOAC Int.",
     "Journal of the Royal Statistical Society Series B: Statistical Methodology": "J. R. Stat. Soc. B",
     "Machine Learning": "Mach. Learn.",
+    "Journal of the American Oil Chemists' Society": "J. Am. Oil Chem. Soc.",
+    "Journal of Agricultural and Food Chemistry": "J. Agric. Food Chem.", "Journal of Chemometrics": "J. Chemom.",
 }
 
 
