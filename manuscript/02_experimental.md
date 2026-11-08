@@ -2,7 +2,7 @@
 
 ### 2.1 Samples and spectra
 
-The spectra are the tahini set released with our earlier calibration study (ref. FOODS), where the
+The spectra are the tahini set released with our earlier calibration study (ref. [#batayhi2026]), where the
 sample preparation is described in full; it is summarised here. Five authentic tahini (sesame paste)
 samples, each from a different production lot (T1–T5), were obtained from suppliers in Istanbul, and
 sunflower paste and peanut paste from a local supermarket. Each lot was blended with each adulterant at
@@ -22,7 +22,7 @@ T5 are pure adulterant and are labelled adulterated.
 
 ### 2.2 Preprocessing and spectral regions
 
-Each spectrum was corrected by the standard normal variate (SNV),<sup>SNV</sup> which acts on one spectrum at a time
+Each spectrum was corrected by the standard normal variate (SNV),[@barnes1989] which acts on one spectrum at a time
 and therefore cannot leak information between training and test sets. The models were then given the
 two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup> (C–H stretching) and
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
@@ -51,10 +51,10 @@ PyTorch 2.7.1.
 
 The reference is the standard chemometric pair: partial least-squares discriminant analysis (PLS-DA)
 on the one-hot class and PLS2 regression on the three fractions, without scaling of the SNV inputs
-(scikit-learn 1.x). The number of latent variables (1–25) of each model was chosen inside every
+(scikit-learn 1.7.0). The number of latent variables (1–25) of each model was chosen inside every
 training set by grouped five-fold cross-validation (minimum root-mean-square error of
 cross-validation). PLS2 predictions were clipped at zero and rescaled to sum to 100 %.
-<!-- TODO: exact sklearn version from requirements; src/common.py PLSPair, select_pls_k -->
+<!-- src/common.py PLSPair, select_pls_k; versions: python -c import sklearn (1.7.0) -->
 
 ### 2.5 Two routes to a screening decision
 
@@ -71,7 +71,7 @@ the scans of one physical sample were averaged and the mean compared with the sa
 
 The unit of splitting is the physical sample. Replicate scans of one sample are far more alike than
 scans of different samples, so a split that separates them would test the model on near-copies of its
-training data. Two designs were used. The first is the grouped 70/30 hold-out of ref. FOODS, which puts
+training data. Two designs were used. The first is the grouped 70/30 hold-out of ref. [#batayhi2026], which puts
 38 samples (1146 spectra) in training and 17 samples (408 spectra) in the test set, so that the results
 can be compared with the published benchmark. It contains a single authentic lot and no blend below
 16 % adulterant. The second, and the main test of this paper, is leave-one-lot-out validation: each
@@ -89,9 +89,9 @@ operating characteristic curve (AUC), at scan level and, after averaging the sca
 sample level. The adulterant was taken as identified when the larger predicted adulterant fraction
 belonged to the true adulterant. Quantification was scored on the tahini fraction by the coefficient of
 determination (R<sup>2</sup>), the root-mean-square error of prediction (RMSEP) and the mean absolute error. The
-limit of detection followed the calibration-slope convention of ref. FOODS, LOD = 3.3σ/S, where σ is the
+limit of detection followed the calibration-slope convention of ref. [#batayhi2026], LOD = 3.3σ/S, where σ is the
 SD of the predicted adulterant fraction of withheld authentic scans and S the slope of predicted on
-nominal adulterant fraction.<sup>LOD</sup> All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
+nominal adulterant fraction.[@allegrini2004] All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
 resample whole physical samples, never single scans; for the MT-DNN each draw averages the five seeds.
 With five lots the lot level is too coarse to resample, so lot-out results are also reported fold by
 fold.

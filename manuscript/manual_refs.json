@@ -1,0 +1,4 @@
+{
+ "pedregosa2011": {"authors": ["F. Pedregosa", "G. Varoquaux", "A. Gramfort", "V. Michel", "B. Thirion", "O. Grisel", "M. Blondel", "P. Prettenhofer", "R. Weiss", "V. Dubourg", "J. Vanderplas", "A. Passos", "D. Cournapeau", "M. Brucher", "M. Perrot", "E. Duchesnay"], "journal": "J. Mach. Learn. Res.", "year": 2011, "volume": "12", "pages": "2825–2830", "doi": "", "verified": false, "note": "JMLR has no DOI; check author list on jmlr.org before submission"},
+ "zenodo_data": {"type": "data", "authors": ["A. Batayhi", "M. Özgölet", "H. Cankurt", "M. Arici"], "repository": "Zenodo", "title": "kanfood-tahini-mango- (code and tahini ATR-FTIR dataset)", "year": 2026, "doi": "10.5281/zenodo.21446757", "verified": false, "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org"}
+}

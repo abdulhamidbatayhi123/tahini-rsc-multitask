@@ -1,0 +1,449 @@
+{
+ "pedregosa2011": {
+  "authors": [
+   "F. Pedregosa",
+   "G. Varoquaux",
+   "A. Gramfort",
+   "V. Michel",
+   "B. Thirion",
+   "O. Grisel",
+   "M. Blondel",
+   "P. Prettenhofer",
+   "R. Weiss",
+   "V. Dubourg",
+   "J. Vanderplas",
+   "A. Passos",
+   "D. Cournapeau",
+   "M. Brucher",
+   "M. Perrot",
+   "E. Duchesnay"
+  ],
+  "journal": "J. Mach. Learn. Res.",
+  "year": 2011,
+  "volume": "12",
+  "pages": "2825–2830",
+  "doi": "",
+  "verified": false,
+  "note": "JMLR has no DOI; check author list on jmlr.org before submission"
+ },
+ "zenodo_data": {
+  "type": "data",
+  "authors": [
+   "A. Batayhi",
+   "M. Özgölet",
+   "H. Cankurt",
+   "M. Arici"
+  ],
+  "repository": "Zenodo",
+  "title": "kanfood-tahini-mango- (code and tahini ATR-FTIR dataset)",
+  "year": 2026,
+  "doi": "10.5281/zenodo.21446757",
+  "verified": false,
+  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org"
+ },
+ "batayhi2026": {
+  "authors": [
+   "A. Batayhi",
+   "M. Özgölet",
+   "H. Cankurt",
+   "M. Arici"
+  ],
+  "journal": "Foods",
+  "year": 2026,
+  "volume": "15",
+  "pages": "3639",
+  "doi": "10.3390/foods15203639",
+  "title": "Interpretable Machine Learning in Food Analysis: Closed-Form Chemometric Calibration of Mid- and Near-Infrared Spectra Using Kolmogorov–Arnold Networks",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "batayhi2026b": {
+  "authors": [
+   "A. Batayhi",
+   "M. Özgölet",
+   "O. Sagdic"
+  ],
+  "journal": "Foods",
+  "year": 2026,
+  "volume": "15",
+  "pages": "2949",
+  "doi": "10.3390/foods15172949",
+  "title": "An Interpretable Kolmogorov–Arnold Network for FTIR Detection and Quantification of Adulteration Across Diverse Food Matrices",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "barnes1989": {
+  "authors": [
+   "R. J. Barnes",
+   "M. S. Dhanoa",
+   "S. J. Lister"
+  ],
+  "journal": "Appl Spectrosc",
+  "year": 1989,
+  "volume": "43",
+  "pages": "772–777",
+  "doi": "10.1366/0003702894202201",
+  "title": "Standard Normal Variate Transformation and De-Trending of Near-Infrared Diffuse Reflectance Spectra",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "allegrini2014": {
+  "authors": [
+   "F. Allegrini",
+   "A. C. Olivieri"
+  ],
+  "journal": "Analytical Chemistry",
+  "year": 2014,
+  "volume": "86",
+  "pages": "7858–7866",
+  "doi": "10.1021/ac501786u",
+  "title": "IUPAC-Consistent Approach to the Limit of Detection\nin Partial Least-Squares Calibration",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "wold2001": {
+  "authors": [
+   "S. Wold",
+   "M. Sjöström",
+   "L. Eriksson"
+  ],
+  "journal": "Chemometrics and Intelligent Laboratory Systems",
+  "year": 2001,
+  "volume": "58",
+  "pages": "109–130",
+  "doi": "10.1016/s0169-7439(01)00155-1",
+  "title": "PLS-regression: a basic tool of chemometrics",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "kucukcelebioglu2026": {
+  "authors": [
+   "N. Kucukcelebioglu",
+   "Y. B. Karakas",
+   "C. Cavdaroglu",
+   "B. Ozen"
+  ],
+  "journal": "Food Anal. Methods",
+  "year": 2026,
+  "volume": "19",
+  "pages": "358",
+  "doi": "10.1007/s12161-026-03268-5",
+  "title": "Green Spectroscopic and One-Class Classification Approach for Robust Authentication of Tahini",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "ozulku2017": {
+  "authors": [
+   "G. Ozulku",
+   "R. M. Yildirim",
+   "O. S. Toker",
+   "S. Karasu",
+   "M. Z. Durak"
+  ],
+  "journal": "Food Control",
+  "year": 2017,
+  "volume": "82",
+  "pages": "212–216",
+  "doi": "10.1016/j.foodcont.2017.06.034",
+  "title": "Rapid detection of adulteration of cold pressed sesame oil adultered with hazelnut, canola, and sunflower oils using ATR-FTIR spectroscopy combined with chemometric",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "peng2015": {
+  "authors": [
+   "D. Peng",
+   "Y. Bi",
+   "X. Ren",
+   "G. Yang",
+   "S. Sun",
+   "X. Wang"
+  ],
+  "journal": "Food Chemistry",
+  "year": 2015,
+  "volume": "188",
+  "pages": "415–421",
+  "doi": "10.1016/j.foodchem.2015.05.001",
+  "title": "Detection and quantification of adulteration of sesame oils with vegetable oils using gas chromatography and multivariate data analysis",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "muresan2016": {
+  "authors": [
+   "V. Mureșan",
+   "S. Danthine",
+   "A. E. Mureșan",
+   "E. Racolța",
+   "C. Blecker",
+   "S. Muste",
+   "C. Socaciu",
+   "V. Baeten"
+  ],
+  "journal": "Talanta",
+  "year": 2016,
+  "volume": "155",
+  "pages": "336–346",
+  "doi": "10.1016/j.talanta.2016.04.019",
+  "title": "In situ analysis of lipid oxidation in oilseed-based food products using near-infrared spectroscopy and chemometrics: The sunflower kernel paste (tahini) example",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "ozen2024": {
+  "authors": [
+   "B. Ozen",
+   "C. Cavdaroglu",
+   "F. Tokatli"
+  ],
+  "journal": "Anal. Methods",
+  "year": 2024,
+  "volume": "16",
+  "pages": "4216–4233",
+  "doi": "10.1039/d4ay00562g",
+  "title": "Trends in authentication of edible oils using vibrational spectroscopic techniques",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "guillen1997": {
+  "authors": [
+   "M. D. Guillén",
+   "N. Cabo"
+  ],
+  "journal": "J. Sci. Food Agric.",
+  "year": 1997,
+  "volume": "75",
+  "pages": "1–11",
+  "doi": "10.1002/(sici)1097-0010(199709)75:1<1::aid-jsfa842>3.0.co;2-r",
+  "title": "Infrared spectroscopy in the study of edible oils and fats",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "barth2007": {
+  "authors": [
+   "A. Barth"
+  ],
+  "journal": "Biochimica et Biophysica Acta (BBA) - Bioenergetics",
+  "year": 2007,
+  "volume": "1767",
+  "pages": "1073–1101",
+  "doi": "10.1016/j.bbabio.2007.06.004",
+  "title": "Infrared spectroscopy of proteins",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "rohman2010": {
+  "authors": [
+   "A. Rohman",
+   "Y. C. Man"
+  ],
+  "journal": "Food Research International",
+  "year": 2010,
+  "volume": "43",
+  "pages": "886–892",
+  "doi": "10.1016/j.foodres.2009.12.006",
+  "title": "Fourier transform infrared (FTIR) spectroscopy for analysis of extra virgin olive oil adulterated with palm oil",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "schmitt2020": {
+  "authors": [
+   "C. Schmitt",
+   "T. Bastek",
+   "A. Stelzer",
+   "T. Schneider",
+   "M. Fischer",
+   "T. Hackl"
+  ],
+  "journal": "J. Agric. Food Chem.",
+  "year": 2020,
+  "volume": "68",
+  "pages": "14364–14373",
+  "doi": "10.1021/acs.jafc.0c01999",
+  "title": "Detection of Peanut Adulteration in Food Samples by Nuclear Magnetic Resonance Spectroscopy",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "esslinger2014": {
+  "authors": [
+   "S. Esslinger",
+   "J. Riedl",
+   "C. Fauhl-Hassek"
+  ],
+  "journal": "Food Research International",
+  "year": 2014,
+  "volume": "60",
+  "pages": "189–204",
+  "doi": "10.1016/j.foodres.2013.10.015",
+  "title": "Potential and limitations of non-targeted fingerprinting for authentication of food in official control",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "field2007": {
+  "authors": [
+   "C. A. Field",
+   "A. H. Welsh"
+  ],
+  "journal": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "year": 2007,
+  "volume": "69",
+  "pages": "369–390",
+  "doi": "10.1111/j.1467-9868.2007.00593.x",
+  "title": "Bootstrapping Clustered Data",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "cui2018": {
+  "authors": [
+   "C. Cui",
+   "T. Fearn"
+  ],
+  "journal": "Chemometrics and Intelligent Laboratory Systems",
+  "year": 2018,
+  "volume": "182",
+  "pages": "9–20",
+  "doi": "10.1016/j.chemolab.2018.07.008",
+  "title": "Modern practical convolutional neural networks for multivariate regression: Applications to NIR calibration",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "torricelli2020": {
+  "authors": [
+   "M. Torricelli",
+   "E. Pierboni",
+   "C. Rondini",
+   "S. Altissimi",
+   "N. Haouet"
+  ],
+  "journal": "Foods",
+  "year": 2020,
+  "volume": "9",
+  "pages": "1085",
+  "doi": "10.3390/foods9081085",
+  "title": "Sesame, Pistachio, and Macadamia Nut: Development and Validation of New Allergenic Systems for Fast Real-Time PCR Application",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "new2020": {
+  "authors": [
+   "L. S. New",
+   "J. Stahl-Zeng",
+   "A. Schreiber",
+   "M. Cafazzo",
+   "A. Liu",
+   "S. Brunelle",
+   "H.-F. Liu"
+  ],
+  "journal": "Journal of AOAC INTERNATIONAL",
+  "year": 2020,
+  "volume": "103",
+  "pages": "570–583",
+  "doi": "10.5740/jaoacint.19-0112",
+  "title": "Detection and Quantitation of Selected Food Allergens by Liquid Chromatography with Tandem Mass Spectrometry: First Action 2017.17",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "keithellakpam2025": {
+  "authors": [
+   "L. Keithellakpam",
+   "R. Danielski",
+   "C. Singh",
+   "D. Jayas",
+   "C. Karunakaran"
+  ],
+  "journal": "Foods",
+  "year": 2025,
+  "volume": "14",
+  "pages": "3805",
+  "doi": "10.3390/foods14223805",
+  "title": "A Comprehensive Review on Minimally Destructive Quality and Safety Assessment of Agri-Food Products: Chemometrics-Coupled Mid-Infrared Spectroscopy",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "vera2025": {
+  "authors": [
+   "W. Vera",
+   "R. Salvador-Reyes",
+   "G. Quispe-Santivañez",
+   "G. Kemper"
+  ],
+  "journal": "Foods",
+  "year": 2025,
+  "volume": "14",
+  "pages": "3195",
+  "doi": "10.3390/foods14183195",
+  "title": "Detection of Adulterants in Powdered Foods Using Near-Infrared Spectroscopy and Chemometrics: Recent Advances, Challenges, and Future Perspectives",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "caruana1997": {
+  "authors": [
+   "R. Caruana"
+  ],
+  "journal": "Machine Learning",
+  "year": 1997,
+  "volume": "28",
+  "pages": "41–75",
+  "doi": "10.1023/a:1007379606734",
+  "title": "Multitask Learning",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "kapoor2023": {
+  "authors": [
+   "S. Kapoor",
+   "A. Narayanan"
+  ],
+  "journal": "Patterns",
+  "year": 2023,
+  "volume": "4",
+  "pages": "100804",
+  "doi": "10.1016/j.patter.2023.100804",
+  "title": "Leakage and the reproducibility crisis in machine-learning-based science",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ }
+}
