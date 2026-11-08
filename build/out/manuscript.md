@@ -242,7 +242,20 @@ lets the model see on both sides.
 
 ### 3.2 A scan-level split hides the problem
 
-TODO random vs grouped (after random run): ESI table.
+Table 2 shows the same models under the three validation designs. A random 80/20 split of the scans
+put replicate scans of 54 of the 55 physical samples on both sides, although component selection, early
+stopping and the decision thresholds were still chosen by grouped cross-validation inside the training
+scans, so only the outer split leaked. On that split the composition was predicted with an RMSEP of
+1.79 % tahini by PLS and 2.52 % by the MT-DNN, and the composition-based routes accepted every
+authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 4.11 % and lowered the specificity of
+the same routes to about 80 %, with intervals reaching down to 33–38 %. The random split therefore
+makes the quantification error look 1.6–2.7 times smaller and hides the false positives completely, because
+every authentic lot is represented in training and the test scans of a lot are near-copies of its
+training scans. The grouped hold-out of the earlier study removes the replicate leakage but, with a
+single authentic lot in its test set, still cannot reveal the lot effect. The preliminary analysis that
+motivated this work used a random split of the scans and reported an AUC of 0.9998; none of the figures from such a split describes how the screen would perform on a new
+production lot.
+
 
 ### 3.3 Benchmark: the grouped hold-out
 
@@ -378,6 +391,17 @@ Table 1 Screening, quantification and identification on withheld samples (chemic
 | Leave-one-lot-out | scan | PLS-R | 97.4 (94.4–100.0) | 79.7 (33.0–100.0) | 0.986 (0.950–1.000) | 4.87 (3.37–6.58) | 0.979 (0.953–0.990) | 97.2 (93.5–100.0) |
 | Leave-one-lot-out | scan | MT-DNN | 99.7 (99.2–100.0) | 83.5 (48.3–100.0) | 0.995 (0.983–1.000) | 4.11 (3.26–5.24) | 0.985 (0.973–0.990) | 97.0 (93.8–99.9) |
 | Leave-one-lot-out | scan | MT-DNN-R | 99.3 (98.3–100.0) | 80.6 (37.6–100.0) | 0.999 (0.997–1.000) |  |  |  |
+
+
+
+
+Table 2 The same models under three validation designs (scan level, chemically informative regions; cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the tahini fraction.
+
+| Validation | RMSEP PLS (%) | RMSEP MT-DNN (%) | Specificity PLS-R (%) | Specificity MT-DNN-R (%) | Specificity MT-DNN class head (%) |
+|---|---|---|---|---|---|
+| Random 80/20 split of scans (54 of 55 samples on both sides) | 1.79 (1.59–2.00) | 2.52 (1.98–3.23) | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 95.7 (85.5–100.0) |
+| Grouped hold-out (17 test samples, 1 authentic lot) | 1.93 (1.69–2.30) | 4.02 (2.67–5.58) | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) | 100.0 (100.0–100.0) |
+| Leave-one-lot-out (5 folds, all 55 samples) | 4.87 (3.37–6.58) | 4.11 (3.26–5.24) | 79.7 (33.0–100.0) | 80.6 (37.6–100.0) | 83.5 (48.3–100.0) |
 
 
 

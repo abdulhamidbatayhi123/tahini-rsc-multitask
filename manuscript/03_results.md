@@ -27,7 +27,20 @@ lets the model see on both sides.
 
 ### 3.2 A scan-level split hides the problem
 
-TODO random vs grouped (after random run): ESI table.
+Table 2 shows the same models under the three validation designs. A random 80/20 split of the scans
+put replicate scans of 54 of the 55 physical samples on both sides, although component selection, early
+stopping and the decision thresholds were still chosen by grouped cross-validation inside the training
+scans, so only the outer split leaked. On that split the composition was predicted with an RMSEP of
+1.79 % tahini by PLS and 2.52 % by the MT-DNN, and the composition-based routes accepted every
+authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 4.11 % and lowered the specificity of
+the same routes to about 80 %, with intervals reaching down to 33–38 %. The random split therefore
+makes the quantification error look 1.6–2.7 times smaller and hides the false positives completely, because
+every authentic lot is represented in training and the test scans of a lot are near-copies of its
+training scans. The grouped hold-out of the earlier study removes the replicate leakage but, with a
+single authentic lot in its test set, still cannot reveal the lot effect. The preliminary analysis that
+motivated this work used a random split of the scans and reported an AUC of 0.9998; none of the figures from such a split describes how the screen would perform on a new
+production lot.
+<!-- Table 2: src/t2_leakage.py <- results/metrics.csv (random/holdout/lolo, chem, scan). Random split: s01_run.py train_test_split(test_size=0.2, random_state=42), n_test 311, samples_shared 54 (run_info_random_chem.json); inner selection grouped (s01_run.py comment line 53, common.py MTDNN grouped val, regression thresholds grouped CV). Preliminary AUC 0.9998: originals_preliminary (user's figure). -->
 
 ### 3.3 Benchmark: the grouped hold-out
 

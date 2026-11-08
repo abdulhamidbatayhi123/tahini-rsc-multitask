@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MS = ROOT / "manuscript"
 OUT = ROOT / "build" / "out"
 OUT.mkdir(parents=True, exist_ok=True)
-ORDER = ["00_front.md", "01_introduction.md", "02_experimental.md", "03_results.md", "03b_table1.md", "03c_figures.md", "04_conclusions.md",
+ORDER = ["00_front.md", "01_introduction.md", "02_experimental.md", "03_results.md", "03b_table1.md", "03b_table2.md", "03c_figures.md", "04_conclusions.md",
          "05_declarations.md"]
 
 
