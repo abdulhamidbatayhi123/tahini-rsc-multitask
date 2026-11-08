@@ -56,6 +56,11 @@ def fmt_ref(r):
     return s + (f", DOI: {r['doi']}." if r.get("doi") else ".")
 
 
+ESI = len(sys.argv) > 1 and sys.argv[1] == "esi"
+if ESI:
+    ORDER = ["esi.md", "esi_tables.md"]
+
+
 def main():
     refs = json.loads((MS / "references.json").read_text(encoding="utf-8"))
     text = "\n\n".join((MS / f).read_text(encoding="utf-8") for f in ORDER if (MS / f).exists())
@@ -80,18 +85,19 @@ def main():
     # RSC: superscript after punctuation
     text = re.sub(r"(\^[0-9,–]+\^)([.,;:])", r"\2\1", text)
     reflist = "\n".join(f"{i + 1}. {fmt_ref(refs[k])}" for i, k in enumerate(order))
-    text += "\n\n## References\n\n" + reflist + "\n"
-    for k in refs:
+    if order:
+        text += "\n\n## References\n\n" + reflist + "\n"
+    for k in ([] if ESI else refs):
         if k not in order:
             print(f"WARN: reference {k} not cited")
     if "TODO" in text:
         print("WARN: TODO left in text")
-    md = OUT / "manuscript.md"
+    md = OUT / ("esi.md" if ESI else "manuscript.md")
     md.write_text(text, encoding="utf-8")
-    subprocess.run(["pandoc", str(md), "-o", str(OUT / "manuscript.docx"), "--resource-path", str(ROOT)],
+    subprocess.run(["pandoc", str(md), "-o", str(OUT / ("esi.docx" if ESI else "manuscript.docx")), "--resource-path", str(ROOT)],
                    check=True)
     words = len(re.sub(r"## References.*", "", text, flags=re.S).split())
-    print(f"built {OUT / 'manuscript.docx'}; {len(order)} references; ~{words} words incl. captions")
+    print(f"built {md.with_suffix('.docx')}; {len(order)} references; ~{words} words incl. captions")
 
 
 if __name__ == "__main__":
