@@ -2,7 +2,7 @@
 title: "Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on ATR–FTIR spectra"
 ---
 
-<!-- BYLINE TO BE CONFIRMED BY THE USER (authors, order, affiliations, corresponding author). Placeholder from the Foods 15:3639 byline and ~/.claude/AUTHOR_PROFILE.md. -->
+<!-- BYLINE TO BE CONFIRMED BY THE USER (authors, order, affiliations, corresponding author). Placeholder from the Foods 15:3639 byline. -->
 Abdulhamid Batayhi,^a^ Muhammed Özgölet,^b^ Hasan Cankurt^b,c^ and Muhammet Arici^b^
 
 ^a^ Department of Mechatronics Engineering, Faculty of Mechanical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye.
