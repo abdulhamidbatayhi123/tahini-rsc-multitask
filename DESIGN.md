@@ -42,12 +42,28 @@ in the ESI only as the leakage contrast.
   2. PLS-DA (PLS2 on the one-hot class, threshold 0.5) and PLS regression on the three fractions
      (outputs clipped at 0 and rescaled to 100). Number of components 1-25 chosen by grouped 5-fold CV
      inside the training set (minimum RMSECV).
-  3. Decision from regression (both models): "adulterated" when the predicted adulterant fraction
-     exceeds a threshold set on training data as mean + 3 SD of the predicted adulterant fraction of
-     the training authentic scans (the Foods LOD convention).
+  3. Decision from regression (PLS route "PLS-R"): "adulterated" when the predicted adulterant fraction
+     exceeds mean + 3 SD of the predicted adulterant fraction of the training authentic scans, taken
+     from grouped 5-fold CV predictions inside the training set (amended 2026-11-08 before results:
+     in-sample predictions would understate the SD; the MT-DNN uses its own classification head).
+- Leakage contrast (ESI): the same models also run on the scan-level random 80/20 split
+  (train_test_split seed 42) that reproduces the preliminary figures.
 - Metrics: classification - sensitivity, specificity, balanced accuracy, ROC AUC, confusion matrix;
   identification - share of adulterated samples whose dominant predicted adulterant is the true one;
-  quantification - R2, RMSEP and MAE of the tahini fraction (and per component); LOD as in Foods.
+  quantification - R2, RMSEP and MAE of the tahini fraction (and per component); LOD as in Foods:
+  LOD = 3.3 sigma / S, sigma = SD of the predicted adulterant fraction on withheld authentic scans,
+  S = slope of predicted on nominal adulterant fraction (computed on leave-one-lot-out predictions).
 - Intervals: cluster bootstrap over physical samples (1000 draws); lot-level results also shown per
   lot, since five lots are a coarse resampling level.
 - Any analysis added after the first grouped results are seen is labelled exploratory.
+
+## Amendments (each logged with what had been seen)
+- A1 (2026-11-08). Seen: ONLY the MT-DNN training histories of the scan-level random scheme (no grouped
+  result). With w = 1 the regression term (~0.001-0.005) was negligible against the BCE, and on a grouped
+  inner validation set the BCE rose from epoch 1-2 (to 3.6 by epoch 31) while the composition MSE kept
+  falling, so early stopping picked epoch 1 for two of five seeds. Changes: w = 10; label smoothing 0.05
+  on the class target; Adam weight decay 1e-4; early stopping only after 20 epochs. Added: the MT-DNN
+  regression route "MT-DNN-R" (same mean + 3 SD rule as PLS-R, threshold from grouped 5-fold CV inside
+  the training set), because the observation suggests the class head may not transfer to new samples
+  while the composition head does; the class head vs regression route comparison is therefore
+  pre-specified from here on, and was first seen in the random-scheme histories.
