@@ -67,3 +67,13 @@ in the ESI only as the leakage contrast.
   the training set), because the observation suggests the class head may not transfer to new samples
   while the composition head does; the class head vs regression route comparison is therefore
   pre-specified from here on, and was first seen in the random-scheme histories.
+
+## Exploratory analyses added after the leave-one-lot-out results (2026-11-08)
+Labelled exploratory in the paper; none changes a primary metric.
+- E1 `src/s03_lots.py`: departure of each authentic lot's mean SNV spectrum from the other four (pooled
+  within-lot SD units) and its projection on the fold's PLS-R tahini coefficient; pure-paste band
+  differences. Motivated by every route flagging one withheld authentic lot (PLS-R: T5; MT-DNN: T1).
+- E2 `src/s04_consensus.py`: sample-level rule flagging a sample only when PLS-R and MT-DNN-R both flag
+  it. Chosen after seeing that the two families fail on different lots, so it is a hypothesis for new
+  lots, not a validated result (five authentic lots).
+- `src/f6_lots.py` (Fig. 5) draws E1 and the withheld-lot predictions.

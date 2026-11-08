@@ -456,5 +456,20 @@
   "title_overlap": 1.0,
   "verified": true,
   "checked": "2026-11-08 Crossref"
+ },
+ "kacurakova2001": {
+  "authors": [
+   "M. KacurÃ¡kovÃ¡"
+  ],
+  "journal": "Carbohydrate Polymers",
+  "year": 2001,
+  "volume": "44",
+  "pages": "291–303",
+  "doi": "10.1016/s0144-8617(00)00245-9",
+  "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
  }
 }

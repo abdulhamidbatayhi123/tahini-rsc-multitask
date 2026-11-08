@@ -1,0 +1,13 @@
+{
+  "figure": "fig5_lots",
+  "width_cm": 17.1,
+  "height_cm": 6.4,
+  "script": "f6_lots.py",
+  "script_sha256": "40ae85cfaef21516d24fe4cf256695bbf4c2f768202459724905c4d31eb64b19",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
+  "inputs_sha256": {
+    "pred_lolo_chem.csv": "4dc892f9cdaa6df87d1166c399f40d09e258ded791726c2b37b6faa1d2f57175",
+    "run_info_lolo_chem.json": "b7a0a46ffa6658ddb91af19851e0e3df7787ac122d1ac8b51a0e62fa33598050",
+    "lot_departure.csv": "5764e31b1a2c1fdf556d938d3e4cf8ce9edc16dafb5fbf6b09b528f2f541a02d"
+  }
+}
