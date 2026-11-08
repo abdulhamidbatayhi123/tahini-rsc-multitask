@@ -1,0 +1,1720 @@
+{
+  "note": "Added after the main results at reviewer request; exploratory one-class PCA T2/Q baseline.",
+  "rule": "flag if T2 > t_lim OR Q > q_lim (combined: C > c_lim); sample = mean statistic per sample vs limit",
+  "k_rule": "smallest k with >= 99% authentic training variance, cap 15",
+  "folds": [
+    {
+      "fold": "T1",
+      "n_authentic_train": 604,
+      "k_main": 15,
+      "limits": {
+        "k2": {
+          "sd3": {
+            "t2": 9.909356022388392,
+            "q": 0.45715886552580814
+          },
+          "p99": {
+            "t2": 10.546636319363616,
+            "q": 0.3970341077566548
+          },
+          "comb": {
+            "t0": 2.488279770982055,
+            "q0": 0.1813021999678115,
+            "c": 5.017329893388666
+          },
+          "train_refit_p99": {
+            "t2": 7.681649200311293,
+            "q": 0.24716641476444276
+          }
+        },
+        "k5": {
+          "sd3": {
+            "t2": 26.57397232457349,
+            "q": 0.16575818242317594
+          },
+          "p99": {
+            "t2": 25.1993183677554,
+            "q": 0.17743425215493183
+          },
+          "comb": {
+            "t0": 10.173282343081143,
+            "q0": 0.06983772500892421,
+            "c": 4.520346365927355
+          },
+          "train_refit_p99": {
+            "t2": 14.01799233806153,
+            "q": 0.03338203928162195
+          }
+        },
+        "k10": {
+          "sd3": {
+            "t2": 89.55250926201668,
+            "q": 0.08584628325015467
+          },
+          "p99": {
+            "t2": 91.27411974126696,
+            "q": 0.07510867908064195
+          },
+          "comb": {
+            "t0": 33.96646585591389,
+            "q0": 0.04525079154660259,
+            "c": 3.8545954582899635
+          },
+          "train_refit_p99": {
+            "t2": 23.999836774238332,
+            "q": 0.01808563988948866
+          }
+        },
+        "k15": {
+          "sd3": {
+            "t2": 103.47214037493575,
+            "q": 0.08180906203583888
+          },
+          "p99": {
+            "t2": 106.39682717158826,
+            "q": 0.06983309320734214
+          },
+          "comb": {
+            "t0": 47.38471756147826,
+            "q0": 0.04131859173414868,
+            "c": 3.516462752021854
+          },
+          "train_refit_p99": {
+            "t2": 30.31347400762756,
+            "q": 0.015803498300786492
+          }
+        }
+      }
+    },
+    {
+      "fold": "T2",
+      "n_authentic_train": 603,
+      "k_main": 15,
+      "limits": {
+        "k2": {
+          "sd3": {
+            "t2": 10.154092024752863,
+            "q": 0.30845698649990616
+          },
+          "p99": {
+            "t2": 10.8631297739756,
+            "q": 0.2968113234827748
+          },
+          "comb": {
+            "t0": 2.7417832754511626,
+            "q0": 0.14793593860065343,
+            "c": 5.150109687264454
+          },
+          "train_refit_p99": {
+            "t2": 6.882214662863384,
+            "q": 0.12400165667239686
+          }
+        },
+        "k5": {
+          "sd3": {
+            "t2": 39.02098476653137,
+            "q": 0.17531905692579083
+          },
+          "p99": {
+            "t2": 39.700215891978566,
+            "q": 0.175458445490693
+          },
+          "comb": {
+            "t0": 14.558928800917515,
+            "q0": 0.07483335525829585,
+            "c": 3.8676075219685204
+          },
+          "train_refit_p99": {
+            "t2": 11.976480480829807,
+            "q": 0.034451730505729784
+          }
+        },
+        "k10": {
+          "sd3": {
+            "t2": 132.45600298301815,
+            "q": 0.1060527138721288
+          },
+          "p99": {
+            "t2": 126.62943672677628,
+            "q": 0.08584643991435617
+          },
+          "comb": {
+            "t0": 50.52979194485218,
+            "q0": 0.05141047077350819,
+            "c": 4.222910251166036
+          },
+          "train_refit_p99": {
+            "t2": 26.87991949715917,
+            "q": 0.01844246377327942
+          }
+        },
+        "k15": {
+          "sd3": {
+            "t2": 158.99728340723982,
+            "q": 0.09863766187390616
+          },
+          "p99": {
+            "t2": 149.07957416420018,
+            "q": 0.07796403262533952
+          },
+          "comb": {
+            "t0": 68.66561686910691,
+            "q0": 0.046166707387642426,
+            "c": 4.012630988287491
+          },
+          "train_refit_p99": {
+            "t2": 34.0069821066268,
+            "q": 0.016112137822329547
+          }
+        }
+      }
+    },
+    {
+      "fold": "T3",
+      "n_authentic_train": 603,
+      "k_main": 15,
+      "limits": {
+        "k2": {
+          "sd3": {
+            "t2": 5.88601981375069,
+            "q": 0.6298278158417041
+          },
+          "p99": {
+            "t2": 7.739708995994136,
+            "q": 0.6278583171054903
+          },
+          "comb": {
+            "t0": 1.4124287021909459,
+            "q0": 0.265686357816398,
+            "c": 5.4586990120930645
+          },
+          "train_refit_p99": {
+            "t2": 8.249459146626219,
+            "q": 0.3401918001517855
+          }
+        },
+        "k5": {
+          "sd3": {
+            "t2": 72.14924096379922,
+            "q": 0.18876563390794399
+          },
+          "p99": {
+            "t2": 74.93791807944503,
+            "q": 0.16821294147003996
+          },
+          "comb": {
+            "t0": 18.151362343388566,
+            "q0": 0.07957112491715573,
+            "c": 5.077446635335027
+          },
+          "train_refit_p99": {
+            "t2": 14.26648130066062,
+            "q": 0.034417004665715956
+          }
+        },
+        "k10": {
+          "sd3": {
+            "t2": 168.51874150031773,
+            "q": 0.09220530381130618
+          },
+          "p99": {
+            "t2": 155.55337146660747,
+            "q": 0.07450399268191564
+          },
+          "comb": {
+            "t0": 56.68824934146511,
+            "q0": 0.051756360657188104,
+            "c": 4.469944429340404
+          },
+          "train_refit_p99": {
+            "t2": 26.475584852747485,
+            "q": 0.01860525570796558
+          }
+        },
+        "k15": {
+          "sd3": {
+            "t2": 197.7941475893062,
+            "q": 0.08448779268240354
+          },
+          "p99": {
+            "t2": 178.54136087192182,
+            "q": 0.06594022231585789
+          },
+          "comb": {
+            "t0": 70.58993034186854,
+            "q0": 0.04764330359567363,
+            "c": 4.281623913922532
+          },
+          "train_refit_p99": {
+            "t2": 35.08613053371222,
+            "q": 0.01605614446589969
+          }
+        }
+      }
+    },
+    {
+      "fold": "T4",
+      "n_authentic_train": 603,
+      "k_main": 15,
+      "limits": {
+        "k2": {
+          "sd3": {
+            "t2": 9.42985335173246,
+            "q": 0.6047881199056213
+          },
+          "p99": {
+            "t2": 12.046547637002055,
+            "q": 0.6917785692463692
+          },
+          "comb": {
+            "t0": 2.1728504063733047,
+            "q0": 0.2505007488899947,
+            "c": 6.009683522713729
+          },
+          "train_refit_p99": {
+            "t2": 8.965184930971496,
+            "q": 0.3118623416309763
+          }
+        },
+        "k5": {
+          "sd3": {
+            "t2": 49.5719574134598,
+            "q": 0.14664533595576418
+          },
+          "p99": {
+            "t2": 52.947598639188136,
+            "q": 0.13088475491375937
+          },
+          "comb": {
+            "t0": 18.230981409942572,
+            "q0": 0.06605747259095542,
+            "c": 4.227916741865375
+          },
+          "train_refit_p99": {
+            "t2": 14.968268867961541,
+            "q": 0.03439215037193951
+          }
+        },
+        "k10": {
+          "sd3": {
+            "t2": 120.38717930035983,
+            "q": 0.08636026064443886
+          },
+          "p99": {
+            "t2": 113.85734519651871,
+            "q": 0.07640728510613663
+          },
+          "comb": {
+            "t0": 43.89358163501041,
+            "q0": 0.046324245395737484,
+            "c": 4.495606374310776
+          },
+          "train_refit_p99": {
+            "t2": 27.127246062543254,
+            "q": 0.018239599718824454
+          }
+        },
+        "k15": {
+          "sd3": {
+            "t2": 148.88039551961282,
+            "q": 0.07752855979131407
+          },
+          "p99": {
+            "t2": 136.72412646516477,
+            "q": 0.06763820476020348
+          },
+          "comb": {
+            "t0": 57.83095238039642,
+            "q0": 0.04239158507525909,
+            "c": 4.32775703506594
+          },
+          "train_refit_p99": {
+            "t2": 36.82318242080177,
+            "q": 0.015815059387005833
+          }
+        }
+      }
+    },
+    {
+      "fold": "T5",
+      "n_authentic_train": 603,
+      "k_main": 15,
+      "limits": {
+        "k2": {
+          "sd3": {
+            "t2": 7.490768825610369,
+            "q": 0.667151314601822
+          },
+          "p99": {
+            "t2": 9.951157867626392,
+            "q": 0.5713681551342206
+          },
+          "comb": {
+            "t0": 1.8030006984183475,
+            "q0": 0.2528760350817845,
+            "c": 5.30518066115428
+          },
+          "train_refit_p99": {
+            "t2": 6.410050368679746,
+            "q": 0.3403625655750752
+          }
+        },
+        "k5": {
+          "sd3": {
+            "t2": 55.74878554244384,
+            "q": 0.14935348923781613
+          },
+          "p99": {
+            "t2": 55.255510821173914,
+            "q": 0.12677347263824615
+          },
+          "comb": {
+            "t0": 16.950566357787366,
+            "q0": 0.07808579175172588,
+            "c": 4.518763168755916
+          },
+          "train_refit_p99": {
+            "t2": 11.698593796155963,
+            "q": 0.037050516219828
+          }
+        },
+        "k10": {
+          "sd3": {
+            "t2": 121.20009695045644,
+            "q": 0.09046623137342713
+          },
+          "p99": {
+            "t2": 102.9505435721944,
+            "q": 0.07416795805601303
+          },
+          "comb": {
+            "t0": 52.994987873052786,
+            "q0": 0.05132340449170037,
+            "c": 3.7632369479212895
+          },
+          "train_refit_p99": {
+            "t2": 25.090996277925928,
+            "q": 0.018200842558526917
+          }
+        },
+        "k15": {
+          "sd3": {
+            "t2": 131.31284066043668,
+            "q": 0.08604774037702383
+          },
+          "p99": {
+            "t2": 113.97777754083174,
+            "q": 0.06955188074895961
+          },
+          "comb": {
+            "t0": 62.9148551936991,
+            "q0": 0.04838740507863978,
+            "c": 3.6389968897489635
+          },
+          "train_refit_p99": {
+            "t2": 34.79813534895152,
+            "q": 0.015911994383660664
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "k2_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7391304347826086
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.33774834437086093,
+          "blend_scans_flagged": 0.925
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.33774834437086093,
+          "blend_scans_flagged": 0.8301886792452831
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.74375
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.006622516556291391,
+          "blend_scans_flagged": 0.83125
+        }
+      },
+      "scan": {
+        "sensitivity": 0.81375,
+        "specificity": 0.863395225464191,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.78,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T4_P16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T5_P20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T1_S24",
+            "lot": "T1",
+            "adulterant_pct": 24.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          16.0,
+          20.0,
+          20.0,
+          24.0,
+          36.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 2,
+        "T2": 2,
+        "T3": 2,
+        "T4": 2,
+        "T5": 2
+      }
+    },
+    "k2_p99": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7391304347826086
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.40397350993377484,
+          "blend_scans_flagged": 0.94375
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.17218543046357615,
+          "blend_scans_flagged": 0.779874213836478
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.71875
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8625
+        }
+      },
+      "scan": {
+        "sensitivity": 0.80875,
+        "specificity": 0.8846153846153846,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.8,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T4_P16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T5_P20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T1_S24",
+            "lot": "T1",
+            "adulterant_pct": 24.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          12.0,
+          12.0,
+          16.0,
+          16.0,
+          20.0,
+          20.0,
+          24.0,
+          36.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 2,
+        "T2": 2,
+        "T3": 2,
+        "T4": 2,
+        "T5": 2
+      }
+    },
+    "k2_combined_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6211180124223602
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.006622516556291391,
+          "blend_scans_flagged": 0.8
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.2251655629139073,
+          "blend_scans_flagged": 0.7358490566037735
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.73125
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.019867549668874173,
+          "blend_scans_flagged": 0.8125
+        }
+      },
+      "scan": {
+        "sensitivity": 0.74,
+        "specificity": 0.9496021220159151,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.72,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_P16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T5_P20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T1_S24",
+            "lot": "T1",
+            "adulterant_pct": 24.0
+          },
+          {
+            "group": "T1_P24",
+            "lot": "T1",
+            "adulterant_pct": 24.0
+          },
+          {
+            "group": "T3_P32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          16.0,
+          20.0,
+          20.0,
+          24.0,
+          24.0,
+          32.0,
+          36.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 2,
+        "T2": 2,
+        "T3": 2,
+        "T4": 2,
+        "T5": 2
+      }
+    },
+    "k5_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.02,
+          "blend_scans_flagged": 0.7763975155279503
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.10596026490066225,
+          "blend_scans_flagged": 0.8875
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6792452830188679
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.925
+        }
+      },
+      "scan": {
+        "sensitivity": 0.81375,
+        "specificity": 0.9748010610079576,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.82,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          32.0,
+          36.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 5,
+        "T2": 5,
+        "T3": 5,
+        "T4": 5,
+        "T5": 5
+      }
+    },
+    "k5_p99": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.02,
+          "blend_scans_flagged": 0.7763975155279503
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.09933774834437085,
+          "blend_scans_flagged": 0.88125
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6918238993710691
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.825
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9625
+        }
+      },
+      "scan": {
+        "sensitivity": 0.8275,
+        "specificity": 0.9761273209549072,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.84,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          32.0,
+          36.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 5,
+        "T2": 5,
+        "T3": 5,
+        "T4": 5,
+        "T5": 5
+      }
+    },
+    "k5_combined_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7639751552795031
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.06622516556291391,
+          "blend_scans_flagged": 0.88125
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6037735849056604
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.76875
+        }
+      },
+      "scan": {
+        "sensitivity": 0.76375,
+        "specificity": 0.986737400530504,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.78,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          },
+          {
+            "group": "T5_S40",
+            "lot": "T5",
+            "adulterant_pct": 40.0
+          },
+          {
+            "group": "T3_S52",
+            "lot": "T3",
+            "adulterant_pct": 52.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          32.0,
+          36.0,
+          40.0,
+          52.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 5,
+        "T2": 5,
+        "T3": 5,
+        "T4": 5,
+        "T5": 5
+      }
+    },
+    "k10_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.26666666666666666,
+          "blend_scans_flagged": 0.8695652173913043
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7044025157232704
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.89375
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        }
+      },
+      "scan": {
+        "sensitivity": 0.81375,
+        "specificity": 0.946949602122016,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.82,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          28.0,
+          32.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 10,
+        "T2": 10,
+        "T3": 10,
+        "T4": 10,
+        "T5": 10
+      }
+    },
+    "k10_p99": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.25333333333333335,
+          "blend_scans_flagged": 0.8881987577639752
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7125
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7861635220125787
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.94375
+        }
+      },
+      "scan": {
+        "sensitivity": 0.84625,
+        "specificity": 0.9496021220159151,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.84,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_P4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          28.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 10,
+        "T2": 10,
+        "T3": 10,
+        "T4": 10,
+        "T5": 10
+      }
+    },
+    "k10_combined_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.3466666666666667,
+          "blend_scans_flagged": 0.9006211180124224
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6125
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.610062893081761
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.85625
+        }
+      },
+      "scan": {
+        "sensitivity": 0.75625,
+        "specificity": 0.9310344827586207,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.76,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          },
+          {
+            "group": "T2_S48",
+            "lot": "T2",
+            "adulterant_pct": 48.0
+          },
+          {
+            "group": "T3_S52",
+            "lot": "T3",
+            "adulterant_pct": 52.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          28.0,
+          32.0,
+          36.0,
+          48.0,
+          52.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 10,
+        "T2": 10,
+        "T3": 10,
+        "T4": 10,
+        "T5": 10
+      }
+    },
+    "main_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.43333333333333335,
+          "blend_scans_flagged": 0.906832298136646
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.710691823899371
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        }
+      },
+      "scan": {
+        "sensitivity": 0.82375,
+        "specificity": 0.9137931034482758,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.82,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          28.0,
+          32.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 15,
+        "T2": 15,
+        "T3": 15,
+        "T4": 15,
+        "T5": 15
+      }
+    },
+    "main_p99": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.36666666666666664,
+          "blend_scans_flagged": 0.9192546583850931
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.7125
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8113207547169812
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.95625
+        }
+      },
+      "scan": {
+        "sensitivity": 0.86,
+        "specificity": 0.9270557029177718,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.86,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T1_S4",
+            "lot": "T1",
+            "adulterant_pct": 4.0
+          },
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          }
+        ],
+        "missed_levels": [
+          4.0,
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          28.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 15,
+        "T2": 15,
+        "T3": 15,
+        "T4": 15,
+        "T5": 15
+      }
+    },
+    "main_combined_sd3": {
+      "per_lot": {
+        "T1": {
+          "authentic_scans_flagged": 0.4266666666666667,
+          "blend_scans_flagged": 0.9440993788819876
+        },
+        "T2": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6375
+        },
+        "T3": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.6289308176100629
+        },
+        "T4": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.8
+        },
+        "T5": {
+          "authentic_scans_flagged": 0.0,
+          "blend_scans_flagged": 0.9
+        }
+      },
+      "scan": {
+        "sensitivity": 0.7825,
+        "specificity": 0.9151193633952255,
+        "n_blend": 800,
+        "n_authentic": 754
+      },
+      "sample": {
+        "sensitivity": 0.78,
+        "specificity": 1.0,
+        "n_blend": 50,
+        "n_authentic": 5,
+        "authentic_flagged": [],
+        "missed_blends": [
+          {
+            "group": "T2_P8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T2_S8",
+            "lot": "T2",
+            "adulterant_pct": 8.0
+          },
+          {
+            "group": "T3_P12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T3_S12",
+            "lot": "T3",
+            "adulterant_pct": 12.0
+          },
+          {
+            "group": "T4_S16",
+            "lot": "T4",
+            "adulterant_pct": 16.0
+          },
+          {
+            "group": "T5_S20",
+            "lot": "T5",
+            "adulterant_pct": 20.0
+          },
+          {
+            "group": "T2_S28",
+            "lot": "T2",
+            "adulterant_pct": 28.0
+          },
+          {
+            "group": "T3_S32",
+            "lot": "T3",
+            "adulterant_pct": 32.0
+          },
+          {
+            "group": "T4_S36",
+            "lot": "T4",
+            "adulterant_pct": 36.0
+          },
+          {
+            "group": "T2_S48",
+            "lot": "T2",
+            "adulterant_pct": 48.0
+          },
+          {
+            "group": "T3_S52",
+            "lot": "T3",
+            "adulterant_pct": 52.0
+          }
+        ],
+        "missed_levels": [
+          8.0,
+          8.0,
+          12.0,
+          12.0,
+          16.0,
+          20.0,
+          28.0,
+          32.0,
+          36.0,
+          48.0,
+          52.0
+        ]
+      },
+      "k_per_fold": {
+        "T1": 15,
+        "T2": 15,
+        "T3": 15,
+        "T4": 15,
+        "T5": 15
+      }
+    }
+  },
+  "runtime_s": 91.6444616317749,
+  "inputs_sha256": {
+    "data": "75b4549a1cc7735dba1fb90936e2f659c17c2ed9fb94cfdb17023b3c927da257",
+    "common.py": "53a0500a96c2a9a56d5466528e63cd9fecf8ae6092030fc1b6e2bdf71ca334d0",
+    "s06_oneclass.py": "3cf21c9c47c30ab38eb8a50117823acd632f7b175d1bf34e19000b97ed5dbdcc"
+  }
+}

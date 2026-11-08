@@ -117,5 +117,11 @@ lot means was divided by the within-lot SD (the mean of the five per-lot SDs), t
 the others, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
 model that had withheld that lot, to estimate how far the departure alone moves the PLS prediction. A
 sample-level agreement rule, which flags a sample only when both regression routes (PLS-R and MT-DNN-R)
-flag it, was also evaluated. Code, predictions and the analysis plan with its amendments are in the
+flag it, was also evaluated. At a later internal review stage we added an exact McNemar test of the
+two decision routes within each model family on the 55 withheld samples, results by nominal level and
+without the two pure-adulterant samples (ESI, Table S8), and a one-class baseline: principal-component
+analysis of the mean-centred authentic training scans (components chosen to explain 99 % of the
+variance, at most 15), flagging a scan when Hotelling's T² or the residual Q exceeded its limit, set at
+mean + 3 SD of the out-of-fold values obtained by leaving out one training lot at a time (ESI, Table S9).
+Code, predictions and the analysis plan with its amendments are in the
 repository (Data availability).

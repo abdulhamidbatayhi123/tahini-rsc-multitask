@@ -24,7 +24,8 @@ removed one or two of the four training authentic lots from training in most fit
 retrained on all training samples for the number of epochs chosen by early stopping. Table S6 compares
 the results before and after A2. The same review found that duplicate draws were merged in the
 sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
-detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS.
+detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS. Table S9 gives an exploratory one-class baseline
+(principal-component T² and Q fitted on authentic training scans only).
 
 ## S3 Training histories
 

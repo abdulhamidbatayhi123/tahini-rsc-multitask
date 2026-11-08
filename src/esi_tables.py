@@ -131,6 +131,23 @@ table("Table S8 Supplementary analyses (leave-one-lot-out, chemically informativ
       "Source: results/extra.json (src/s05_extra.py). Each nominal level occurs in one lot only, so detection by "
       "level is confounded with the lot effect (lot T1 holds the 4 % blends).")
 
+# S9 one-class baseline (src/s06_oneclass.py)
+oc = json.loads((RESULTS / "oneclass.json").read_text())
+rows = []
+for key, v in oc["settings"].items():
+    s, c = v["sample"], v["scan"]
+    rows.append([key.replace("_", ", "), f"{100 * c['sensitivity']:.1f}", f"{100 * c['specificity']:.1f}",
+                 f"{100 * s['sensitivity']:.0f}", f"{100 * s['specificity']:.0f}",
+                 ", ".join(f"{m['adulterant_pct']:.0f}" for m in s["missed_blends"]) or "none",
+                 " / ".join(f"{100 * v['per_lot'][l]['authentic_scans_flagged']:.0f}" for l in ("T1", "T2", "T3", "T4", "T5"))])
+table("Table S9 Exploratory one-class baseline: PCA fitted on authentic training scans only, flag when T² or Q exceeds "
+      "its limit (leave-one-lot-out, chemically informative regions; added at review stage).",
+      ["Setting (components, limit)", "Scan sensitivity (%)", "Scan specificity (%)", "Sample sensitivity (%, 50 blends)",
+       "Sample specificity (%, 5 lots)", "Blends missed (% adulterant)", "Authentic scans flagged T1/T2/T3/T4/T5 (%)"], rows,
+      "Source: results/oneclass.json. sd3: mean + 3 SD of out-of-fold statistics (leave-one-training-lot-out), the rule "
+      "used for the regression routes; p99: 99th percentile; combined: T²/T²₀ + Q/Q₀. The 99 % explained-variance rule "
+      "reached the cap of 15 components in every fold.")
+
 # S7 full-range sensitivity, if available
 full = m[(m.regions == "full")]
 if not full.empty:

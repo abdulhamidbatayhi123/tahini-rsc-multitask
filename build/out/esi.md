@@ -24,7 +24,8 @@ removed one or two of the four training authentic lots from training in most fit
 retrained on all training samples for the number of epochs chosen by early stopping. Table S6 compares
 the results before and after A2. The same review found that duplicate draws were merged in the
 sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
-detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS.
+detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS. Table S9 gives an exploratory one-class baseline
+(principal-component T² and Q fitted on authentic training scans only).
 
 ## S3 Training histories
 
@@ -158,5 +159,24 @@ Source: results/v1_A1/metrics.csv (before) and results/metrics.csv (after).
 | PLS-R LOD, lot left out of the blank | – | T1: 11.9 %; T2: 11.9 %; T3: 12.1 %; T4: 11.4 %; T5: 5.2 % |
 
 Source: results/extra.json (src/s05_extra.py). Each nominal level occurs in one lot only, so detection by level is confounded with the lot effect (lot T1 holds the 4 % blends).
+
+**Table S9 Exploratory one-class baseline: PCA fitted on authentic training scans only, flag when T² or Q exceeds its limit (leave-one-lot-out, chemically informative regions; added at review stage).**
+
+| Setting (components, limit) | Scan sensitivity (%) | Scan specificity (%) | Sample sensitivity (%, 50 blends) | Sample specificity (%, 5 lots) | Blends missed (% adulterant) | Authentic scans flagged T1/T2/T3/T4/T5 (%) |
+|---|---|---|---|---|---|---|
+| k2, sd3 | 81.4 | 86.3 | 78 | 100 | 4, 4, 8, 12, 12, 16, 16, 20, 20, 24, 36 | 0 / 34 / 34 / 0 / 1 |
+| k2, p99 | 80.9 | 88.5 | 80 | 100 | 4, 4, 12, 12, 16, 16, 20, 20, 24, 36 | 0 / 40 / 17 / 0 / 0 |
+| k2, combined, sd3 | 74.0 | 95.0 | 72 | 100 | 4, 4, 8, 8, 12, 12, 16, 16, 20, 20, 24, 24, 32, 36 | 0 / 1 / 23 / 0 / 2 |
+| k5, sd3 | 81.4 | 97.5 | 82 | 100 | 4, 4, 8, 12, 12, 16, 20, 32, 36 | 2 / 11 / 0 / 0 / 0 |
+| k5, p99 | 82.8 | 97.6 | 84 | 100 | 4, 4, 8, 12, 12, 16, 32, 36 | 2 / 10 / 0 / 0 / 0 |
+| k5, combined, sd3 | 76.4 | 98.7 | 78 | 100 | 4, 4, 8, 12, 12, 16, 20, 32, 36, 40, 52 | 0 / 7 / 0 / 0 / 0 |
+| k10, sd3 | 81.4 | 94.7 | 82 | 100 | 4, 8, 8, 12, 12, 16, 20, 28, 32 | 27 / 0 / 0 / 0 / 0 |
+| k10, p99 | 84.6 | 95.0 | 84 | 100 | 4, 4, 8, 8, 12, 12, 16, 28 | 25 / 0 / 0 / 0 / 0 |
+| k10, combined, sd3 | 75.6 | 93.1 | 76 | 100 | 4, 8, 8, 12, 12, 16, 20, 28, 32, 36, 48, 52 | 35 / 0 / 0 / 0 / 0 |
+| main, sd3 | 82.4 | 91.4 | 82 | 100 | 4, 8, 8, 12, 12, 16, 20, 28, 32 | 43 / 0 / 0 / 0 / 0 |
+| main, p99 | 86.0 | 92.7 | 86 | 100 | 4, 8, 8, 12, 12, 16, 28 | 37 / 0 / 0 / 0 / 0 |
+| main, combined, sd3 | 78.2 | 91.5 | 78 | 100 | 8, 8, 12, 12, 16, 20, 28, 32, 36, 48, 52 | 43 / 0 / 0 / 0 / 0 |
+
+Source: results/oneclass.json. sd3: mean + 3 SD of out-of-fold statistics (leave-one-training-lot-out), the rule used for the regression routes; p99: 99th percentile; combined: T²/T²₀ + Q/Q₀. The 99 % explained-variance rule reached the cap of 15 components in every fold.
 
 

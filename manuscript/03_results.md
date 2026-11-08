@@ -179,4 +179,15 @@ With five authentic lots this is a hypothesis, not a validated screening rule, a
 lot that departs along the PLS vector and from the network's training data at the same time. It does
 show that combining a linear and a non-linear calibration is a cheaper way to protect specificity than
 an additional classification head, and it should be tested on lots not used here.
+
+A one-class model answers the screening question without seeing either adulterant, and a referee may
+reasonably ask whether it would avoid the lot problem. A principal-component model fitted on the
+authentic training scans alone (15 components; T² and Q limits set, like the regression thresholds, at
+mean + 3 SD of out-of-fold values) accepted all five withheld authentic lots at sample level, but only
+narrowly for T1, of whose scans 43 % exceeded a limit, and it missed 9 of the 50 blends, all at or below
+32 % adulterant (ESI, Table S9). The limits rest on four training lots and moved considerably with the
+number of components and the limit rule. Without adulterant examples the screen trades the false
+positives of the supervised routes for missed low-level blends, which is the same lot effect seen from
+the other side.
+<!-- results/oneclass.json settings k15_sd3: sample sens 0.82, spec 1.0, missed 4,8,8,12,12,16,20,28,32; T1 authentic scans flagged 0.433; scan spec 0.914. src/s06_oneclass.py (exploratory, review stage). -->
 <!-- results/extra.json paired: PLS class_right_reg_wrong 2, class_wrong_reg_right 8, p 0.109; MT-DNN 0/0 all seeds. results/consensus.json: per_seed both fp_lots [] for seeds 0-4, missed [[4, peanut, T1]]; PLS-R missed the same. metrics.csv lolo scan sensitivity MT-DNN 1.000, MT-DNN-R 1.000. -->
