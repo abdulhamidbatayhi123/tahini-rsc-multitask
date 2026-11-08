@@ -91,7 +91,21 @@ belonged to the true adulterant. Quantification was scored on the tahini fractio
 determination (R<sup>2</sup>), the root-mean-square error of prediction (RMSEP) and the mean absolute error. The
 limit of detection followed the calibration-slope convention of ref. [#batayhi2026], LOD = 3.3σ/S, where σ is the
 SD of the predicted adulterant fraction of withheld authentic scans and S the slope of predicted on
-nominal adulterant fraction.[@allegrini2004] All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
-resample whole physical samples, never single scans; for the MT-DNN each draw averages the five seeds.
+nominal adulterant fraction.[@allegrini2014] In leave-one-lot-out validation the predictions of the five
+withheld lots are pooled, so σ includes the differences between authentic lots; within the hold-out test
+set, which holds a single authentic lot, σ reflects replicate scatter only and the LOD is given for
+comparison. All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
+resample whole physical samples, never single scans;[@field2007] for the MT-DNN each draw averages the five seeds.
 With five lots the lot level is too coarse to resample, so lot-out results are also reported fold by
 fold.
+
+### 2.8 Exploratory analyses
+
+Two analyses were added after the leave-one-lot-out results had been seen and are reported as
+exploratory. For each authentic lot, the mean SNV spectrum of the lot minus the mean of the other four
+lot means was divided by the pooled within-lot SD, to locate the bands in which the lot departs from
+the others, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
+model that had withheld that lot, to estimate how far the departure alone moves the PLS prediction. A
+sample-level agreement rule, which flags a sample only when both regression routes (PLS-R and MT-DNN-R)
+flag it, was also evaluated. Code, predictions and the analysis plan with its amendments are in the
+repository (Data availability).

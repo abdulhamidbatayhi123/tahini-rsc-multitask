@@ -1,0 +1,1 @@
+holdout chem {'fold': 'holdout', 'n_train': 1146, 'n_test': 408, 'samples_test': 17, 'samples_shared': 0, 'pls_k_reg': 15, 'pls_k_cls': 3, 'plsr_threshold': 5.4435968972556195, 'dnn_best_epoch': [45, 40, 93, 48, 79], 'dnnr_threshold': [2.5217609172252407, 3.4929549016307395, 3.2875263453865706, 4.228603140689173, 3.411068399656887], 'cpu_s': 1065.203125}

@@ -70,6 +70,9 @@ def main():
     rows = [l.rstrip("\n").split("\t") for l in (MS / "refs_wanted.tsv").read_text(encoding="utf-8").splitlines()
             if l.strip() and not l.startswith("#")]
     for key, doi, title in rows:
+        if out.get(key, {}).get("override"):
+            print(f"{key:24s} manual override kept")
+            continue
         try:
             if doi != "?":
                 msg = get("https://api.crossref.org/works/" + urllib.parse.quote(doi))["message"]

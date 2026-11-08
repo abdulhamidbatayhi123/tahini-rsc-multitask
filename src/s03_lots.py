@@ -36,11 +36,26 @@ def main():
                 break
         tr = d["lot"] != L
         pls = PLSRegression(n_components=kreg[L], scale=False).fit(Z[tr], d["y"][tr])
-        coef = pls.coef_.reshape(3, -1)[0] if pls.coef_.shape[0] == 3 else pls.coef_[:, 0]
+        coef = pls.coef_ if pls.coef_.shape[0] == 3 else pls.coef_.T          # (3, n_channels)
         raw = M[L] - np.mean([M[k] for k in lots if k != L], 0)
+        shift = coef @ raw
         out[L] = dict(rms_d=float(np.sqrt((dl ** 2).mean())),
                       top_bands=[[round(float(wn[i])), round(float(dl[i]), 2)] for i in picked],
-                      pls_tahini_shift=float(raw @ coef))
+                      pls_tahini_shift=float(shift[0]),
+                      pls_adulterant_shift=float(shift[1] + shift[2]))
+    # observed: mean (SD) predicted adulterant fraction of each withheld authentic lot, per route, and the
+    # mean signed error of the tahini fraction on that lot's blends (from the saved lot-out predictions)
+    pred = pd.read_csv(RESULTS / "pred_lolo_chem.csv")
+    pred["adult_pred"] = 100 - pred["p_tahini"]
+    for L in lots:
+        obs = {}
+        for model in ("PLS-R", "MT-DNN"):
+            q = pred[(pred.model == model) & (pred.fold == L)]
+            a_ = q[q.tag == 0].groupby("idx")["adult_pred"].mean()      # MT-DNN: mean of seeds per scan
+            b_ = q[q.tag == 1].groupby("idx").agg(p=("p_tahini", "mean"), y=("y_tahini", "first"))
+            obs[model] = dict(authentic_adult_mean=float(a_.mean()), authentic_adult_sd=float(a_.std(ddof=1)),
+                              blend_tahini_bias=float((b_.p - b_.y).mean()))
+        out[L]["observed"] = obs
     # pure adulterant pastes (lot T5, 100 %) minus the authentic mean, SNV units, top bands 20 cm-1 apart
     T = Z[a].mean(0)
     for j, nm in ((1, "sunflower100"), (2, "peanut100")):

@@ -1,0 +1,1 @@
+random chem {'fold': 'random', 'n_train': 1243, 'n_test': 311, 'samples_test': 54, 'samples_shared': 54, 'pls_k_reg': 15, 'pls_k_cls': 4, 'plsr_threshold': 10.084353916221197, 'dnn_best_epoch': [38, 66, 36, 44, 88], 'dnnr_threshold': [2.236812831490355, 3.220928341835068, 3.251795926824168, 3.5288546084282397, 2.916036278182863], 'cpu_s': 1196.109375}

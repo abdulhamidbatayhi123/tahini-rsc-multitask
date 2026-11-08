@@ -1,0 +1,12 @@
+{
+  "figure": "fig4_quantification_lolo",
+  "width_cm": 17.1,
+  "height_cm": 7.6,
+  "script": "f4_quantification.py",
+  "script_sha256": "8a390a86b637e4e7f10c6bd1b62c07a39bdd6732ad5a83f0da5ac5d49f51ce22",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
+  "inputs_sha256": {
+    "pred_lolo_chem.csv": "4dc892f9cdaa6df87d1166c399f40d09e258ded791726c2b37b6faa1d2f57175",
+    "metrics.csv": "9f76b57f6b8d4811746f5f6bd8821239fcc3e2aab435ac7e6c3049d0cc832847"
+  }
+}

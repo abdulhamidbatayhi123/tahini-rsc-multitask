@@ -1,0 +1,13 @@
+{
+  "figure": "fig3_detection_lolo",
+  "width_cm": 17.1,
+  "height_cm": 6.2,
+  "script": "f3_detection.py",
+  "script_sha256": "462fcaebacaedfc189394ebda3b4fb5f738ca6f31c1808132f780c696aae76c8",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
+  "inputs_sha256": {
+    "pred_lolo_chem.csv": "4dc892f9cdaa6df87d1166c399f40d09e258ded791726c2b37b6faa1d2f57175",
+    "metrics.csv": "9f76b57f6b8d4811746f5f6bd8821239fcc3e2aab435ac7e6c3049d0cc832847",
+    "metrics_lot.csv": "96930eb1c875cd97a513abd97c729a406906de2af8ebed14a5332aa2a15cd200"
+  }
+}

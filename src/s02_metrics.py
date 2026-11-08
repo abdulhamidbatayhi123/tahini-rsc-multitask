@@ -114,12 +114,23 @@ def run_one(scheme, regions):
     return rows, lots
 
 
+ONLY = set(sys.argv[2].split(",")) if len(sys.argv) > 2 else None    # e.g. random_chem,holdout_full
+
+
 def main():
     allrows, alllots, hashes = [], [], {}
+    if ONLY:   # update only these configurations; keep the other rows of the existing files
+        old = pd.read_csv(RESULTS / "metrics.csv")
+        oldl = pd.read_csv(RESULTS / "metrics_lot.csv")
+        keep = ~(old.scheme + "_" + old.regions).isin(ONLY)
+        keepl = ~(oldl.scheme + "_" + oldl.regions).isin(ONLY)
+        allrows, alllots = old[keep].to_dict("records"), oldl[keepl].to_dict("records")
+        import json
+        hashes = json.loads((RESULTS / "metrics_info.json").read_text()).get("inputs_sha256", {})
     for scheme in ("random", "holdout", "lolo"):
         for regions in ("chem", "full"):
             p = RESULTS / f"pred_{scheme}_{regions}.csv"
-            if not p.exists():
+            if not p.exists() or (ONLY and f"{scheme}_{regions}" not in ONLY):
                 continue
             hashes[p.name] = sha256(p)
             r, l = run_one(scheme, regions)

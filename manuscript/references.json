@@ -23,8 +23,9 @@
   "volume": "12",
   "pages": "2825–2830",
   "doi": "",
-  "verified": false,
-  "note": "JMLR has no DOI; check author list on jmlr.org before submission"
+  "verified": true,
+  "note": "JMLR has no DOI",
+  "checked": "2026-11-08 jmlr.org/papers/v12/pedregosa11a.html (16 authors, 12(85):2825-2830)"
  },
  "zenodo_data": {
   "type": "data",
@@ -35,22 +36,38 @@
    "M. Arici"
   ],
   "repository": "Zenodo",
-  "title": "kanfood-tahini-mango- (code and tahini ATR-FTIR dataset)",
+  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy",
   "year": 2026,
   "doi": "10.5281/zenodo.21446757",
-  "verified": false,
-  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org"
+  "verified": true,
+  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org",
+  "checked": "2026-11-08 zenodo.org/api/records/21446757 (concept DOI; creators Batayhi, Özgölet, Cankurt, Arici)"
  },
  "fsa2018": {
   "type": "web",
   "authors": [
    "Food Standards Agency"
   ],
-  "title": "Food Standards Agency, John & Pascalis recalls Four Seasons Sesame Tahini because of undeclared peanuts (Allergy Alert FSA-AA-76-2018)",
-  "url": "https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018",
+  "title": "Food Standards Agency, John & Pascalis recalls Four Seasons Sesame Tahini because of undeclared peanuts, Allergy Alert FSA-AA-76-2018",
+  "url": "https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018 (archived copy: http://web.archive.org/web/20220708013426/https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018)",
   "accessed": "November 2026",
+  "verified": true,
+  "note": "cited in Foods 15:3639 ref 6; open the URL live before submission",
+  "checked": "2026-11-08: live page returns 410 (archived by FSA); Wayback snapshot 2022-07-08 read, title confirmed"
+ },
+ "kacurakova2001": {
+  "override": true,
+  "authors": [
+   "M. Kačuráková"
+  ],
+  "journal": "Carbohydrate Polymers",
+  "year": 2001,
+  "volume": "44",
+  "pages": "291–303",
+  "doi": "10.1016/s0144-8617(00)00245-9",
+  "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
   "verified": false,
-  "note": "cited in Foods 15:3639 ref 6; open the URL live before submission"
+  "note": "Crossref and OpenAlex list one author with a damaged name (KacurÃ¡kovÃ¡); the article is usually cited as M. Kačuráková and R. H. Wilson. Confirm the author list on the publisher page (doi.org/10.1016/S0144-8617(00)00245-9) before submission."
  },
  "batayhi2026": {
   "authors": [
@@ -457,16 +474,101 @@
   "verified": true,
   "checked": "2026-11-08 Crossref"
  },
- "kacurakova2001": {
+ "qin2026": {
   "authors": [
-   "M. KacurÃ¡kovÃ¡"
+   "X. Qin",
+   "Y. Chen",
+   "B. Li",
+   "S. Zeng",
+   "G. Mei",
+   "C. Yu"
   ],
-  "journal": "Carbohydrate Polymers",
-  "year": 2001,
-  "volume": "44",
-  "pages": "291–303",
-  "doi": "10.1016/s0144-8617(00)00245-9",
-  "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
+  "journal": "Foods",
+  "year": 2026,
+  "volume": "15",
+  "pages": "2030",
+  "doi": "10.3390/foods15112030",
+  "title": "A Multi-Task Learning Model Based on DTP-MMoE for Identification of Olive Oil Multi-Adulteration Using Raman Spectroscopy",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "liang2024": {
+  "authors": [
+   "S. Liang",
+   "G. Chen",
+   "C. Ma",
+   "J. Gu",
+   "C. Zhu",
+   "L. Li",
+   "H. Gao",
+   "Z. Yang",
+   "J. Cao",
+   "Z. Chen"
+  ],
+  "journal": "Food Anal. Methods",
+  "year": 2025,
+  "volume": "18",
+  "pages": "385–397",
+  "doi": "10.1007/s12161-024-02728-0",
+  "title": "Qualitative Identification and Adulteration Quantification of Extra Virgin Olive Oil Based on Raman Spectroscopy Combined with Multi-task Deep Learning Model",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "zeng2026": {
+  "authors": [
+   "J. Zeng",
+   "Z. Wu",
+   "E. Zhang",
+   "Z. Liu",
+   "T. Zhang",
+   "L. Li"
+  ],
+  "journal": "Journal of AOAC International",
+  "year": 2026,
+  "volume": "109",
+  "pages": "924–936",
+  "doi": "10.1093/jaoacint/qsag068",
+  "title": "Portable Near-Infrared Spectroscopy Study for Turmeric Adulteration Detection",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "ning2026": {
+  "authors": [
+   "H. Ning",
+   "M. Ma",
+   "Z. Shi",
+   "L. Ding"
+  ],
+  "journal": "Analytica Chimica Acta",
+  "year": 2026,
+  "volume": "1391",
+  "pages": "345050",
+  "doi": "10.1016/j.aca.2025.345050",
+  "title": "Accurate compositional analysis on complex mixtures via multi-task spectral data learning",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-08 Crossref"
+ },
+ "guo2017": {
+  "authors": [
+   "S. Guo",
+   "T. Bocklitz",
+   "U. Neugebauer",
+   "J. Popp"
+  ],
+  "journal": "Anal. Methods",
+  "year": 2017,
+  "volume": "9",
+  "pages": "4410–4417",
+  "doi": "10.1039/c7ay01363a",
+  "title": "Common mistakes in cross-validating classification models",
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,

@@ -1,7 +1,8 @@
 {
-  "n_boot": 200,
+  "n_boot": 1000,
   "inputs_sha256": {
     "pred_holdout_chem.csv": "a4bc16d2c196e867b2023eb291a7913fd46a94e5a56e3f7e70b8874299a17423",
+    "pred_lolo_chem.csv": "4dc892f9cdaa6df87d1166c399f40d09e258ded791726c2b37b6faa1d2f57175",
     "s02_metrics.py": "ab274b5b1cd4183a95c4ce9d07a78424a8a6d46ad4b7db345ba532a6d2fdd559"
   }
 }

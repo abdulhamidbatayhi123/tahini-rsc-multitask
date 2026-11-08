@@ -2,3 +2,4 @@ source_repo/
 audit/tahini.pkl
 __pycache__/
 *.pyc
+*.bak

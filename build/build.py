@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MS = ROOT / "manuscript"
 OUT = ROOT / "build" / "out"
 OUT.mkdir(parents=True, exist_ok=True)
-ORDER = ["00_front.md", "01_introduction.md", "02_experimental.md", "03_results.md", "04_conclusions.md",
+ORDER = ["00_front.md", "01_introduction.md", "02_experimental.md", "03_results.md", "03b_table1.md", "03c_figures.md", "04_conclusions.md",
          "05_declarations.md"]
 
 
@@ -31,6 +31,18 @@ def compress(nums):
     return ",".join(out)
 
 
+ABBR = {  # CASSI / ISO 4 abbreviations for journals whose Crossref record gives the full title
+    "Analytica Chimica Acta": "Anal. Chim. Acta", "Analytical Chemistry": "Anal. Chem.",
+    "Appl Spectrosc": "Appl. Spectrosc.", "Biochimica et Biophysica Acta (BBA) - Bioenergetics":
+    "Biochim. Biophys. Acta, Bioenerg.", "Carbohydrate Polymers": "Carbohydr. Polym.",
+    "Chemometrics and Intelligent Laboratory Systems": "Chemom. Intell. Lab. Syst.",
+    "Food Chemistry": "Food Chem.", "Food Research International": "Food Res. Int.",
+    "Journal of AOAC INTERNATIONAL": "J. AOAC Int.", "Journal of AOAC International": "J. AOAC Int.",
+    "Journal of the Royal Statistical Society Series B: Statistical Methodology": "J. R. Stat. Soc. B",
+    "Machine Learning": "Mach. Learn.",
+}
+
+
 def fmt_ref(r):
     a = r["authors"]
     names = a[0] if len(a) == 1 else ", ".join(a[:-1]) + " and " + a[-1]
@@ -40,7 +52,7 @@ def fmt_ref(r):
         return f"{names}, {r['title']}, {r['publisher']}, {r['place']}, {r['year']}."
     if r.get("type") == "web":
         return f"{r['title']}, {r['url']}, (accessed {r['accessed']})."
-    s = f"{names}, *{r['journal']}*, {r['year']}, **{r['volume']}**, {r['pages']}"
+    s = f"{names}, *{ABBR.get(r['journal'], r['journal'])}*, {r['year']}, **{r['volume']}**, {r['pages']}"
     return s + (f", DOI: {r['doi']}." if r.get("doi") else ".")
 
 

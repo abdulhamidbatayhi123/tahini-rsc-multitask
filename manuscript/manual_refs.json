@@ -23,8 +23,9 @@
   "volume": "12",
   "pages": "2825–2830",
   "doi": "",
-  "verified": false,
-  "note": "JMLR has no DOI; check author list on jmlr.org before submission"
+  "verified": true,
+  "note": "JMLR has no DOI",
+  "checked": "2026-11-08 jmlr.org/papers/v12/pedregosa11a.html (16 authors, 12(85):2825-2830)"
  },
  "zenodo_data": {
   "type": "data",
@@ -35,21 +36,37 @@
    "M. Arici"
   ],
   "repository": "Zenodo",
-  "title": "kanfood-tahini-mango- (code and tahini ATR-FTIR dataset)",
+  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy",
   "year": 2026,
   "doi": "10.5281/zenodo.21446757",
-  "verified": false,
-  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org"
+  "verified": true,
+  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org",
+  "checked": "2026-11-08 zenodo.org/api/records/21446757 (concept DOI; creators Batayhi, Özgölet, Cankurt, Arici)"
  },
  "fsa2018": {
   "type": "web",
   "authors": [
    "Food Standards Agency"
   ],
-  "title": "Food Standards Agency, John & Pascalis recalls Four Seasons Sesame Tahini because of undeclared peanuts (Allergy Alert FSA-AA-76-2018)",
-  "url": "https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018",
+  "title": "Food Standards Agency, John & Pascalis recalls Four Seasons Sesame Tahini because of undeclared peanuts, Allergy Alert FSA-AA-76-2018",
+  "url": "https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018 (archived copy: http://web.archive.org/web/20220708013426/https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018)",
   "accessed": "November 2026",
+  "verified": true,
+  "note": "cited in Foods 15:3639 ref 6; open the URL live before submission",
+  "checked": "2026-11-08: live page returns 410 (archived by FSA); Wayback snapshot 2022-07-08 read, title confirmed"
+ },
+ "kacurakova2001": {
+  "override": true,
+  "authors": [
+   "M. Kačuráková"
+  ],
+  "journal": "Carbohydrate Polymers",
+  "year": 2001,
+  "volume": "44",
+  "pages": "291–303",
+  "doi": "10.1016/s0144-8617(00)00245-9",
+  "title": "Developments in mid-infrared FT-IR spectroscopy of selected carbohydrates",
   "verified": false,
-  "note": "cited in Foods 15:3639 ref 6; open the URL live before submission"
+  "note": "Crossref and OpenAlex list one author with a damaged name (KacurÃ¡kovÃ¡); the article is usually cited as M. Kačuráková and R. H. Wilson. Confirm the author list on the publisher page (doi.org/10.1016/S0144-8617(00)00245-9) before submission."
  }
 }
