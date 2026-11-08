@@ -11,6 +11,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import torch
+import os as _os
+torch.set_num_threads(int(_os.environ.get("TORCH_THREADS", torch.get_num_threads())))
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold, GroupShuffleSplit
@@ -142,12 +144,36 @@ class MTNet(torch.nn.Module):
 
 
 class MTDNN:
-    """Multitask DNN of DESIGN.md: early stopping on a grouped inner validation split."""
+    """Multitask DNN of DESIGN.md: early stopping on a grouped inner validation split chooses the number of
+    epochs; with refit=True (amendment A2) the network is then retrained from scratch on ALL training
+    samples for that number of epochs, so that no training sample (or authentic lot) is left out."""
 
     def __init__(self, seed=0, max_epochs=300, patience=30, w=10.0, lr=1e-3, batch=32, min_epochs=20,
-                 smooth=0.05, wd=1e-4):
+                 smooth=0.05, wd=1e-4, refit=True):
         self.seed, self.max_epochs, self.patience, self.w, self.lr, self.batch = seed, max_epochs, patience, w, lr, batch
-        self.min_epochs, self.smooth, self.wd = min_epochs, smooth, wd
+        self.min_epochs, self.smooth, self.wd, self.refit = min_epochs, smooth, wd, refit
+
+    def _train_full(self, X, y, tag, n_epochs):
+        """Retrain from scratch on all given samples for n_epochs (same seed, same optimiser settings)."""
+        rng = np.random.RandomState(self.seed)
+        torch.manual_seed(self.seed)
+        self.mu, self.sd = X.mean(0), X.std(0) + 1e-8
+        Xt = torch.tensor((X - self.mu) / self.sd, dtype=torch.float32)
+        Tt = torch.tensor(tag, dtype=torch.float32)
+        Yt = torch.tensor(y / 100, dtype=torch.float32)
+        net = MTNet(X.shape[1])
+        opt = torch.optim.Adam(net.parameters(), lr=self.lr, weight_decay=self.wd)
+        for _ in range(n_epochs):
+            net.train()
+            perm = rng.permutation(len(Xt))
+            for i in range(0, len(perm), self.batch):
+                b = perm[i:i + self.batch]
+                loss, _, _ = self._loss(net, Xt[b], Tt[b], Yt[b])
+                opt.zero_grad()
+                loss.backward()
+                opt.step()
+        net.eval()
+        return net
 
     def _loss(self, net, xb, tb, yb):
         logit, comp = net(xb)
@@ -194,6 +220,8 @@ class MTDNN:
                     break
         net.load_state_dict(best_state)
         self.net, self.history = net, pd.DataFrame(hist)
+        if self.refit:
+            self.net = self._train_full(X, y, tag, self.best_epoch)
         return self
 
     def predict(self, X):

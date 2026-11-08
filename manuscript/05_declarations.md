@@ -16,7 +16,7 @@ The ATR–FTIR spectra analysed in this study were released with ref. [#batayhi2
 on Zenodo at https://doi.org/10.5281/zenodo.21446757.[@zenodo_data] The code for this study (data
 loading, models, validation, statistics and figures), the analysis plan with its dated amendments,
 and all predictions and result files from which the reported numbers are computed are available at
-REPOSITORY-DOI-TO-BE-ASSIGNED. Analyses used Python with scikit-learn 1.7.0[@pedregosa2011] and
+https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask (archived on Zenodo at ZENODO-DOI-AFTER-FIRST-RELEASE). Analyses used Python with scikit-learn 1.7.0[@pedregosa2011] and
 PyTorch 2.7.1.
 
 ## Acknowledgements

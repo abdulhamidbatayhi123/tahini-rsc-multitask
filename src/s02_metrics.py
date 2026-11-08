@@ -26,8 +26,11 @@ def metric_fn(df, level, thr):
     def f(sub):
         y, tag, g, p, dec, sc = arrays(sub)
         if level == "sample":
+            # regression routes carry the fold's threshold per scan ("thr"); the decision compares the
+            # sample's mean predicted adulterant with it, while the AUC uses the raw mean score
+            t_s = sub["thr"].groupby(sub["group"].to_numpy(), sort=False).mean().to_numpy() if "thr" in sub else thr
             _, y, tag, p, sc = sample_level(g, y, tag, p, sc)
-            dec = (sc > thr).astype(int)
+            dec = (sc > t_s).astype(int)
             g = None
         return scores(y, tag, g, p, dec, sc)
     return f
@@ -58,7 +61,7 @@ def run_one(scheme, regions):
                 d = dm[dm.seed == s].copy()
                 if model in ("PLS-R", "MT-DNN-R") and level == "sample":
                     # sample decision: mean predicted adulterant fraction vs the fold's own threshold
-                    d["score"] = d["score"] - d["fold"].map(lambda f: thr[(model, f, s)])
+                    d["thr"] = d["fold"].map(lambda f: thr[(model, f, s)])
                 f = metric_fn(d, level, 0.0)
                 per_seed.append((d, f))
             point = pd.DataFrame([f(d) for d, f in per_seed])
@@ -75,7 +78,12 @@ def run_one(scheme, regions):
             POS = [{u: np.where(d["group"].to_numpy() == u)[0] for u in ug} for d, _ in per_seed]
             for _ in range(NBOOT):
                 pick = rng.choice(ug, len(ug), replace=True)
-                subs = [d.iloc[np.concatenate([pos[u] for u in pick])] for (d, _), pos in zip(per_seed, POS)]
+                subs = []
+                for (d, _), pos in zip(per_seed, POS):
+                    # each drawn copy of a sample gets its own label, so duplicates stay separate samples
+                    sub = d.iloc[np.concatenate([pos[u] for u in pick])].copy()
+                    sub["group"] = np.concatenate([[f"{u}#{k}"] * len(pos[u]) for k, u in enumerate(pick)])
+                    subs.append(sub)
                 try:
                     draws.append(boot_stat(subs))
                 except ValueError:

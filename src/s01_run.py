@@ -37,13 +37,15 @@ def pls_cv_threshold(X, y, tag, groups, k):
     return regression_threshold(P, tag)
 
 
-def main(scheme, regions):
+def main(scheme, regions, only_fold=None):
     d = load()
     X, wn = features(d, regions)
     y, tag, g = d["y"], d["tag"], d["group"]
     rows, info = [], dict(scheme=scheme, regions=regions, n_features=int(X.shape[1]),
                           wn_min=float(wn.min()), wn_max=float(wn.max()), folds=[])
     for name, tr, te in splits(d, scheme):
+        if only_fold and name != only_fold:
+            continue
         t0 = time.process_time()
         shared = len(set(g[tr]) & set(g[te]))
         fi = dict(fold=name, n_train=len(tr), n_test=len(te), samples_test=len(set(g[te])),
@@ -82,11 +84,30 @@ def main(scheme, regions):
         fi["cpu_s"] = time.process_time() - t0
         info["folds"].append(fi)
         print(scheme, regions, fi, flush=True)
-    pd.concat(rows).to_csv(RESULTS / f"pred_{scheme}_{regions}.csv", index=False)
     info["inputs_sha256"] = {"data": sha256(__import__("common").DATA_XLSX), "common.py": sha256(__file__.replace("s01_run.py", "common.py")),
                              "s01_run.py": sha256(__file__)}
+    part = f"_{only_fold}.part" if only_fold else ""
+    pd.concat(rows).to_csv(RESULTS / f"pred_{scheme}_{regions}{part}.csv", index=False)
+    dump(info, f"run_info_{scheme}_{regions}{part}.json")
+
+
+def merge(scheme, regions):
+    """Combine per-fold parts (python s01_run.py lolo chem T1 ... T5) into the standard files."""
+    import json
+    folds = [f for f, _, _ in lolo_folds(load())]
+    parts = [RESULTS / f"pred_{scheme}_{regions}_{f}.part.csv" for f in folds]
+    infos = [json.loads((RESULTS / f"run_info_{scheme}_{regions}_{f}.part.json").read_text()) for f in folds]
+    assert all(p.exists() for p in parts)
+    assert len({json.dumps(i["inputs_sha256"], sort_keys=True) for i in infos}) == 1, "parts ran on different code"
+    pd.concat([pd.read_csv(p) for p in parts]).to_csv(RESULTS / f"pred_{scheme}_{regions}.csv", index=False)
+    info = {k: v for k, v in infos[0].items() if k != "folds"}
+    info["folds"] = [i["folds"][0] for i in infos]
     dump(info, f"run_info_{scheme}_{regions}.json")
+    print("merged", scheme, regions, len(parts), "folds")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    if sys.argv[1] == "merge":
+        merge(sys.argv[2], sys.argv[3])
+    else:
+        main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

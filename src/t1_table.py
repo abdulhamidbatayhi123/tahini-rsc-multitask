@@ -25,7 +25,7 @@ for scheme, sname in (("holdout", "Grouped hold-out"), ("lolo", "Leave-one-lot-o
                 continue
             r = r.iloc[0]
             quant = model in ("PLS-R", "MT-DNN")
-            rows.append([sname, level, model, ci(r, "sensitivity", pct=True), ci(r, "specificity", pct=True),
+            rows.append([sname, level, model, ci(r, "sensitivity", pct=True), (f"{100 * r['specificity']:.1f} (one authentic sample)" if scheme == "holdout" else ci(r, "specificity", pct=True)),
                          ci(r, "auc"),
                          ci(r, "rmsep_tahini", 2) if quant else "", ci(r, "r2_tahini") if quant else "",
                          ci(r, "identification", pct=True) if quant else ""])
@@ -34,8 +34,8 @@ hdr = ["Validation", "Level", "Route", "Sensitivity (%)", "Specificity (%)", "AU
 lines = ["Table 1 Screening, quantification and identification on withheld samples (chemically informative "
          "regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical "
          "samples); MT-DNN values are means over five seeds. Quantification and identification are properties "
-         "of the composition output and are shown once per model family. The hold-out test set contains a single "
-         "authentic lot, so its specificity rests on one authentic sample; in leave-one-lot-out validation five "
+         "of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single "
+         "authentic lot; in leave-one-lot-out validation five "
          "authentic samples, one per lot, are withheld.", "",
          "| " + " | ".join(hdr) + " |", "|" + "|".join(["---"] * len(hdr)) + "|"]
 lines += ["| " + " | ".join(r) + " |" for r in rows]

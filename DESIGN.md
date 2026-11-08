@@ -19,7 +19,7 @@ The preliminary figures (`originals_preliminary/`) come from a scan-level random
 `audit/check_split.py` reproduces their test counts (150 pure / 161 adulterated) with
 `train_test_split(test_size=0.2, random_state=42)`; that split puts 54 of 55 physical samples on both
 sides. The feature importance peaks at the atmospheric CO2 (~2350 cm-1) and water-vapour (>3600 cm-1)
-regions. The preliminary run is reproduced (script `src/s00_reproduce_random_split.py`) and reported
+regions. The preliminary run is reproduced (script `src/s01_run.py random` (random scheme)) and reported
 in the ESI only as the leakage contrast.
 
 ## Fixed choices
@@ -77,3 +77,21 @@ Labelled exploratory in the paper; none changes a primary metric.
   it. Chosen after seeing that the two families fail on different lots, so it is a hypothesis for new
   lots, not a validated result (five authentic lots).
 - `src/f6_lots.py` (Fig. 5) draws E1 and the withheld-lot predictions.
+
+## Amendment A2 (2026-11-08, after the v1 lot-out results; found by an independent code review)
+- Problem: the MT-DNN never trained on its grouped inner-validation samples (20 % of training samples). In
+  lot-out validation this removed one or two of the four training authentic lots from training in 20 of
+  25 (fold, seed) fits, so the network learned "authentic" from fewer lots than PLS. This contradicts the
+  intent "all selection repeated inside the training lots" and tilts the PLS vs MT-DNN comparison.
+- Fix: early stopping on the inner split chooses only the number of epochs; the network is then retrained
+  from scratch on all training samples for that number of epochs (same seed and settings), and inputs are
+  standardised with the mean and SD of all training samples. The same applies to the inner-CV fits that
+  produce the MT-DNN-R threshold. PLS is unchanged.
+- Also fixed: the sample-level cluster bootstrap merged duplicate draws of a sample into one (intervals too
+  narrow); each drawn copy now keeps its own label. Sample-level AUC of the regression routes now uses the
+  raw mean score (decisions still use each fold's threshold).
+- Reporting: A2 results are primary. The v1 (pre-A2) predictions and metrics are kept in results/v1_A1/ and
+  compared in the ESI, so the effect of the fix is visible.
+- Wording: the plan called the hold-out the primary partition; the manuscript treats leave-one-lot-out as
+  the main test because the hold-out holds a single authentic lot (decided after seeing that the hold-out
+  specificity rests on one sample). Both are reported in full.

@@ -22,8 +22,9 @@ T5 are pure adulterant and are labelled adulterated.
 
 ### 2.2 Preprocessing and spectral regions
 
-Each spectrum was corrected by the standard normal variate (SNV),[@barnes1989] which acts on one spectrum at a time
-and therefore cannot leak information between training and test sets. The models were then given the
+Each spectrum was corrected by the standard normal variate (SNV),[@barnes1989] computed over the full
+600–4000 cm<sup>−1</sup> range; SNV acts on one spectrum at a time and therefore cannot leak information between
+training and test sets. The models were then given the
 two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup> (C–H stretching) and
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
 band (about 2250–2400 cm<sup>−1</sup>) and the water-vapour rotation lines above 3550 cm<sup>−1</sup> were excluded because
@@ -39,11 +40,13 @@ unit that gives the probability that the scan is adulterated. Head B is a three-
 outputs, multiplied by 100, are the tahini, sunflower and peanut fractions; the softmax makes the
 predicted composition non-negative and sum to 100 % by construction. The loss is the binary
 cross-entropy of head A (targets smoothed by 0.05) plus ten times the mean squared error of head B on
-fractions scaled to 0–1. Inputs were standardised channel by channel with the training-set mean and SD.
-Training used Adam (learning rate 10<sup>−3</sup>, weight decay 10<sup>−4</sup>, batch size 32) for at most 300 epochs. Early
-stopping monitored the loss on an inner validation set of 20 % of the training samples, drawn by
-physical sample, with a patience of 30 epochs after a minimum of 20, and the weights of the best epoch
-were restored. Every MT-DNN result is the mean over five random seeds. The network was implemented in
+fractions scaled to 0–1. Training used Adam (learning rate 10<sup>−3</sup>, weight decay 10<sup>−4</sup>, batch size 32) for at
+most 300 epochs. The number of epochs was chosen by early stopping on the loss of an inner validation
+set of 20 % of the training samples, drawn by physical sample, with a patience of 30 epochs after a
+minimum of 20. The network was then retrained from the same initialisation on all training samples for
+the chosen number of epochs, so that every training sample, and every training lot, contributed to the
+final model; inputs were standardised channel by channel with the mean and SD of all training samples.
+Every MT-DNN result is the mean over five random seeds. The network was implemented in
 PyTorch 2.7.1.
 <!-- architecture and settings: src/common.py MTDNN, MTNet; DESIGN.md + amendment A1 -->
 
@@ -64,8 +67,12 @@ regression route (written PLS-R and MT-DNN-R) flags a scan as adulterated when i
 fraction (100 % minus the predicted tahini fraction) exceeds a threshold set on the training data alone:
 the mean plus three SDs of the predicted adulterant fraction of the authentic training scans. These
 predictions were taken from a grouped five-fold cross-validation inside the training set, because
-predictions on the training scans themselves would understate their spread. For sample-level decisions,
-the scans of one physical sample were averaged and the mean compared with the same threshold.
+predictions on the training scans themselves would understate their spread; the cross-validation
+groups are physical samples, so an authentic training lot is withheld in it while its blends are not,
+and the threshold is then applied to the model refitted on the whole training set. For sample-level
+decisions, the scans of one physical sample were averaged (the predicted adulterant fraction for the
+regression routes, the logit of the MT-DNN class head and the difference of the two PLS-DA responses
+for the class routes) and the mean was compared with the same threshold, or with zero.
 
 ### 2.6 Validation
 
@@ -103,7 +110,7 @@ fold.
 
 Two analyses were added after the leave-one-lot-out results had been seen and are reported as
 exploratory. For each authentic lot, the mean SNV spectrum of the lot minus the mean of the other four
-lot means was divided by the pooled within-lot SD, to locate the bands in which the lot departs from
+lot means was divided by the within-lot SD (the mean of the five per-lot SDs), to locate the bands in which the lot departs from
 the others, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
 model that had withheld that lot, to estimate how far the departure alone moves the PLS prediction. A
 sample-level agreement rule, which flags a sample only when both regression routes (PLS-R and MT-DNN-R)
