@@ -4,7 +4,7 @@
   "height_cm": 9.5,
   "script": "f1_spectra.py",
   "script_sha256": "eb9dd5e88f92485694db40794d41b1cfd1682ba614fd733b50fe758b85d1153b",
-  "figstyle_sha256": "c4b47deffbd1d3b55b5ad75c76c02fbd05187cd7aac957765743cdaca6b3563e",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
   "inputs_sha256": {
     "Tahin_Aycicek1.xlsx": "75b4549a1cc7735dba1fb90936e2f659c17c2ed9fb94cfdb17023b3c927da257"
   }

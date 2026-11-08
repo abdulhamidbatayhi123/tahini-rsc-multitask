@@ -1,0 +1,9 @@
+{
+  "figure": "fig2_workflow",
+  "width_cm": 17.1,
+  "height_cm": 6.4,
+  "script": "f2_workflow.py",
+  "script_sha256": "e0f41bba47b338b58c3cddedda0e503d5c3bc55972b87b9c84f367072c37fec0",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
+  "inputs_sha256": {}
+}

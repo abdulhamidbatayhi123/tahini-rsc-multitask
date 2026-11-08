@@ -1,0 +1,12 @@
+{
+  "figure": "fig4_quantification_holdout",
+  "width_cm": 17.1,
+  "height_cm": 7.6,
+  "script": "f4_quantification.py",
+  "script_sha256": "8a390a86b637e4e7f10c6bd1b62c07a39bdd6732ad5a83f0da5ac5d49f51ce22",
+  "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
+  "inputs_sha256": {
+    "pred_holdout_chem.csv": "a4bc16d2c196e867b2023eb291a7913fd46a94e5a56e3f7e70b8874299a17423",
+    "metrics.csv": "14c38d8b77df16fcdf0251e28627439150d28c020fe4669aeb371d7f72b70a58"
+  }
+}

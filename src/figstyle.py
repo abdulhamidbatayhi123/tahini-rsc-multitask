@@ -6,11 +6,14 @@ import hashlib
 import json
 from pathlib import Path
 
+import warnings
+
 import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
+warnings.filterwarnings("error", message="Glyph")   # a missing glyph fails the build
 CM = 1 / 2.54
 SINGLE, DOUBLE, MAX_H = 8.3 * CM, 17.1 * CM, 23.3 * CM
 FONT_MIN = 6.0
