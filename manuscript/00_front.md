@@ -2,12 +2,13 @@
 title: "Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on ATR–FTIR spectra"
 ---
 
-<!-- BYLINE TO BE CONFIRMED BY THE USER (authors, order, affiliations, corresponding author). Placeholder from the Foods 15:3639 byline. -->
-Abdulhamid Batayhi,^a^ Muhammed Özgölet,^b^ Hasan Cankurt^b,c^ and Muhammet Arici^b^
+<!-- Byline from the user 2026-11-08 (authors and order); affiliations as printed in Foods 15:3639 (checked live on mdpi.com 2026-11-08).
+     Corresponding author: M. Arici, as in Foods 15:3639 (to confirm; e-mail to add). ORCIDs: A. Batayhi 0009-0007-0374-6755,
+     M. Özgölet 0000-0001-5584-097X, M. Arici 0000-0003-4126-200X; A. Yılmaz has none. -->
+Arzu Yılmaz,^a^ Abdulhamid Batayhi,^b^ Muhammed Özgölet^a^ and Muhammet Arici\*^a^
 
-^a^ Department of Mechatronics Engineering, Faculty of Mechanical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye.
-^b^ Department of Food Engineering, Faculty of Chemical and Metallurgical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye.
-^c^ Department of Nutrition and Dietetics, Faculty of Health Sciences, Biruni University, 34214 Istanbul, Türkiye.
+^a^ Department of Food Engineering, Faculty of Chemical and Metallurgical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye. E-mail: CORRESPONDING-AUTHOR-EMAIL
+^b^ Department of Mechatronics Engineering, Faculty of Mechanical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye.
 
 Electronic supplementary information (ESI) available. See DOI: to be assigned.
 

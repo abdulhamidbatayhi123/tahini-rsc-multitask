@@ -1,0 +1,39 @@
+{
+  "scheme": "random",
+  "regions": "chem",
+  "n_features": 752,
+  "wn_min": 601.749,
+  "wn_max": 3049.247,
+  "folds": [
+    {
+      "fold": "random",
+      "n_train": 1243,
+      "n_test": 311,
+      "samples_test": 54,
+      "samples_shared": 54,
+      "pls_k_reg": 15,
+      "pls_k_cls": 4,
+      "plsr_threshold": 10.084353916221197,
+      "dnn_best_epoch": [
+        38,
+        66,
+        36,
+        44,
+        88
+      ],
+      "dnnr_threshold": [
+        3.6654951509930775,
+        4.004624621585315,
+        2.722114750449663,
+        3.9126439573170506,
+        2.764256984410953
+      ],
+      "cpu_s": 2051.46875
+    }
+  ],
+  "inputs_sha256": {
+    "data": "75b4549a1cc7735dba1fb90936e2f659c17c2ed9fb94cfdb17023b3c927da257",
+    "common.py": "53a0500a96c2a9a56d5466528e63cd9fecf8ae6092030fc1b6e2bdf71ca334d0",
+    "s01_run.py": "37b121d8a5c7b1146031ad9950ae7fc1a9ba0412f384381ab8ebe45086f532a2"
+  }
+}

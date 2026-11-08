@@ -1,6 +1,6 @@
 # Analysis plan (fixed 2026-11-08, BEFORE any grouped result was computed)
 
-Target journal: RSC Advances (Royal Society of Chemistry). Authors: to be supplied by the user.
+Target journal: RSC Advances (Royal Society of Chemistry). Authors (from the user, 2026-11-08): Arzu Yılmaz, Abdulhamid Batayhi, Muhammed Özgölet, Muhammet Arici.
 
 ## Question
 Can one multitask neural network screen tahini (sesame paste) for substitution with sunflower or peanut

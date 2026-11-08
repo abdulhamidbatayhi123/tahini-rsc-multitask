@@ -1,10 +1,11 @@
 ## Author contributions
 
-<!-- CRediT roles TO BE CONFIRMED BY THE AUTHORS once the byline is final. -->
-A. Batayhi: conceptualization, methodology, software, formal analysis, data curation, visualization,
-writing – original draft. M. Özgölet: investigation, resources, writing – review and editing.
-H. Cankurt: conceptualization, investigation, supervision, writing – review and editing. M. Arici:
-supervision, writing – review and editing.
+<!-- CRediT roles as the user assigned them 2026-11-08: conceptualization and methodology shared by all;
+     A. Yılmaz the dataset and the food engineering part; A. Batayhi the AI side and the draft; the two professors supervision. -->
+A. Yılmaz: conceptualization, methodology, investigation, data curation, writing – review and editing.
+A. Batayhi: conceptualization, methodology, software, validation, formal analysis, visualization,
+writing – original draft. M. Özgölet: conceptualization, methodology, supervision, writing – review and
+editing. M. Arici: conceptualization, methodology, supervision, writing – review and editing.
 
 ## Conflicts of interest
 
@@ -21,7 +22,7 @@ PyTorch 2.7.1.
 
 ## Acknowledgements
 
-<!-- Funding: TO BE PROVIDED BY THE AUTHORS (or "This research received no external funding."). -->
-During the preparation of this work the authors used Claude (Anthropic) as a tool to assist with
+<!-- Funding statement as in Foods 15:3639 (no external funding); to confirm with the authors. -->
+This research received no external funding. During the preparation of this work the authors used Claude (Anthropic) as a tool to assist with
 code, literature searching and language editing. The authors designed the study, made every
 scientific decision, checked all output, and take full responsibility for the content of the article.

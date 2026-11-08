@@ -1,0 +1,1 @@
+lolo chem {'fold': np.str_('T4'), 'n_train': 1243, 'n_test': 311, 'samples_test': 11, 'samples_shared': 0, 'pls_k_reg': 11, 'pls_k_cls': 3, 'plsr_threshold': 6.362991237743829, 'dnn_best_epoch': [82, 79, 34, 69, 28], 'dnnr_threshold': [2.895294485965181, 3.3909557103638495, 4.323774352504719, 4.463634871935942, 2.558138422679379], 'cpu_s': 2333.5}
