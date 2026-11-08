@@ -41,6 +41,17 @@
   "verified": false,
   "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org"
  },
+ "fsa2018": {
+  "type": "web",
+  "authors": [
+   "Food Standards Agency"
+  ],
+  "title": "Food Standards Agency, John & Pascalis recalls Four Seasons Sesame Tahini because of undeclared peanuts (Allergy Alert FSA-AA-76-2018)",
+  "url": "https://www.food.gov.uk/news-alerts/alert/fsa-aa-76-2018",
+  "accessed": "November 2026",
+  "verified": false,
+  "note": "cited in Foods 15:3639 ref 6; open the URL live before submission"
+ },
  "batayhi2026": {
   "authors": [
    "A. Batayhi",
