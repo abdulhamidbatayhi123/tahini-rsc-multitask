@@ -26,7 +26,9 @@ retrained on all training samples for the number of epochs chosen by early stopp
 the results before and after A2. The same review found that duplicate draws were merged in the
 sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
 detection by nominal level, results without the pure-adulterant samples and the lot-wise blank of PLS. Table S9 gives an exploratory one-class baseline
-(principal-component T² and Q fitted on authentic training scans only).
+(principal-component T² and Q fitted on authentic training scans only), and Table S10 the regression-route decisions
+under alternative threshold rules (src/s07_robust_threshold.py, which recomputes the cross-validated training
+predictions that set the thresholds and reproduces the stored thresholds to 10⁻¹⁵).
 
 ## S3 Training histories
 

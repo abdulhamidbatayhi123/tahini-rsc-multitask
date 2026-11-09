@@ -1,0 +1,108 @@
+DNN T2 0 thr 3.7019058539477214 313s wall threads 6
+DNN T2 1 thr 2.6601842008246126 308s wall threads 6
+DNN T2 2 thr 3.065296074442526 238s wall threads 6
+DNN T2 3 thr 3.3132644716715416 208s wall threads 6
+DNN T2 4 thr 1.8244903992615176 282s wall threads 6
+DNN T3 0 thr 5.034220503071062 442s wall threads 6
+DNN T3 1 thr 5.164569214994393 266s wall threads 6
+DNN T3 2 thr 4.766643774230365 347s wall threads 6
+DNN T3 3 thr 3.7954219577180055 330s wall threads 6
+DNN T3 4 thr 3.6480781167923135 215s wall threads 6
+DNN T4 0 thr 2.895294485965181 347s wall threads 6
+DNN T4 1 thr 3.3909557103638495 337s wall threads 6
+DNN T4 2 thr 4.323774352504719 276s wall threads 6
+DNN T4 3 thr 4.463634871935942 286s wall threads 6
+DNN T4 4 thr 2.558138422679379 317s wall threads 6
+DNN T5 0 thr 4.741134793083786 364s wall threads 6
+DNN T5 1 thr 3.6993065219402728 259s wall threads 6
+DNN T5 2 thr 4.399921650380398 365s wall threads 6
+DNN T5 3 thr 3.7042010509563523 556s wall threads 6
+DNN T5 4 thr 4.878469574295459 358s wall threads 6
+{
+ "PLS-R_scan_decide_equals_score_gt_stored_thr": true,
+ "PLS-R_score_equals_100_minus_p_tahini_maxabs": 1.5987211554602254e-14,
+ "MT-DNN-R_scan_decide_equals_score_gt_stored_thr": true,
+ "MT-DNN-R_score_equals_100_minus_p_tahini_maxabs": 3.814697279835855e-06,
+ "PLS_k_reg_equal_stored": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4": true,
+  "T5": true
+ },
+ "PLS-R_orig_threshold_recomputed_minus_stored": {
+  "T1_s-1": 0.0,
+  "T2_s-1": 0.0,
+  "T3_s-1": -1.7763568394002505e-15,
+  "T4_s-1": -8.881784197001252e-16,
+  "T5_s-1": -1.7763568394002505e-15
+ },
+ "MT-DNN-R_orig_threshold_recomputed_minus_stored": {
+  "T1_s0": -1.1102230246251565e-16,
+  "T1_s1": 2.220446049250313e-16,
+  "T1_s2": 3.3306690738754696e-16,
+  "T1_s3": 1.6653345369377348e-15,
+  "T1_s4": -8.326672684688674e-16,
+  "T2_s0": 0.0,
+  "T2_s1": 8.881784197001252e-16,
+  "T2_s2": 1.7763568394002505e-15,
+  "T2_s3": -8.881784197001252e-16,
+  "T2_s4": -1.3322676295501878e-15,
+  "T3_s0": 0.0,
+  "T3_s1": 0.0,
+  "T3_s2": 8.881784197001252e-16,
+  "T3_s3": 0.0,
+  "T3_s4": -4.440892098500626e-16,
+  "T4_s0": 0.0,
+  "T4_s1": -4.440892098500626e-16,
+  "T4_s2": 0.0,
+  "T4_s3": -1.7763568394002505e-15,
+  "T4_s4": 4.440892098500626e-16,
+  "T5_s0": 1.7763568394002505e-15,
+  "T5_s1": -4.440892098500626e-16,
+  "T5_s2": 8.881784197001252e-16,
+  "T5_s3": -4.440892098500626e-16,
+  "T5_s4": 0.0
+ },
+ "PLS-R_stored_sample_sens_spec_vs_metrics_csv": {
+  "here": [
+   0.98,
+   0.8
+  ],
+  "metrics_csv": [
+   0.98,
+   0.8
+  ],
+  "extra_json_sens": 0.98,
+  "equal": true
+ },
+ "MT-DNN-R_stored_sample_sens_spec_vs_metrics_csv": {
+  "here": [
+   1.0,
+   0.8
+  ],
+  "metrics_csv": [
+   1.0,
+   0.8
+  ],
+  "extra_json_sens": 1.0,
+  "equal": true
+ },
+ "PLS-R_stored_auth_scan_fp_rate_maxabs_vs_metrics_lot": 3.469446951953614e-17,
+ "MT-DNN-R_stored_auth_scan_fp_rate_maxabs_vs_metrics_lot": 5.637851296924623e-17,
+ "PLS-R_orig_threshold_recomputed_minus_stored_maxabs": 1.7763568394002505e-15,
+ "MT-DNN-R_orig_threshold_recomputed_minus_stored_maxabs": 1.7763568394002505e-15
+}
+       model       rule  n_seeds  sensitivity  sensitivity_min  sensitivity_max  specificity  specificity_min  specificity_max  auth_scan_fp_share_mean
+0      PLS-R     stored        1        0.980             0.98             0.98          0.8              0.8              0.8                 0.202667
+1      PLS-R       orig        1        0.980             0.98             0.98          0.8              0.8              0.8                 0.202667
+2      PLS-R      logit        1        0.300             0.30             0.30          1.0              1.0              1.0                 0.000000
+3      PLS-R        q99        1        0.980             0.98             0.98          0.8              0.8              0.8                 0.202667
+4      PLS-R       q999        1        0.940             0.94             0.94          0.8              0.8              0.8                 0.200009
+5      PLS-R  sample3sd        1        1.000             1.00             1.00          0.8              0.8              0.8                 0.210631
+6   MT-DNN-R     stored        5        1.000             1.00             1.00          0.8              0.8              0.8                 0.200530
+7   MT-DNN-R       orig        5        1.000             1.00             1.00          0.8              0.8              0.8                 0.200530
+8   MT-DNN-R      logit        5        0.704             0.62             0.84          0.8              0.8              0.8                 0.192533
+9   MT-DNN-R        q99        5        1.000             1.00             1.00          0.8              0.8              0.8                 0.200000
+10  MT-DNN-R       q999        5        0.996             0.98             1.00          0.8              0.8              0.8                 0.193600
+11  MT-DNN-R  sample3sd        5        1.000             1.00             1.00          0.8              0.8              0.8                 0.200530

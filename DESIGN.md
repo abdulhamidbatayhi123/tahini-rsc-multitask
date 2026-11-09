@@ -124,3 +124,6 @@ All exploratory; none changes a reported primary result.
   (1709, 717 cm-1); the band assignments in Section 3.5, the abstract, the conclusions and the cover letter were
   withdrawn in favour of "broad absorbance difference".
 - 2026-11-09 data citation: version DOI 10.5281/zenodo.23168994 (v2.2.0 = pinned commit 3004a07) instead of the concept DOI.
+- 2026-11-09 T-TR3 B2 completed (all 5 folds x 5 seeds): stored thresholds reproduced to 1e-15; MT-DNN-R rejects T1 and
+  no other lot with every seed under every alternative rule (T1-fold thresholds 0.30–2.01 %); PLS-R rejects T5 under all
+  but the logit rule (not meaningful for clipped PLS; sensitivity 30 %). ESI Table S10, one sentence each in 2.8 and 3.5.

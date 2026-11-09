@@ -128,5 +128,8 @@ without the two pure-adulterant samples (ESI, Table S8), and a one-class baselin
 analysis of the mean-centred authentic training scans (components chosen to explain 99 % of the
 variance, at most 15), flagging a scan when Hotelling's T² or the residual Q exceeded its limit, set at
 mean + 3 SD of the out-of-fold values obtained by leaving out one training lot at a time (ESI, Table S9).
+At the same stage the regression threshold was recomputed from the same cross-validated authentic training
+predictions with four alternative rules (99th and 99.9th percentiles, mean + 3 SD of the sample means, and mean +
+3 SD on the logit scale) and the lot-out decisions were scored again (ESI, Table S10).
 Code, predictions and the analysis plan with its amendments are in the
 repository (Data availability).
