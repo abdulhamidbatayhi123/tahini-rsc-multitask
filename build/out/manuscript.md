@@ -229,6 +229,9 @@ without the two pure-adulterant samples (ESI, Table S8), and a one-class baselin
 analysis of the mean-centred authentic training scans (components chosen to explain 99 % of the
 variance, at most 15), flagging a scan when Hotelling's T² or the residual Q exceeded its limit, set at
 mean + 3 SD of the out-of-fold values obtained by leaving out one training lot at a time (ESI, Table S9).
+At the same stage the regression threshold was recomputed from the same cross-validated authentic training
+predictions with four alternative rules (99th and 99.9th percentiles, mean + 3 SD of the sample means, and mean +
+3 SD on the logit scale) and the lot-out decisions were scored again (ESI, Table S10).
 Code, predictions and the analysis plan with its amendments are in the
 repository (Data availability).
 
@@ -365,7 +368,13 @@ set on the four training lots, for which the softmax output was close to zero (F
 low because the composition head saturates: authentic training scans give a predicted adulterant
 fraction near 0 % with little spread, so the mean + 3 SD rule places the cut-off within a percentage point of
 zero, and a modest shift of a new lot is enough to cross it. In the other four folds, where the
-training set included T1, the thresholds were 1.8–5.2 %. The same
+training set included T1, the thresholds were 1.8–5.2 %. The rejection of T1 does not depend on this rule:
+with the cut-off set at the 99th or 99.9th percentile of the cross-validated authentic training predictions, at
+mean + 3 SD of their sample means or at mean + 3 SD on the logit scale, the threshold of the T1 fold stayed between
+0.3 and 2.0 %, and T1 was rejected, and no other lot, with all five seeds under every rule (ESI, Table S10). The
+PLS-R rejection of T5 was equally stable, except under the logit rule, which is not meaningful for the clipped PLS
+output and lowered its sensitivity to 30 %.
+The same
 lot also carried the largest quantification error of the network: the tahini fraction of the T1 blends
 was underestimated by 5.3 percentage points on average, against biases of −0.7 to +3.2 for the other lots.
 
