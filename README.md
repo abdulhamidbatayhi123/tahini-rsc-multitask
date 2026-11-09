@@ -52,12 +52,17 @@ pip install -r requirements.txt
 bash get_data.sh            # clones the data repository at the pinned commit into source_repo/
 bash run_all.sh             # all schemes, one at a time (CPU; about 30 min per scheme and region set)
 cd src && python s02_metrics.py 1000 && python s03_lots.py && python s04_consensus.py
-python s05_extra.py && python s06_oneclass.py && python s07_robust_threshold.py && python ../audit/a2_val_split.py
+python s05_extra.py && python s06_oneclass.py && TORCH_THREADS=6 python s07_robust_threshold.py && python ../audit/a2_val_split.py
 python f1_spectra.py && python f2_workflow.py && python f3_detection.py lolo && python f4_quantification.py lolo && python f6_lots.py
 python fS1_histories.py && python f4_quantification.py holdout && python fS3_derivative.py && python fTOC.py
 python t1_table.py && python t2_leakage.py && python esi_tables.py
 cd .. && python build/build.py && python build/build.py esi   # needs pandoc
 ```
+
+`s07_robust_threshold.py` reads the cross-validated training predictions cached in `audit/robust_cv/` and finishes in
+about a minute; delete that folder to recompute them (about 2.5 h on CPU). Bit-exact agreement with the stored thresholds
+needs `TORCH_THREADS=6`, the thread count of the original run; other counts give differences at the level of
+floating-point rounding.
 
 Tested with Python 3.13.5, PyTorch 2.7.1 (CPU), scikit-learn 1.7.0, NumPy 2.2.6, pandas 2.3.0,
 matplotlib 3.10.3 on Windows 11. Network results are means over five seeds; exact values can differ in
