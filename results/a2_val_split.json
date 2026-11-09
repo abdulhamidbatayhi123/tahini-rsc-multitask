@@ -1,0 +1,230 @@
+{
+ "note": "inner early-stopping set of the pre-A2 MT-DNN, lot-out chem, 5 folds x 5 seeds",
+ "count_by_n_authentic_removed": {
+  "0": 5,
+  "1": 15,
+  "2": 5
+ },
+ "fits": [
+  {
+   "fold": "T1",
+   "seed": 0,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T3"
+   ]
+  },
+  {
+   "fold": "T1",
+   "seed": 1,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T4"
+   ]
+  },
+  {
+   "fold": "T1",
+   "seed": 2,
+   "val_samples": 9,
+   "authentic_lots_removed": 2,
+   "removed": [
+    "T2",
+    "T5"
+   ]
+  },
+  {
+   "fold": "T1",
+   "seed": 3,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T5"
+   ]
+  },
+  {
+   "fold": "T1",
+   "seed": 4,
+   "val_samples": 9,
+   "authentic_lots_removed": 0,
+   "removed": []
+  },
+  {
+   "fold": "T2",
+   "seed": 0,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T3"
+   ]
+  },
+  {
+   "fold": "T2",
+   "seed": 1,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T4"
+   ]
+  },
+  {
+   "fold": "T2",
+   "seed": 2,
+   "val_samples": 9,
+   "authentic_lots_removed": 2,
+   "removed": [
+    "T1",
+    "T5"
+   ]
+  },
+  {
+   "fold": "T2",
+   "seed": 3,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T5"
+   ]
+  },
+  {
+   "fold": "T2",
+   "seed": 4,
+   "val_samples": 9,
+   "authentic_lots_removed": 0,
+   "removed": []
+  },
+  {
+   "fold": "T3",
+   "seed": 0,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T2"
+   ]
+  },
+  {
+   "fold": "T3",
+   "seed": 1,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T4"
+   ]
+  },
+  {
+   "fold": "T3",
+   "seed": 2,
+   "val_samples": 9,
+   "authentic_lots_removed": 2,
+   "removed": [
+    "T1",
+    "T5"
+   ]
+  },
+  {
+   "fold": "T3",
+   "seed": 3,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T5"
+   ]
+  },
+  {
+   "fold": "T3",
+   "seed": 4,
+   "val_samples": 9,
+   "authentic_lots_removed": 0,
+   "removed": []
+  },
+  {
+   "fold": "T4",
+   "seed": 0,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T2"
+   ]
+  },
+  {
+   "fold": "T4",
+   "seed": 1,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T3"
+   ]
+  },
+  {
+   "fold": "T4",
+   "seed": 2,
+   "val_samples": 9,
+   "authentic_lots_removed": 2,
+   "removed": [
+    "T1",
+    "T5"
+   ]
+  },
+  {
+   "fold": "T4",
+   "seed": 3,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T5"
+   ]
+  },
+  {
+   "fold": "T4",
+   "seed": 4,
+   "val_samples": 9,
+   "authentic_lots_removed": 0,
+   "removed": []
+  },
+  {
+   "fold": "T5",
+   "seed": 0,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T2"
+   ]
+  },
+  {
+   "fold": "T5",
+   "seed": 1,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T3"
+   ]
+  },
+  {
+   "fold": "T5",
+   "seed": 2,
+   "val_samples": 9,
+   "authentic_lots_removed": 2,
+   "removed": [
+    "T1",
+    "T4"
+   ]
+  },
+  {
+   "fold": "T5",
+   "seed": 3,
+   "val_samples": 9,
+   "authentic_lots_removed": 1,
+   "removed": [
+    "T4"
+   ]
+  },
+  {
+   "fold": "T5",
+   "seed": 4,
+   "val_samples": 9,
+   "authentic_lots_removed": 0,
+   "removed": []
+  }
+ ]
+}

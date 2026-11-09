@@ -36,12 +36,12 @@
    "M. Arici"
   ],
   "repository": "Zenodo",
-  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy",
+  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, version 2.2.0",
   "year": 2026,
-  "doi": "10.5281/zenodo.21446757",
+  "doi": "10.5281/zenodo.23168994",
   "verified": true,
-  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org",
-  "checked": "2026-11-08 zenodo.org/api/records/21446757 (concept DOI; creators Batayhi, Özgölet, Cankurt, Arici)"
+  "note": "version DOI of v2.2.0 = GitHub tag v2.2.0 = commit 3004a07 used by get_data.sh (concept DOI 10.5281/zenodo.21446757, as cited in Foods 15:3639); data file blob 1221ca8 identical in all versions v1.0.0-v2.2.0",
+  "checked": "2026-11-09 zenodo.org/api/records/23168994 (v2.2.0, 2026-10-05; creators Batayhi, Özgölet, Cankurt, Arici) and conceptrecid:21446757 version list"
  },
  "fsa2018": {
   "type": "web",

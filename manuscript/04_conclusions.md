@@ -14,8 +14,8 @@ adulterant.
 
 Second, specificity on new lots, not sensitivity, limits the method. Blends were detected almost
 completely on unseen lots, but every route rejected at least one of five authentic lots. The rejected
-lot depended on the model: the network rejected the lot that departed most from the others, in the
-ester C–O and amide III region near 1180–1280 cm<sup>−1</sup>, and PLS rejected the lot whose departure happened to
+lot depended on the model: the network rejected the lot that departed most from the others, a broad
+absorbance difference near 1180–1280 cm<sup>−1</sup> rather than a shifted band, and PLS rejected the lot whose departure happened to
 lie along its regression vector. Hold-out estimates with a single authentic lot, and scan-level random
 splits even more so, hide this behaviour completely.
 

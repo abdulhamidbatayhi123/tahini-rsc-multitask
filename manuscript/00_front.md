@@ -23,11 +23,11 @@ of 55 physical samples from five tahini lots, the network and the chemometric pa
 regression were validated with whole samples and whole lots withheld. On a conventional grouped
 hold-out, every decision route accepted the authentic test lot. With each lot withheld in turn, blends
 were still detected (sample-level sensitivity 98–100% for the composition-based routes) and the
-composition was predicted with a root-mean-square error of 4.0–4.9% tahini, but every route rejected at
+composition was predicted with a scan-level root-mean-square error of 4.0–4.9% tahini, but every route rejected at
 least one authentic lot (specificity 60–80%). The classification head showed no detectable advantage over a
-cut-off on the predicted composition. The rejected lot differed between model families: lot T1, whose ester C–O
-and amide III region at 1180–1280 cm<sup>−1</sup> departs most from the other lots, for the network, and lot T5,
+cut-off on the predicted composition. The rejected lot differed between model families: lot T1, whose
+spectrum departs most from the other lots, as a broad absorbance difference near 1180–1280 cm<sup>−1</sup>, for the network, and lot T5,
 whose spectral departure lies along the PLS regression vector, for PLS. A post hoc rule flagging a
 sample only when both composition routes agreed accepted all five authentic lots and detected 49 of 50
 blends. Lot-to-lot variation of authentic tahini, not model architecture, limited screening in this set.
-<!-- abstract numbers: Table 1 (results/metrics.csv): lolo sample sensitivity PLS-R 0.98, MT-DNN-R 1.00, MT-DNN 1.00; scan RMSEP 3.96 (MT-DNN), 4.87 (PLS); sample specificity 0.60-0.80 (A2 rerun). Consensus: results/consensus.json. Word count checked by build. -->
+<!-- abstract numbers: Table 1 (results/metrics.csv): lolo sample sensitivity PLS-R 0.98, MT-DNN-R 1.00, MT-DNN 1.00; scan RMSEP 3.95 (MT-DNN; 3.9547), 4.87 (PLS); sample specificity 0.60-0.80 (A2 rerun). Consensus: results/consensus.json. Word count checked by build. -->

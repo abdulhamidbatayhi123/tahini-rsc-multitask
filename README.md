@@ -4,8 +4,11 @@ Code, analysis plan, predictions and manuscript sources for the paper *"Screenin
 and peanut paste on unseen production lots: a multitask neural network and partial least squares on
 ATR–FTIR spectra"* (in preparation for *RSC Advances*).
 
+Archived release: v1.0.0, <https://doi.org/10.5281/zenodo.24087711>. Please cite the paper and this archive
+(see `CITATION.cff`).
+
 The study reuses the tahini ATR–FTIR spectra released with Batayhi et al., *Foods* 2026, **15**, 3639
-(<https://doi.org/10.3390/foods15203639>; data: <https://doi.org/10.5281/zenodo.21446757>). It
+(<https://doi.org/10.3390/foods15203639>; data: <https://doi.org/10.5281/zenodo.23168994>, v2.2.0). It
 compares a multitask neural network (classification head + softmax composition head) with PLS-DA and
 PLS regression under sample-grouped hold-out and leave-one-lot-out validation, and compares two ways of
 reaching the authentic/adulterated decision: the classification output, or a cut-off on the predicted
@@ -33,6 +36,8 @@ A scan-level random split (54 of 55 samples on both sides) hides these false pos
 | `src/s01_run.py` | Runs all models for one validation scheme (`random`, `holdout`, `lolo`) and region set (`chem`, `full`) |
 | `src/s02_metrics.py` | Metrics, cluster-bootstrap intervals, per-lot results, LOD |
 | `src/s03_lots.py`, `src/s04_consensus.py` | Exploratory: lot departure spectra; two-route agreement rule |
+| `src/s05_extra.py`, `src/s06_oneclass.py`, `src/s07_robust_threshold.py` | Review-stage analyses: paired McNemar test, detection by level, one-class PCA baseline, saturation-robust thresholds (ESI Tables S8–S10) |
+| `audit/a2_val_split.py` | Reproduces the inner early-stopping sets removed before amendment A2 (`results/a2_val_split.json`) |
 | `src/f*.py`, `src/t*.py` | Figures (RSC artwork rules asserted in `figstyle.py`) and generated tables |
 | `results/` | Predictions, run information (selected components, thresholds, input hashes), metrics |
 | `figures/` | PDF, 600 dpi TIFF and PNG of every figure, each with a provenance file (script and input hashes) |
@@ -47,9 +52,11 @@ pip install -r requirements.txt
 bash get_data.sh            # clones the data repository at the pinned commit into source_repo/
 bash run_all.sh             # all schemes, one at a time (CPU; about 30 min per scheme and region set)
 cd src && python s02_metrics.py 1000 && python s03_lots.py && python s04_consensus.py
+python s05_extra.py && python s06_oneclass.py && python s07_robust_threshold.py && python ../audit/a2_val_split.py
 python f1_spectra.py && python f2_workflow.py && python f3_detection.py lolo && python f4_quantification.py lolo && python f6_lots.py
-python t1_table.py && python t2_leakage.py
-cd .. && python build/build.py   # needs pandoc
+python fS1_histories.py && python f4_quantification.py holdout && python fS3_derivative.py && python fTOC.py
+python t1_table.py && python t2_leakage.py && python esi_tables.py
+cd .. && python build/build.py && python build/build.py esi   # needs pandoc
 ```
 
 Tested with Python 3.13.5, PyTorch 2.7.1 (CPU), scikit-learn 1.7.0, NumPy 2.2.6, pandas 2.3.0,

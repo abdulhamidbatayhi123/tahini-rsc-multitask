@@ -10,7 +10,7 @@
   ],
   "keywords": ["tahini", "food adulteration", "ATR-FTIR", "multitask learning", "PLS-DA", "leave-one-lot-out validation", "chemometrics"],
   "related_identifiers": [
-    {"identifier": "10.5281/zenodo.21446757", "relation": "requires", "resource_type": "dataset"},
+    {"identifier": "10.5281/zenodo.23168994", "relation": "requires", "resource_type": "dataset"},
     {"identifier": "10.3390/foods15203639", "relation": "references", "resource_type": "publication-article"}
   ]
 }

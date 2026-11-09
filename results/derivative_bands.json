@@ -1,0 +1,1451 @@
+{
+  "description": "ESI Fig. S3 (referee point B4): second-derivative spectra of the five authentic lots.",
+  "method": {
+    "preprocessing": "SNV over full spectrum (common.snv), then Savitzky-Golay 2nd derivative on the full contiguous axis (scipy.signal.savgol_filter, delta = spacing)",
+    "polyorder": 2,
+    "spacing_cm1": 1.9287,
+    "windows_points": {
+      "13": 23.1,
+      "9": 15.4,
+      "17": 30.9
+    },
+    "window_width_note": "width = (points - 1) x spacing, cm-1",
+    "minimum_rule": "local minimum of lot-mean 2nd derivative, value < 0, prominence >= 0.05 x largest |mean| in window over the five lots; parabolic interpolation",
+    "std_diff": "(target lot mean - mean of other four lot means) / mean of five per-lot SDs",
+    "shift_rule": "|target centre - centre of nearest minimum of mean of other four| > 1 channel",
+    "units": "2nd derivative of SNV absorbance, cm^2"
+  },
+  "n_scans": {
+    "T1": 150,
+    "T2": 151,
+    "T3": 151,
+    "T4": 151,
+    "T5": 151
+  },
+  "results": {
+    "sg13": {
+      "a": {
+        "target_lot": "T1",
+        "range_cm1": [
+          1150.0,
+          1300.0
+        ],
+        "prominence_threshold": 0.00038963933402910565,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.57,
+              "value": -0.007792786680582113
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.65,
+              "value": -0.0035237704197782125
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1277.93,
+              "value": -0.000922594927303837
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.59,
+              "value": -0.007674293555630795
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.56,
+              "value": -0.003488338670017851
+            },
+            {
+              "channel_wn": 1276.79,
+              "centre_wn": 1277.73,
+              "value": -0.0009790349217593092
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.57,
+              "value": -0.0075863335027819105
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.56,
+              "value": -0.0034976813392730813
+            },
+            {
+              "channel_wn": 1276.79,
+              "centre_wn": 1277.62,
+              "value": -0.0009557835891122889
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.62,
+              "value": -0.007625256444007594
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.69,
+              "value": -0.00352656648936256
+            },
+            {
+              "channel_wn": 1276.79,
+              "centre_wn": 1277.69,
+              "value": -0.0009461543695339976
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.59,
+              "value": -0.007651512710416296
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.55,
+              "value": -0.003474750123259844
+            },
+            {
+              "channel_wn": 1276.79,
+              "centre_wn": 1277.64,
+              "value": -0.0009670449719130381
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1161.07,
+            "centre_wn": 1161.59,
+            "value": -0.007634349053209149
+          },
+          {
+            "channel_wn": 1238.21,
+            "centre_wn": 1238.59,
+            "value": -0.003496834155478334
+          },
+          {
+            "channel_wn": 1276.79,
+            "centre_wn": 1277.67,
+            "value": -0.0009620044630796584
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1161.07,
+            "centre_wn": 1161.57,
+            "value": -0.007792786680582113,
+            "std_diff_at_target_min": -1.34,
+            "matched_ref_centre_wn": 1161.59,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -1.34,
+            "depth_ratio_target_over_ref": 1.021,
+            "per_scan_centre_wn": {
+              "T1": [
+                1161.57,
+                0.12
+              ],
+              "T2": [
+                1161.59,
+                0.12
+              ],
+              "T3": [
+                1161.57,
+                0.12
+              ],
+              "T4": [
+                1161.62,
+                0.12
+              ],
+              "T5": [
+                1161.59,
+                0.12
+              ]
+            }
+          },
+          {
+            "channel_wn": 1238.21,
+            "centre_wn": 1238.65,
+            "value": -0.0035237704197782125,
+            "std_diff_at_target_min": -0.5,
+            "matched_ref_centre_wn": 1238.59,
+            "shift_cm1": 0.06,
+            "shift_channels": 0.03,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.5,
+            "depth_ratio_target_over_ref": 1.008,
+            "per_scan_centre_wn": {
+              "T1": [
+                1238.65,
+                0.14
+              ],
+              "T2": [
+                1238.56,
+                0.16
+              ],
+              "T3": [
+                1238.56,
+                0.15
+              ],
+              "T4": [
+                1238.69,
+                0.13
+              ],
+              "T5": [
+                1238.55,
+                0.13
+              ]
+            }
+          },
+          {
+            "channel_wn": 1278.72,
+            "centre_wn": 1277.93,
+            "value": -0.000922594927303837,
+            "std_diff_at_target_min": 0.68,
+            "matched_ref_centre_wn": 1277.67,
+            "shift_cm1": 0.26,
+            "shift_channels": 0.13,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 1.28,
+            "depth_ratio_target_over_ref": 0.959,
+            "per_scan_centre_wn": {
+              "T1": [
+                1277.93,
+                0.18
+              ],
+              "T2": [
+                1277.72,
+                0.18
+              ],
+              "T3": [
+                1277.62,
+                0.19
+              ],
+              "T4": [
+                1277.68,
+                0.2
+              ],
+              "T5": [
+                1277.64,
+                0.19
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1263.29,
+          "value": -1.86
+        }
+      },
+      "b": {
+        "target_lot": "T2",
+        "range_cm1": [
+          1680.0,
+          1780.0
+        ],
+        "prominence_threshold": 0.002698087589916137,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.69,
+              "value": -0.05366030436068423
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.68,
+              "value": -0.05346280759095118
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.71,
+              "value": -0.0527182791419423
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.7,
+              "value": -0.05328103966509356
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.7,
+              "value": -0.05396175179832273
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.7,
+            "value": -0.05340534374151071
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.68,
+            "value": -0.05346280759095118,
+            "std_diff_at_target_min": -0.08,
+            "matched_ref_centre_wn": 1743.7,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.08,
+            "depth_ratio_target_over_ref": 1.001,
+            "per_scan_centre_wn": {
+              "T2": [
+                1743.68,
+                0.02
+              ],
+              "T1": [
+                1743.69,
+                0.02
+              ],
+              "T3": [
+                1743.71,
+                0.02
+              ],
+              "T4": [
+                1743.7,
+                0.03
+              ],
+              "T5": [
+                1743.7,
+                0.03
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1712.67,
+          "value": -1.49
+        }
+      },
+      "c": {
+        "target_lot": "T2",
+        "range_cm1": [
+          690.0,
+          740.0
+        ],
+        "prominence_threshold": 0.0003953817036992976,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.41,
+              "value": -0.007907634073985951
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.53,
+              "value": -0.007678456559015984
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.54,
+              "value": -0.007593879211392134
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.47,
+              "value": -0.007740394291121333
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.5,
+              "value": -0.0077360840582117885
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.48,
+            "value": -0.007744497908677801
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.53,
+            "value": -0.007678456559015984,
+            "std_diff_at_target_min": 0.4,
+            "matched_ref_centre_wn": 722.48,
+            "shift_cm1": 0.05,
+            "shift_channels": 0.03,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 0.4,
+            "depth_ratio_target_over_ref": 0.991,
+            "per_scan_centre_wn": {
+              "T2": [
+                722.52,
+                0.14
+              ],
+              "T1": [
+                722.41,
+                0.14
+              ],
+              "T3": [
+                722.54,
+                0.13
+              ],
+              "T4": [
+                722.46,
+                0.13
+              ],
+              "T5": [
+                722.5,
+                0.14
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 734.83,
+          "value": -0.74
+        }
+      },
+      "component_1709": {
+        "T1": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0021852855263046196,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.002122734880947067,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T3": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0024047858887089116,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T4": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.002234851507457788,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T5": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0020799924513297844,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2_std_diff_at_1709": -0.89
+      },
+      "std_diff_at_section35_bands": {
+        "T1@1215": 1.3,
+        "T1@1248": 0.62,
+        "T1@1273": 1.77,
+        "T2@1709": -0.89,
+        "T2@717": 0.44
+      },
+      "lot_departure_600_1800": {
+        "T1": {
+          "rms": 1.1,
+          "max_abs_wn": 669.3,
+          "max_abs_value": -3.63
+        },
+        "T2": {
+          "rms": 0.65,
+          "max_abs_wn": 1116.7,
+          "max_abs_value": 3.33
+        },
+        "T3": {
+          "rms": 0.86,
+          "max_abs_wn": 1624.0,
+          "max_abs_value": -2.5
+        },
+        "T4": {
+          "rms": 0.66,
+          "max_abs_wn": 1116.7,
+          "max_abs_value": -2.74
+        },
+        "T5": {
+          "rms": 0.76,
+          "max_abs_wn": 1622.0,
+          "max_abs_value": 3.48
+        }
+      }
+    },
+    "sg9": {
+      "a": {
+        "target_lot": "T1",
+        "range_cm1": [
+          1150.0,
+          1300.0
+        ],
+        "prominence_threshold": 0.0004630484725830335,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1161.09,
+              "value": -0.00926096945166067
+            },
+            {
+              "channel_wn": 1240.14,
+              "centre_wn": 1239.51,
+              "value": -0.004195825358498811
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1278.99,
+              "value": -0.0016906252226302403
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1160.84,
+              "value": -0.009120685063783624
+            },
+            {
+              "channel_wn": 1240.14,
+              "centre_wn": 1239.43,
+              "value": -0.00412372620726021
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1278.64,
+              "value": -0.0017361208859079625
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1160.87,
+              "value": -0.009016008537169854
+            },
+            {
+              "channel_wn": 1240.14,
+              "centre_wn": 1239.41,
+              "value": -0.00412650290765006
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1278.65,
+              "value": -0.0016904826484309883
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1160.95,
+              "value": -0.009061425050649682
+            },
+            {
+              "channel_wn": 1240.14,
+              "centre_wn": 1239.5,
+              "value": -0.004184208659422315
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1278.65,
+              "value": -0.001691564876343903
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1161.07,
+              "centre_wn": 1160.89,
+              "value": -0.009106841296731713
+            },
+            {
+              "channel_wn": 1240.14,
+              "centre_wn": 1239.42,
+              "value": -0.004104821270868545
+            },
+            {
+              "channel_wn": 1278.72,
+              "centre_wn": 1278.65,
+              "value": -0.0016990177309423912
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1161.07,
+            "centre_wn": 1160.89,
+            "value": -0.009076239987083718
+          },
+          {
+            "channel_wn": 1240.14,
+            "centre_wn": 1239.44,
+            "value": -0.004134814761300283
+          },
+          {
+            "channel_wn": 1278.72,
+            "centre_wn": 1278.65,
+            "value": -0.0017042965354063114
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1161.07,
+            "centre_wn": 1161.09,
+            "value": -0.00926096945166067,
+            "std_diff_at_target_min": -0.91,
+            "matched_ref_centre_wn": 1160.89,
+            "shift_cm1": 0.2,
+            "shift_channels": 0.1,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.91,
+            "depth_ratio_target_over_ref": 1.02,
+            "per_scan_centre_wn": {
+              "T1": [
+                1161.09,
+                0.25
+              ],
+              "T2": [
+                1160.84,
+                0.24
+              ],
+              "T3": [
+                1160.86,
+                0.23
+              ],
+              "T4": [
+                1160.95,
+                0.22
+              ],
+              "T5": [
+                1160.89,
+                0.21
+              ]
+            }
+          },
+          {
+            "channel_wn": 1240.14,
+            "centre_wn": 1239.51,
+            "value": -0.004195825358498811,
+            "std_diff_at_target_min": -0.63,
+            "matched_ref_centre_wn": 1239.44,
+            "shift_cm1": 0.07,
+            "shift_channels": 0.04,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.63,
+            "depth_ratio_target_over_ref": 1.015,
+            "per_scan_centre_wn": {
+              "T1": [
+                1239.51,
+                0.18
+              ],
+              "T2": [
+                1239.42,
+                0.22
+              ],
+              "T3": [
+                1239.41,
+                0.21
+              ],
+              "T4": [
+                1239.5,
+                0.2
+              ],
+              "T5": [
+                1239.41,
+                0.21
+              ]
+            }
+          },
+          {
+            "channel_wn": 1278.72,
+            "centre_wn": 1278.99,
+            "value": -0.0016906252226302403,
+            "std_diff_at_target_min": 0.17,
+            "matched_ref_centre_wn": 1278.65,
+            "shift_cm1": 0.34,
+            "shift_channels": 0.18,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 0.17,
+            "depth_ratio_target_over_ref": 0.992,
+            "per_scan_centre_wn": {
+              "T1": [
+                1278.99,
+                0.17
+              ],
+              "T2": [
+                1278.64,
+                0.16
+              ],
+              "T3": [
+                1278.65,
+                0.16
+              ],
+              "T4": [
+                1278.65,
+                0.17
+              ],
+              "T5": [
+                1278.65,
+                0.17
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1272.93,
+          "value": 2.1
+        }
+      },
+      "b": {
+        "target_lot": "T2",
+        "range_cm1": [
+          1680.0,
+          1780.0
+        ],
+        "prominence_threshold": 0.0034637012400425176,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.78,
+              "value": -0.06857234295616246
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.78,
+              "value": -0.06850313067196699
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.81,
+              "value": -0.0675975863445745
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.81,
+              "value": -0.06831313642295475
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.8,
+              "value": -0.06927402480085035
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.8,
+            "value": -0.06843927263113551
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.78,
+            "value": -0.06850313067196699,
+            "std_diff_at_target_min": -0.07,
+            "matched_ref_centre_wn": 1743.8,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.07,
+            "depth_ratio_target_over_ref": 1.001,
+            "per_scan_centre_wn": {
+              "T2": [
+                1743.78,
+                0.03
+              ],
+              "T1": [
+                1743.78,
+                0.03
+              ],
+              "T3": [
+                1743.81,
+                0.03
+              ],
+              "T4": [
+                1743.81,
+                0.04
+              ],
+              "T5": [
+                1743.8,
+                0.04
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1712.67,
+          "value": -1.23
+        }
+      },
+      "c": {
+        "target_lot": "T2",
+        "range_cm1": [
+          690.0,
+          740.0
+        ],
+        "prominence_threshold": 0.0005489401044480658,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.5,
+              "value": -0.010978802088961315
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.5,
+              "value": -0.010673994499423533
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.5,
+              "value": -0.01052642069127522
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.43,
+              "value": -0.010754525555024971
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.46,
+              "value": -0.010742095838381057
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.47,
+            "value": -0.01075046104341064
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.5,
+            "value": -0.010673994499423533,
+            "std_diff_at_target_min": 0.27,
+            "matched_ref_centre_wn": 722.47,
+            "shift_cm1": 0.03,
+            "shift_channels": 0.02,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 0.27,
+            "depth_ratio_target_over_ref": 0.993,
+            "per_scan_centre_wn": {
+              "T2": [
+                722.49,
+                0.14
+              ],
+              "T1": [
+                722.5,
+                0.13
+              ],
+              "T3": [
+                722.5,
+                0.13
+              ],
+              "T4": [
+                722.43,
+                0.14
+              ],
+              "T5": [
+                722.46,
+                0.13
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 707.83,
+          "value": -0.71
+        }
+      },
+      "component_1709": {
+        "T1": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0020048537347437103,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0018414051369861938,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T3": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0021569601244581273,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T4": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.001920799258651659,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T5": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.001703658629324623,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2_std_diff_at_1709": -0.5
+      },
+      "std_diff_at_section35_bands": {
+        "T1@1215": 1.53,
+        "T1@1248": 0.43,
+        "T1@1273": 2.1,
+        "T2@1709": -0.5,
+        "T2@717": 0.49
+      },
+      "lot_departure_600_1800": {
+        "T1": {
+          "rms": 1.07,
+          "max_abs_wn": 669.3,
+          "max_abs_value": -3.98
+        },
+        "T2": {
+          "rms": 0.51,
+          "max_abs_wn": 1114.8,
+          "max_abs_value": 2.22
+        },
+        "T3": {
+          "rms": 0.68,
+          "max_abs_wn": 669.3,
+          "max_abs_value": 2.24
+        },
+        "T4": {
+          "rms": 0.53,
+          "max_abs_wn": 1041.5,
+          "max_abs_value": -2.13
+        },
+        "T5": {
+          "rms": 0.66,
+          "max_abs_wn": 1622.0,
+          "max_abs_value": 2.93
+        }
+      }
+    },
+    "sg17": {
+      "a": {
+        "target_lot": "T1",
+        "range_cm1": [
+          1150.0,
+          1300.0
+        ],
+        "prominence_threshold": 0.0003184771899545129,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1163.0,
+              "centre_wn": 1162.12,
+              "value": -0.006369543799090258
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1237.88,
+              "value": -0.002874770708525234
+            },
+            {
+              "channel_wn": 1274.86,
+              "centre_wn": 1275.75,
+              "value": -0.0004987861026277373
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1163.0,
+              "centre_wn": 1162.21,
+              "value": -0.0063217591400926585
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1237.88,
+              "value": -0.002848041146361077
+            },
+            {
+              "channel_wn": 1276.79,
+              "centre_wn": 1275.87,
+              "value": -0.0005401728198160545
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1163.0,
+              "centre_wn": 1162.16,
+              "value": -0.00623272461633378
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1237.88,
+              "value": -0.0028616371971373405
+            },
+            {
+              "channel_wn": 1274.86,
+              "centre_wn": 1275.68,
+              "value": -0.0005369191411346407
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1163.0,
+              "centre_wn": 1162.19,
+              "value": -0.006280246884001515
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1238.0,
+              "value": -0.0028853309021708504
+            },
+            {
+              "channel_wn": 1274.86,
+              "centre_wn": 1275.79,
+              "value": -0.0005186019229261985
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1163.0,
+              "centre_wn": 1162.17,
+              "value": -0.006297590970861743
+            },
+            {
+              "channel_wn": 1238.21,
+              "centre_wn": 1237.84,
+              "value": -0.0028372178528330047
+            },
+            {
+              "channel_wn": 1274.86,
+              "centre_wn": 1275.75,
+              "value": -0.0005440567152687224
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1163.0,
+            "centre_wn": 1162.18,
+            "value": -0.006283080402822425
+          },
+          {
+            "channel_wn": 1238.21,
+            "centre_wn": 1237.9,
+            "value": -0.002858056774625568
+          },
+          {
+            "channel_wn": 1274.86,
+            "centre_wn": 1275.77,
+            "value": -0.0005343803670349267
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1163.0,
+            "centre_wn": 1162.12,
+            "value": -0.006369543799090258,
+            "std_diff_at_target_min": -1.03,
+            "matched_ref_centre_wn": 1162.18,
+            "shift_cm1": -0.06,
+            "shift_channels": -0.03,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -1.03,
+            "depth_ratio_target_over_ref": 1.014,
+            "per_scan_centre_wn": {
+              "T1": [
+                1162.12,
+                0.1
+              ],
+              "T2": [
+                1162.21,
+                0.1
+              ],
+              "T3": [
+                1162.16,
+                0.09
+              ],
+              "T4": [
+                1162.18,
+                0.1
+              ],
+              "T5": [
+                1162.17,
+                0.1
+              ]
+            }
+          },
+          {
+            "channel_wn": 1238.21,
+            "centre_wn": 1237.88,
+            "value": -0.002874770708525234,
+            "std_diff_at_target_min": -0.51,
+            "matched_ref_centre_wn": 1237.9,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.51,
+            "depth_ratio_target_over_ref": 1.006,
+            "per_scan_centre_wn": {
+              "T1": [
+                1237.88,
+                0.09
+              ],
+              "T2": [
+                1237.88,
+                0.11
+              ],
+              "T3": [
+                1237.88,
+                0.11
+              ],
+              "T4": [
+                1238.0,
+                0.09
+              ],
+              "T5": [
+                1237.84,
+                0.1
+              ]
+            }
+          },
+          {
+            "channel_wn": 1274.86,
+            "centre_wn": 1275.75,
+            "value": -0.0004987861026277373,
+            "std_diff_at_target_min": 1.21,
+            "matched_ref_centre_wn": 1275.77,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 1.21,
+            "depth_ratio_target_over_ref": 0.933,
+            "per_scan_centre_wn": {
+              "T1": [
+                1275.75,
+                0.19
+              ],
+              "T2": [
+                1275.87,
+                0.19
+              ],
+              "T3": [
+                1275.68,
+                0.2
+              ],
+              "T4": [
+                1275.8,
+                0.19
+              ],
+              "T5": [
+                1275.75,
+                0.19
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1193.86,
+          "value": 1.82
+        }
+      },
+      "b": {
+        "target_lot": "T2",
+        "range_cm1": [
+          1680.0,
+          1780.0
+        ],
+        "prominence_threshold": 0.001979840457424633,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.91,
+              "value": -0.039514784993983615
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.91,
+              "value": -0.039289192160956304
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.94,
+              "value": -0.038729075184280475
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.93,
+              "value": -0.03913717833174539
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 1743.53,
+              "centre_wn": 1743.93,
+              "value": -0.03959680914849266
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.93,
+            "value": -0.039244461914625536
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 1743.53,
+            "centre_wn": 1743.91,
+            "value": -0.039289192160956304,
+            "std_diff_at_target_min": -0.09,
+            "matched_ref_centre_wn": 1743.93,
+            "shift_cm1": -0.02,
+            "shift_channels": -0.01,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": -0.09,
+            "depth_ratio_target_over_ref": 1.001,
+            "per_scan_centre_wn": {
+              "T2": [
+                1743.91,
+                0.02
+              ],
+              "T1": [
+                1743.91,
+                0.02
+              ],
+              "T3": [
+                1743.94,
+                0.02
+              ],
+              "T4": [
+                1743.93,
+                0.03
+              ],
+              "T5": [
+                1743.93,
+                0.02
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 1753.17,
+          "value": 1.73
+        }
+      },
+      "c": {
+        "target_lot": "T2",
+        "range_cm1": [
+          690.0,
+          740.0
+        ],
+        "prominence_threshold": 0.00029394690333339296,
+        "minima_per_lot": {
+          "T1": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.58,
+              "value": -0.005878938066667859
+            }
+          ],
+          "T2": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.73,
+              "value": -0.005730877117508615
+            }
+          ],
+          "T3": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.74,
+              "value": -0.005665226573441724
+            }
+          ],
+          "T4": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.7,
+              "value": -0.005766159280002454
+            }
+          ],
+          "T5": [
+            {
+              "channel_wn": 723.26,
+              "centre_wn": 722.74,
+              "value": -0.00577087780052987
+            }
+          ]
+        },
+        "minima_mean_of_other_four": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.69,
+            "value": -0.005770300430160477
+          }
+        ],
+        "target_minima": [
+          {
+            "channel_wn": 723.26,
+            "centre_wn": 722.73,
+            "value": -0.005730877117508615,
+            "std_diff_at_target_min": 0.35,
+            "matched_ref_centre_wn": 722.69,
+            "shift_cm1": 0.04,
+            "shift_channels": 0.02,
+            "shift_gt_1_channel": false,
+            "std_diff_at_ref_min": 0.35,
+            "depth_ratio_target_over_ref": 0.993,
+            "per_scan_centre_wn": {
+              "T2": [
+                722.73,
+                0.12
+              ],
+              "T1": [
+                722.58,
+                0.12
+              ],
+              "T3": [
+                722.74,
+                0.13
+              ],
+              "T4": [
+                722.7,
+                0.11
+              ],
+              "T5": [
+                722.74,
+                0.12
+              ]
+            }
+          }
+        ],
+        "max_abs_std_diff_in_window": {
+          "wn": 734.83,
+          "value": -0.79
+        }
+      },
+      "component_1709": {
+        "T1": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0023814021101795074,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.002347700693599489,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T3": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0025710275815501865,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T4": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0024500334960335995,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T5": {
+          "mean_has_minimum": false,
+          "mean_minima_wn": [],
+          "value_at_1709": 0.0023503409590322384,
+          "fraction_of_scans_with_minimum": 0.0
+        },
+        "T2_std_diff_at_1709": -1.16
+      },
+      "std_diff_at_section35_bands": {
+        "T1@1215": 0.96,
+        "T1@1248": 0.62,
+        "T1@1273": 1.06,
+        "T2@1709": -1.16,
+        "T2@717": 0.35
+      },
+      "lot_departure_600_1800": {
+        "T1": {
+          "rms": 1.11,
+          "max_abs_wn": 667.3,
+          "max_abs_value": -3.45
+        },
+        "T2": {
+          "rms": 0.79,
+          "max_abs_wn": 1116.7,
+          "max_abs_value": 3.79
+        },
+        "T3": {
+          "rms": 1.02,
+          "max_abs_wn": 1622.0,
+          "max_abs_value": -2.73
+        },
+        "T4": {
+          "rms": 0.75,
+          "max_abs_wn": 1116.7,
+          "max_abs_value": -3.08
+        },
+        "T5": {
+          "rms": 0.81,
+          "max_abs_wn": 1620.1,
+          "max_abs_value": 3.88
+        }
+      }
+    }
+  },
+  "dataset_metadata": {
+    "per_lot_acquisition_dates": "none in data file or README",
+    "per_lot_temperatures": "none in data file or README",
+    "what_exists": "README: Bruker Tensor 27 ATR, 4 cm-1, 16 scans, Istanbul suppliers; xlsx docProps only file created 2025-12-08 / modified 2026-03-18 (file-level, not per lot); columns are isim, label and the three fractions only"
+  }
+}

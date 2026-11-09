@@ -54,12 +54,12 @@ pred = pred[pred.tag == 1]
 for m, col, mk, ls in ROUTES:
     d = pred[pred.model == m].groupby(["seed", "level"]).decide.mean().groupby("level").mean()
     r = met.loc[m]
-    lab = f"{m} ({r['sensitivity']:.3f}; {r['sensitivity_lo']:.3f}–{r['sensitivity_hi']:.3f})"
-    ax.plot(d.index, d.values, color=col, ls=ls, marker=mk, mfc=col if "-R" not in m else "white",
+    lab = f"{m} ({100 * r['sensitivity']:.1f} %; {100 * r['sensitivity_lo']:.1f}–{100 * r['sensitivity_hi']:.1f})"
+    ax.plot(d.index, 100 * d.values, color=col, ls=ls, marker=mk, mfc=col if "-R" not in m else "white",
             label=lab, ms=2.8)
 ax.set_xlabel("Nominal adulterant fraction (%)")
-ax.set_ylabel("Blend scans flagged")
-ax.set_ylim(-0.03, 1.05)
+ax.set_ylabel("Blend scans flagged (%)")
+ax.set_ylim(-3, 105)
 ax.set_xlim(0, 102)
 ax.legend(loc="lower right", title="Route (sensitivity; 95 % CI)", title_fontsize=6.5)
 panel(ax, "b", x=-0.09)

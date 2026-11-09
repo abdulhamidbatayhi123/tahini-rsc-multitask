@@ -1,4 +1,4 @@
-<!-- DRAFT. Numbers to be finalised after the A2 rerun; corresponding author M. Özgölet (user, 2026-11-09). -->
+<!-- Corresponding author M. Özgölet (user, 2026-11-09). Numbers checked against the A2 result files 2026-11-09. -->
 
 Dear Editor,
 
@@ -19,8 +19,9 @@ The main findings are:
    A random split of the same spectra hides this entirely.
 2. A classification head trained jointly with the composition head brought no gain over a cut-off on
    the predicted composition, which also gives the identity and amount of the adulterant.
-3. The rejected lot differs between model families, and we trace it to specific bands: the network
-   rejects the lot that departs most from the others in the ester C–O and amide III region, and PLS
+3. The rejected lot differs between model families, and we trace it to where the spectra differ: the
+   network rejects the lot that departs most from the others (a broad absorbance difference near
+   1180–1280 cm⁻¹, confirmed by second-derivative spectra to involve no shifted band), and PLS
    rejects the lot whose spectral departure lies along its regression vector. In an exploratory
    analysis, requiring both models to agree removed the false positives.
 
@@ -30,11 +31,12 @@ on them. The present manuscript reuses those data, that study's grouped hold-out
 three-fraction output and its detection-limit convention, and states this in the Introduction and
 Experimental section. New are the multitask network with a classification head, the comparison of
 the two decision routes for both model families under leave-one-lot-out validation, the threshold rule
-set on authentic training samples, and the band-level analysis of why authentic lots are rejected. No
+set on authentic training samples, and the spectral analysis of why authentic lots are rejected. No
 part of the present results has been published or submitted elsewhere.
 
 All code, the analysis plan with its dated amendments, and every prediction from which the reported
-numbers are computed are openly available (https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask).
+numbers are computed are openly available (https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask;
+archived release https://doi.org/10.5281/zenodo.24087711).
 Analyses added after the results were seen are labelled exploratory in the manuscript.
 
 We believe the work fits the analytical and food chemistry scope of *RSC Advances*, and that its

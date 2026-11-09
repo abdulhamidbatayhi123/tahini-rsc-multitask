@@ -104,6 +104,10 @@ All exploratory; none changes a reported primary result.
   LOD with each lot left out of the blank.
 - One-class baseline (`src/s06_oneclass.py`): PCA T²/Q fitted on authentic training scans only, limits = mean + 3 SD of
   out-of-fold statistics (leave-one-training-lot-out), the same rule as the regression routes.
+- Second review round (cs T-TR3, 2026-11-09): second-derivative spectra of the authentic lots (`src/fS3_derivative.py` ->
+  `results/derivative_bands.json`, ESI Fig. S3); thresholds robust to output saturation, recomputed per fold
+  (`src/s07_robust_threshold.py` -> `results/robust_threshold.json`, ESI Table S10); reproduction of the pre-A2
+  early-stopping sets (`audit/a2_val_split.py` -> `results/a2_val_split.json`).
 
 ## Corrections ledger
 - 2026-11-08 A2: MT-DNN retrained on all training samples (early-stopping samples had been excluded from training).
@@ -111,3 +115,12 @@ All exploratory; none changes a reported primary result.
 - 2026-11-09 text: PLS-DA misses at 32/36 % ("most" -> "about a third"); Foods LOD range attribution (pooled
   out-of-fold, not nested lot-out); T2 largest departure is 717 cm-1, not 1709; "about twice" -> "two and a half times";
   LOD convention cited to ICH Q2(R2), not Allegrini & Olivieri; Kačuráková & Wilson author list.
+- 2026-11-09 T-TR3: lot-out MT-DNN scan RMSEP 3.96 -> 3.95 (file 3.9547; three places); "at least 99 %" -> "at least
+  98.7 %"; ESI Table S3 regenerated from the unrounded lot_departure.csv (T2 1709 +4.05, not +4.1); abstract RMSE marked
+  scan level; full-range sentence completed (PLS-R flags 29 % of T1 scans, MT-DNN T1 RMSEP 9.76 %); ESI tables in
+  numerical order; Fig. 3 in percent; J. Am. Oil Chem. Soc. abbreviation; McNemar power statement (maximum
+  p = 0.0625 with five authentic samples); one-class component cap and T1 margin stated; class balance stated.
+- 2026-11-09 T-TR3 B4: second-derivative spectra show no band shift or extra component for T1 (1180–1280 cm-1) or T2
+  (1709, 717 cm-1); the band assignments in Section 3.5, the abstract, the conclusions and the cover letter were
+  withdrawn in favour of "broad absorbance difference".
+- 2026-11-09 data citation: version DOI 10.5281/zenodo.23168994 (v2.2.0 = pinned commit 3004a07) instead of the concept DOI.

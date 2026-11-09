@@ -72,7 +72,10 @@ groups are physical samples, so an authentic training lot is withheld in it whil
 and the threshold is then applied to the model refitted on the whole training set. For sample-level
 decisions, the scans of one physical sample were averaged (the predicted adulterant fraction for the
 regression routes, the logit of the MT-DNN class head and the difference of the two PLS-DA responses
-for the class routes) and the mean was compared with the same threshold, or with zero.
+for the class routes) and the mean was compared with the same threshold, or with zero. At scan level the
+two classes were nearly balanced (754 authentic and 800 blend spectra), because each authentic lot was
+scanned about ten times as often as each blend, so the 0.5 cut-off of the sigmoid head was kept; at
+sample level a lot-out training set held 4 authentic and 40 blend samples.
 
 ### 2.6 Validation
 
@@ -114,7 +117,9 @@ fold.
 Two analyses were added after the leave-one-lot-out results had been seen and are reported as
 exploratory. For each authentic lot, the mean SNV spectrum of the lot minus the mean of the other four
 lot means was divided by the within-lot SD (the mean of the five per-lot SDs), to locate the bands in which the lot departs from
-the others, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
+the others; the same difference was computed on Savitzky–Golay second-derivative spectra (second-order
+polynomial, windows of 9, 13 and 17 points) to separate shifted or additional bands from broad changes
+in absorbance, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
 model that had withheld that lot, to estimate how far the departure alone moves the PLS prediction. A
 sample-level agreement rule, which flags a sample only when both regression routes (PLS-R and MT-DNN-R)
 flag it, was also evaluated. At a later internal review stage we added an exact McNemar test of the

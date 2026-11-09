@@ -20,7 +20,8 @@ the first epochs, so the composition loss was weighted by 10, label smoothing (0
 (10<sup>−4</sup>) and a minimum of 20 epochs were added, and the MT-DNN regression route was added to the
 comparison. Amendment A2 was made after the first lot-out results, when an independent review of the
 code showed that the network never trained on its early-stopping samples, which in lot-out validation
-removed one or two of the four training authentic lots from training in most fits. The network is now
+removed one (15 of the 25 fold–seed fits) or two (5 fits) of the four authentic training lots from training
+(results/a2_val_split.json, audit/a2_val_split.py). The network is now
 retrained on all training samples for the number of epochs chosen by early stopping. Table S6 compares
 the results before and after A2. The same review found that duplicate draws were merged in the
 sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
@@ -34,5 +35,9 @@ detection by nominal level, results without the pure-adulterant samples and the 
 ## S4 Hold-out quantification
 
 ![Fig. S2 Quantification on the grouped hold-out test set (17 samples, one authentic lot): predicted against nominal tahini fraction for (a) PLS regression and (b) the MT-DNN composition head. Points are sample means and bars ±1 SD over scans.](figures/fig4_quantification_holdout.png)
+
+## S4b Second-derivative spectra of the authentic lots
+
+![Fig. S3 Second-derivative spectra (Savitzky–Golay, 13 points = 23 cm<sup>−1</sup>, second-order polynomial, of the SNV spectra) of the five authentic lots, lot means with ±1 SD bands: (a) 1150–1300 cm<sup>−1</sup>, lot T1 against the other lots; (b) 1680–1780 cm<sup>−1</sup> and (c) 690–740 cm<sup>−1</sup>, lot T2 against the other lots. Dotted lines mark the band minima of the other four lots; the shaded band in (b) is 1700–1718 cm<sup>−1</sup>, where free fatty acids absorb. Band positions agree within 0.3 cm<sup>−1</sup> in all lots, and no separate component is resolved near 1215, 1248, 1709 or 717 cm<sup>−1</sup>; windows of 9 and 17 points give the same result (results/derivative_bands.json).](figures/figS3_derivative.png)
 
 ## S5 Supplementary tables

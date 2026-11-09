@@ -3,11 +3,11 @@
   "width_cm": 17.1,
   "height_cm": 6.2,
   "script": "f3_detection.py",
-  "script_sha256": "462fcaebacaedfc189394ebda3b4fb5f738ca6f31c1808132f780c696aae76c8",
+  "script_sha256": "88166d80e1146b120082cb8e368bd79df8a6f675acd7e8e0d22ba8e351b73d6a",
   "figstyle_sha256": "cefdb5c0b054924e08c6dea253582aa788a6e931b8b33ac183afbb08c6a4120e",
   "inputs_sha256": {
     "pred_lolo_chem.csv": "63a5beffe9959122d250cc63b305b23db08f1b89a61e82247560239248aaa704",
-    "metrics.csv": "6ca876d8c1c598cd55b469fa2019e70eddcce607049ec770592288780ef48cbe",
-    "metrics_lot.csv": "a7a014adf47bdfa68f51977daad821e303dda4e1368f071f842c505ee1bd7cdd"
+    "metrics.csv": "cedcd71fc8ba3396eae3b51a6ba436f5adcdb2d5ab71cce6d821a97cc6a0e390",
+    "metrics_lot.csv": "d59740af2e410e553bf655fbf2a3c92bcdbb54d4fdc637fbe77ec829ae47e2fa"
   }
 }

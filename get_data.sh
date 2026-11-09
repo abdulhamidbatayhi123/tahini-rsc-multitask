@@ -1,6 +1,6 @@
 #!/bin/bash
 # Fetch the tahini ATR-FTIR data (CC BY 4.0) released with Batayhi et al., Foods 2026, 15, 3639,
-# at the commit used for this study. Archived copy: https://doi.org/10.5281/zenodo.21446757
+# at the commit used for this study. Archived copy (v2.2.0 = this commit): https://doi.org/10.5281/zenodo.23168994
 set -e
 cd "$(dirname "$0")"
 [ -d source_repo ] || git clone https://github.com/abdulhamidbatayhi123/kanfood-tahini-mango- source_repo

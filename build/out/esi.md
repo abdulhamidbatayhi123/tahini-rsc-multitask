@@ -20,7 +20,8 @@ the first epochs, so the composition loss was weighted by 10, label smoothing (0
 (10<sup>−4</sup>) and a minimum of 20 epochs were added, and the MT-DNN regression route was added to the
 comparison. Amendment A2 was made after the first lot-out results, when an independent review of the
 code showed that the network never trained on its early-stopping samples, which in lot-out validation
-removed one or two of the four training authentic lots from training in most fits. The network is now
+removed one (15 of the 25 fold–seed fits) or two (5 fits) of the four authentic training lots from training
+(results/a2_val_split.json, audit/a2_val_split.py). The network is now
 retrained on all training samples for the number of epochs chosen by early stopping. Table S6 compares
 the results before and after A2. The same review found that duplicate draws were merged in the
 sample-level bootstrap; this was corrected for all reported intervals. Table S8 collects analyses added at the review stage: a paired test of the two decision routes,
@@ -34,6 +35,10 @@ detection by nominal level, results without the pure-adulterant samples and the 
 ## S4 Hold-out quantification
 
 ![Fig. S2 Quantification on the grouped hold-out test set (17 samples, one authentic lot): predicted against nominal tahini fraction for (a) PLS regression and (b) the MT-DNN composition head. Points are sample means and bars ±1 SD over scans.](figures/fig4_quantification_holdout.png)
+
+## S4b Second-derivative spectra of the authentic lots
+
+![Fig. S3 Second-derivative spectra (Savitzky–Golay, 13 points = 23 cm<sup>−1</sup>, second-order polynomial, of the SNV spectra) of the five authentic lots, lot means with ±1 SD bands: (a) 1150–1300 cm<sup>−1</sup>, lot T1 against the other lots; (b) 1680–1780 cm<sup>−1</sup> and (c) 690–740 cm<sup>−1</sup>, lot T2 against the other lots. Dotted lines mark the band minima of the other four lots; the shaded band in (b) is 1700–1718 cm<sup>−1</sup>, where free fatty acids absorb. Band positions agree within 0.3 cm<sup>−1</sup> in all lots, and no separate component is resolved near 1215, 1248, 1709 or 717 cm<sup>−1</sup>; windows of 9 and 17 points give the same result (results/derivative_bands.json).](figures/figS3_derivative.png)
 
 ## S5 Supplementary tables
 
@@ -81,11 +86,11 @@ Source: results/metrics_lot.csv. R² within one lot is computed over that lot's 
 
 | Lot | RMS departure (pooled SD) | Largest departures, cm⁻¹ (SD units) | Projected PLS adulterant shift (points) | Observed PLS-R mean (% adulterant) | Observed MT-DNN mean (% adulterant) |
 |---|---|---|---|---|---|
-| T1 | 1.61 | 1215 (-8.3); 1273 (-5.5); 1248 (-4.9); 733 (-3.5); 1190 (-2.3); 1362 (-2.1) | +3.0 | 3.58 | 2.92 |
-| T2 | 1.11 | 717 (+4.2); 1709 (+4.0); 743 (+2.3); 1117 (-2.2); 781 (+2.1); 3015 (+2.0) | +0.8 | 3.82 | 0.41 |
-| T3 | 1.36 | 1620 (+2.3); 1711 (-2.3); 1574 (+2.2); 1670 (+2.2); 1645 (+2.1); 1317 (+2.0) | +1.5 | 3.98 | 0.08 |
-| T4 | 1.31 | 1246 (+5.4); 1217 (+3.7); 717 (-3.7); 1273 (+3.0); 1134 (-2.4); 1352 (+2.4) | -12.6 | 2.33 | 0.02 |
-| T5 | 1.26 | 1213 (+4.1); 908 (+3.0); 1134 (+2.7); 1452 (-2.7); 883 (+2.5); 1703 (-2.5) | +8.9 | 10.34 | 0.12 |
+| T1 | 1.61 | 1215 (-8.35); 1273 (-5.48); 1248 (-4.90); 733 (-3.50); 1190 (-2.34); 1362 (-2.07) | +3.0 | 3.58 | 2.92 |
+| T2 | 1.11 | 717 (+4.25); 1709 (+4.05); 743 (+2.31); 1117 (-2.17); 781 (+2.06); 3015 (+2.02) | +0.8 | 3.82 | 0.41 |
+| T3 | 1.36 | 1620 (+2.28); 1711 (-2.26); 1574 (+2.22); 1670 (+2.17); 1645 (+2.14); 1317 (+2.05) | +1.5 | 3.98 | 0.08 |
+| T4 | 1.31 | 1246 (+5.40); 1217 (+3.71); 717 (-3.70); 1273 (+2.98); 1134 (-2.39); 1352 (+2.36) | -12.6 | 2.33 | 0.02 |
+| T5 | 1.26 | 1213 (+4.10); 908 (+3.01); 1134 (+2.69); 1452 (-2.66); 883 (+2.52); 1703 (-2.51) | +8.9 | 10.34 | 0.12 |
 
 Source: results/lot_departure.json (src/s03_lots.py). The projected shift is the unscaled departure multiplied by the sunflower and peanut PLS2 coefficients of the model that withheld the lot, before clipping; observed values are the mean predicted adulterant fraction of the lot's authentic scans.
 
@@ -135,6 +140,25 @@ Source: results/consensus.json (src/s04_consensus.py).
 
 Source: results/v1_A1/metrics.csv (before) and results/metrics.csv (after).
 
+**Table S7 Sensitivity analysis: chemically informative regions (752 channels) / full 600–4000 cm⁻¹ range (scan level).**
+
+| Validation | Route | Sensitivity (%) | Specificity (%) | RMSEP (% tahini) |
+|---|---|---|---|---|
+| holdout | PLS-DA | 90.3 / 91.8 | 100.0 / 100.0 | 1.93 / 2.02 |
+| holdout | PLS-R | 100.0 / 100.0 | 100.0 / 100.0 | 1.93 / 2.02 |
+| holdout | MT-DNN | 100.0 / 100.0 | 100.0 / 100.0 | 3.95 / 4.04 |
+| holdout | MT-DNN-R | 100.0 / 99.8 | 100.0 / 100.0 | 3.95 / 4.04 |
+| lolo | PLS-DA | 88.5 / 92.1 | 69.6 / 79.4 | 4.87 / 5.32 |
+| lolo | PLS-R | 97.4 / 99.5 | 79.7 / 74.3 | 4.87 / 5.32 |
+| lolo | MT-DNN | 100.0 / 100.0 | 79.9 / 80.1 | 3.95 / 5.73 |
+| lolo | MT-DNN-R | 100.0 / 97.2 | 80.1 / 79.9 | 3.95 / 5.73 |
+| random | PLS-DA | 95.0 / 91.9 | 99.3 / 100.0 | 1.79 / 1.97 |
+| random | PLS-R | 95.0 / 95.0 | 100.0 / 100.0 | 1.79 / 1.97 |
+| random | MT-DNN | 99.9 / 99.4 | 100.0 / 100.0 | 2.75 / 2.73 |
+| random | MT-DNN-R | 97.8 / 97.5 | 100.0 / 100.0 | 2.75 / 2.73 |
+
+Source: results/metrics.csv (regions chem and full).
+
 **Table S8 Supplementary analyses (leave-one-lot-out, chemically informative regions; added at review stage).**
 
 | Analysis | Seed | Result |
@@ -178,24 +202,5 @@ Source: results/extra.json (src/s05_extra.py). Each nominal level occurs in one 
 | main, combined, sd3 | 78.2 | 91.5 | 78 | 100 | 8, 8, 12, 12, 16, 20, 28, 32, 36, 48, 52 | 43 / 0 / 0 / 0 / 0 |
 
 Source: results/oneclass.json. sd3: mean + 3 SD of out-of-fold statistics (leave-one-training-lot-out), the rule used for the regression routes; p99: 99th percentile; combined: T²/T²₀ + Q/Q₀. The 99 % explained-variance rule reached the cap of 15 components in every fold.
-
-**Table S7 Sensitivity analysis: chemically informative regions (752 channels) / full 600–4000 cm⁻¹ range (scan level).**
-
-| Validation | Route | Sensitivity (%) | Specificity (%) | RMSEP (% tahini) |
-|---|---|---|---|---|
-| holdout | PLS-DA | 90.3 / 91.8 | 100.0 / 100.0 | 1.93 / 2.02 |
-| holdout | PLS-R | 100.0 / 100.0 | 100.0 / 100.0 | 1.93 / 2.02 |
-| holdout | MT-DNN | 100.0 / 100.0 | 100.0 / 100.0 | 3.95 / 4.04 |
-| holdout | MT-DNN-R | 100.0 / 99.8 | 100.0 / 100.0 | 3.95 / 4.04 |
-| lolo | PLS-DA | 88.5 / 92.1 | 69.6 / 79.4 | 4.87 / 5.32 |
-| lolo | PLS-R | 97.4 / 99.5 | 79.7 / 74.3 | 4.87 / 5.32 |
-| lolo | MT-DNN | 100.0 / 100.0 | 79.9 / 80.1 | 3.95 / 5.73 |
-| lolo | MT-DNN-R | 100.0 / 97.2 | 80.1 / 79.9 | 3.95 / 5.73 |
-| random | PLS-DA | 95.0 / 91.9 | 99.3 / 100.0 | 1.79 / 1.97 |
-| random | PLS-R | 95.0 / 95.0 | 100.0 / 100.0 | 1.79 / 1.97 |
-| random | MT-DNN | 99.9 / 99.4 | 100.0 / 100.0 | 2.75 / 2.73 |
-| random | MT-DNN-R | 97.8 / 97.5 | 100.0 / 100.0 | 2.75 / 2.73 |
-
-Source: results/metrics.csv (regions chem and full).
 
 
