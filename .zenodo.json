@@ -1,0 +1,16 @@
+{
+  "title": "tahini-rsc-multitask: code, analysis plan and predictions for screening tahini for sunflower and peanut paste on unseen production lots (ATR-FTIR, multitask neural network and PLS)",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Yılmaz, Arzu", "affiliation": "Department of Food Engineering, Yildiz Technical University"},
+    {"name": "Batayhi, Abdulhamid", "affiliation": "Department of Mechatronics Engineering, Yildiz Technical University", "orcid": "0009-0007-0374-6755"},
+    {"name": "Özgölet, Muhammed", "affiliation": "Department of Food Engineering, Yildiz Technical University", "orcid": "0000-0001-5584-097X"},
+    {"name": "Arici, Muhammet", "affiliation": "Department of Food Engineering, Yildiz Technical University", "orcid": "0000-0003-4126-200X"}
+  ],
+  "keywords": ["tahini", "food adulteration", "ATR-FTIR", "multitask learning", "PLS-DA", "leave-one-lot-out validation", "chemometrics"],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.21446757", "relation": "requires", "resource_type": "dataset"},
+    {"identifier": "10.3390/foods15203639", "relation": "references", "resource_type": "publication-article"}
+  ]
+}

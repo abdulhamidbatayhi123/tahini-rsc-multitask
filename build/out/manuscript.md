@@ -367,7 +367,9 @@ acids,^30^ which suggests more hydrolysis of its triglycerides; its largest depa
 at 717 cm<sup>−1</sup> (+4.25 SDs), in the CH<sub>2</sub> rocking region whose shape follows the physical state of the fat,
 so part of the difference between lots may be physical (temperature, crystallinity) rather than chemical; this did not cause false positives for the regression
 routes but may explain why PLS-DA rejected half of its scans. These band assignments are offered as
-interpretation of an exploratory analysis, not as proof of cause.
+interpretation of an exploratory analysis, not as proof of cause: no further chemical analysis of the
+lots (free fatty acids, oil, protein or moisture content) was possible, and testing them requires
+reference measurements on new lots.
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
 rejected when its spectral difference happens to align with the regression vector, whatever the size of

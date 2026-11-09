@@ -22,7 +22,7 @@ PyTorch 2.7.1.
 
 ## Acknowledgements
 
-<!-- Funding statement as in Foods 15:3639 (no external funding); to confirm with the authors. -->
+<!-- Funding: no external funding (confirmed by the user 2026-11-09). -->
 This research received no external funding. During the preparation of this work the authors used Claude (Anthropic) as a tool to assist with
 code, literature searching and language editing. The authors designed the study, made every
 scientific decision, checked all output, and take full responsibility for the content of the article.
