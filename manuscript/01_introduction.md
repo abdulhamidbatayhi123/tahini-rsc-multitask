@@ -16,8 +16,10 @@ Mid-infrared spectroscopy with attenuated total reflectance (ATR–FTIR) fits th
 sample preparation, takes about a minute per spectrum, and records the bands of the lipids, proteins and
 carbohydrates that make up an oilseed paste.[@guillen1997;@barth2007] Combined with chemometrics,
 infrared spectroscopy has been used to authenticate edible oils,[@rohman2010;@ozulku2017;@ozen2024] to
-follow lipid oxidation in a sunflower kernel paste[@muresan2016] and, more recently, to authenticate tahini.
-Kucukcelebioglu et al. built one-class models for tahini spiked with oils,[@kucukcelebioglu2026] and we
+follow lipid oxidation in a sunflower kernel paste[@muresan2016] and, more recently, to authenticate tahini:
+Kucukcelebioglu et al. built one-class ATR–FTIR and UV–Vis models for tahini spiked with peanut or sunflower
+oil.[@kucukcelebioglu2026] Earlier, Temiz et al. had quantified sunflower oil in the oil extracted from tahini
+by synchronous fluorescence spectroscopy.[@temiz2017] Both studies used an oil as the adulterant. We
 released 1554 ATR–FTIR spectra of tahini blended with sunflower or peanut paste and compared six
 calibration models on them.[@batayhi2026] The chemistry makes the task hard: the three pastes are
 dominated by the same triglyceride bands, so adulteration changes the intensity of shared bands rather
@@ -28,29 +30,35 @@ amount.[@wold2001;@brereton2014]
 Neural networks can replace such pairs with one model. In multitask learning, related outputs share a
 common hidden representation and are trained together, so that each task can act as a regulariser for
 the other.[@caruana1997] Multitask networks that classify and quantify adulteration from one spectrum
-have been reported for olive oil by Raman spectroscopy[@liang2024;@qin2026] and for turmeric powder by
-near-infrared spectroscopy,[@zeng2026] and the coupling between identifying a component and estimating
+have been reported for olive oil by Raman spectroscopy,[@liang2024;@qin2026] for turmeric powder[@zeng2026] and
+chicken in lamb[@fan2026] by near-infrared spectroscopy, for protein adulterants in milk powder by laser-induced
+breakdown spectroscopy[@shao2026] and for Fritillaria bulb powder by hyperspectral imaging,[@ding2027] and the coupling between identifying a component and estimating
 its concentration has been treated as a learning problem in its own right.[@ning2026] For screening,
 the two tasks are tied by definition: a sample is adulterated exactly when its tahini fraction is below
 100 %. A network with a classification head and a composition head therefore offers two ways to reach
 the same decision, either directly from the classification head (a qualitative limit test) or by
 comparing the predicted composition with a cut-off (a quantitative test with a decision limit). Which of
 the two should make the decision when the network meets material it was not calibrated on has not, to
-our knowledge, been tested.
+our knowledge, been tested. The multitask studies we examined in full report classification accuracy and
+regression error side by side, without deriving a screening decision from the predicted amount or comparing
+it with the classification output.[@fan2026;@shao2026;@ding2027]
 
 That test is where many spectroscopic studies are weakest. A paste is usually scanned many times, and
 replicate scans of one sample are far more alike than scans of different samples. When replicate scans
 are split at random between training and test sets, the model is tested on near-copies of its training
 data, and the reported accuracy measures memory rather than generalisation; this form of data leakage
 is a recognised cause of irreproducible results in spectroscopy and machine learning.[@guo2017;@kapoor2023]
-At least one of the multitask studies above divided its samples, each measured repeatedly, between
-cross-validation folds at random without stating that the repeated measurements were kept together,[@qin2026]
-so how such networks behave on new material is largely unknown. On the present data the
+Of the multitask studies above, one divided its samples, each measured repeatedly, between cross-validation
+folds at random without stating that the repeated measurements were kept together,[@qin2026] one divided all
+spectra at random between training, validation and test sets,[@shao2026] and one held out repacked replicates
+of the same mixtures.[@ding2027] None of these three tested its network on samples from lots or sources not used
+in training, so how such networks behave on new material is largely unknown. On the present data the
 difference is large: a scan-level random split, the default of most machine-learning tutorials, puts
 54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, with each
 authentic lot serving as the blank while it was withheld, the detection limits were 8.9–21.6 % adulterant,
 and authentic tahini from the lots least like the others was flagged as adulterated;[@batayhi2026] on
 other ATR–FTIR adulteration data, withholding whole brands degraded every model we tested.[@batayhi2026b]
+<!-- Full texts read 2026-11-10 (hub pdfs/; extracted text checked): Fan 2026 p3 'classification dataset (240 samples) was randomly partitioned into five equal-sized subsets', regression 80/20, decision from classification head only, no LOD; Shao 2026 p5 'all spectra randomly partitioned into 70 % for training, 20 % for validation ... 10 % for final testing', 86 pellets, single local-market source; Ding 2027 p4 'partitioned based on the independent repacking sessions', p12 'closed-set scenario', no decision rule. Temiz 2017 p2: oil extracted from tahini with cyclohexane, sunflower oil blends, SFS + PLS. Liang 2024 and Kucukcelebioglu 2026: publisher abstract only (paywalled). -->
 <!-- 54 of 55: audit/check_split.py. LOD 8.9-21.6 % (pooled out-of-fold, each authentic lot as blank; nested LOLO 10.3-19.5 %) and T1/T5 false positives: Foods 15:3639 Section 3.2 and Table 5 (T-TR2 fix). Qin 2026: 'all samples were randomly divided into five mutually exclusive subsets' (T-TR2 wording). Foods 15:2949 abstract: 'leave-one-brand-out validation degraded every model' (read live 2026-11-09). -->
 
 The present study uses the released tahini spectra[@batayhi2026] to ask three questions under

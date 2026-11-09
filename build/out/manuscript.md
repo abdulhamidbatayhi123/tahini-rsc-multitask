@@ -49,44 +49,52 @@ Mid-infrared spectroscopy with attenuated total reflectance (ATR–FTIR) fits th
 sample preparation, takes about a minute per spectrum, and records the bands of the lipids, proteins and
 carbohydrates that make up an oilseed paste.^7,8^ Combined with chemometrics,
 infrared spectroscopy has been used to authenticate edible oils,^9–11^ to
-follow lipid oxidation in a sunflower kernel paste^12^ and, more recently, to authenticate tahini.
-Kucukcelebioglu et al. built one-class models for tahini spiked with oils,^13^ and we
+follow lipid oxidation in a sunflower kernel paste^12^ and, more recently, to authenticate tahini:
+Kucukcelebioglu et al. built one-class ATR–FTIR and UV–Vis models for tahini spiked with peanut or sunflower
+oil.^13^ Earlier, Temiz et al. had quantified sunflower oil in the oil extracted from tahini
+by synchronous fluorescence spectroscopy.^14^ Both studies used an oil as the adulterant. We
 released 1554 ATR–FTIR spectra of tahini blended with sunflower or peanut paste and compared six
-calibration models on them.^14^ The chemistry makes the task hard: the three pastes are
+calibration models on them.^15^ The chemistry makes the task hard: the three pastes are
 dominated by the same triglyceride bands, so adulteration changes the intensity of shared bands rather
-than adding new ones.^14^ The standard chemometric answer is a pair of models, partial
+than adding new ones.^15^ The standard chemometric answer is a pair of models, partial
 least-squares discriminant analysis (PLS-DA) for the yes-or-no decision and PLS regression for the
-amount.^15,16^
+amount.^16,17^
 
 Neural networks can replace such pairs with one model. In multitask learning, related outputs share a
 common hidden representation and are trained together, so that each task can act as a regulariser for
-the other.^17^ Multitask networks that classify and quantify adulteration from one spectrum
-have been reported for olive oil by Raman spectroscopy^18,19^ and for turmeric powder by
-near-infrared spectroscopy,^20^ and the coupling between identifying a component and estimating
-its concentration has been treated as a learning problem in its own right.^21^ For screening,
+the other.^18^ Multitask networks that classify and quantify adulteration from one spectrum
+have been reported for olive oil by Raman spectroscopy,^19,20^ for turmeric powder^21^ and
+chicken in lamb^22^ by near-infrared spectroscopy, for protein adulterants in milk powder by laser-induced
+breakdown spectroscopy^23^ and for Fritillaria bulb powder by hyperspectral imaging,^24^ and the coupling between identifying a component and estimating
+its concentration has been treated as a learning problem in its own right.^25^ For screening,
 the two tasks are tied by definition: a sample is adulterated exactly when its tahini fraction is below
 100 %. A network with a classification head and a composition head therefore offers two ways to reach
 the same decision, either directly from the classification head (a qualitative limit test) or by
 comparing the predicted composition with a cut-off (a quantitative test with a decision limit). Which of
 the two should make the decision when the network meets material it was not calibrated on has not, to
-our knowledge, been tested.
+our knowledge, been tested. The multitask studies we examined in full report classification accuracy and
+regression error side by side, without deriving a screening decision from the predicted amount or comparing
+it with the classification output.^22–24^
 
 That test is where many spectroscopic studies are weakest. A paste is usually scanned many times, and
 replicate scans of one sample are far more alike than scans of different samples. When replicate scans
 are split at random between training and test sets, the model is tested on near-copies of its training
 data, and the reported accuracy measures memory rather than generalisation; this form of data leakage
-is a recognised cause of irreproducible results in spectroscopy and machine learning.^22,23^
-At least one of the multitask studies above divided its samples, each measured repeatedly, between
-cross-validation folds at random without stating that the repeated measurements were kept together,^19^
-so how such networks behave on new material is largely unknown. On the present data the
+is a recognised cause of irreproducible results in spectroscopy and machine learning.^26,27^
+Of the multitask studies above, one divided its samples, each measured repeatedly, between cross-validation
+folds at random without stating that the repeated measurements were kept together,^20^ one divided all
+spectra at random between training, validation and test sets,^23^ and one held out repacked replicates
+of the same mixtures.^24^ None of these three tested its network on samples from lots or sources not used
+in training, so how such networks behave on new material is largely unknown. On the present data the
 difference is large: a scan-level random split, the default of most machine-learning tutorials, puts
 54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, with each
 authentic lot serving as the blank while it was withheld, the detection limits were 8.9–21.6 % adulterant,
-and authentic tahini from the lots least like the others was flagged as adulterated;^14^ on
-other ATR–FTIR adulteration data, withholding whole brands degraded every model we tested.^24^
+and authentic tahini from the lots least like the others was flagged as adulterated;^15^ on
+other ATR–FTIR adulteration data, withholding whole brands degraded every model we tested.^28^
 
 
-The present study uses the released tahini spectra^14^ to ask three questions under
+
+The present study uses the released tahini spectra^15^ to ask three questions under
 validation that withholds whole physical samples and whole production lots. First, does a multitask
 network with a classification head and a composition head screen tahini for sunflower or peanut paste,
 identify the adulterant and estimate its amount as well as the chemometric pair of PLS-DA and PLS
@@ -103,7 +111,7 @@ and the band-level account of why a withheld authentic lot is rejected.
 
 ### 2.1 Samples and spectra
 
-The spectra are the tahini set released with our earlier calibration study (ref. 14), where the
+The spectra are the tahini set released with our earlier calibration study (ref. 15), where the
 sample preparation is described in full; it is summarised here. Five authentic tahini (sesame paste)
 samples, each from a different production lot (T1–T5), were obtained from suppliers in Istanbul, and
 sunflower paste and peanut paste from a local supermarket. Each lot was blended with each adulterant at
@@ -123,7 +131,7 @@ T5 are pure adulterant and are labelled adulterated.
 
 ### 2.2 Preprocessing and spectral regions
 
-Each spectrum was corrected by the standard normal variate (SNV),^25^ computed over the full
+Each spectrum was corrected by the standard normal variate (SNV),^29^ computed over the full
 600–4000 cm<sup>−1</sup> range; SNV acts on one spectrum at a time and therefore cannot leak information between
 training and test sets. The models were then given the
 two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup> (C–H stretching) and
@@ -182,7 +190,7 @@ sample level a lot-out training set held 4 authentic and 40 blend samples.
 
 The unit of splitting is the physical sample. Replicate scans of one sample are far more alike than
 scans of different samples, so a split that separates them would test the model on near-copies of its
-training data. Two designs were used. The first is the grouped 70/30 hold-out of ref. 14, which puts
+training data. Two designs were used. The first is the grouped 70/30 hold-out of ref. 15, which puts
 38 samples (1146 spectra) in training and 17 samples (408 spectra) in the test set, so that the results
 can be compared with the published benchmark. It contains a single authentic lot and no blend below
 16 % adulterant. The second, and the main test of this paper, is leave-one-lot-out validation: each
@@ -200,16 +208,16 @@ operating characteristic curve (AUC), at scan level and, after averaging the sca
 sample level. The adulterant was taken as identified when the larger predicted adulterant fraction
 belonged to the true adulterant. Quantification was scored on the tahini fraction by the coefficient of
 determination (R<sup>2</sup>), the root-mean-square error of prediction (RMSEP) and the mean absolute error. The
-limit of detection followed the calibration-slope convention of ICH Q2(R2)^26^ used in ref. 14,
+limit of detection followed the calibration-slope convention of ICH Q2(R2)^30^ used in ref. 15,
 LOD = 3.3σ/S, where σ is the SD of the predicted adulterant fraction of withheld authentic scans and S the
 slope of predicted on nominal adulterant fraction; the more rigorous multivariate LOD interval of
-Allegrini and Olivieri^27^ was not used, for comparability with the earlier study. Because a
+Allegrini and Olivieri^31^ was not used, for comparability with the earlier study. Because a
 bounded output and a lot-wise bias both distort σ, the share of blend scans flagged at each nominal
 level is also reported, the empirical alternative that the guideline allows. In leave-one-lot-out validation the predictions of the five
 withheld lots are pooled, so σ includes the differences between authentic lots; within the hold-out test
 set, which holds a single authentic lot, σ reflects replicate scatter only and the LOD is given for
 comparison. All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
-resample whole physical samples, never single scans;^28^ for the MT-DNN each draw averages the five seeds.
+resample whole physical samples, never single scans;^32^ for the MT-DNN each draw averages the five seeds.
 With five lots the lot level is too coarse to resample, so lot-out results are also reported fold by
 fold.
 
@@ -247,7 +255,7 @@ rocking band near 721 cm<sup>−1</sup>.^7^ The protein of the seeds adds the am
 near 1650 and 1540 cm<sup>−1</sup>.^8^ Adulteration therefore changes the relative intensity of bands
 that all three pastes share. After SNV, pure sunflower paste differs from authentic tahini mainly by
 weaker CH<sub>2</sub> stretching (−0.29 and −0.22 SNV units at 2920 and 2851 cm<sup>−1</sup>) and stronger absorption at
-989 and 1051 cm<sup>−1</sup> (+0.25 and +0.20), the region of C–O stretching in carbohydrates,^29^
+989 and 1051 cm<sup>−1</sup> (+0.25 and +0.20), the region of C–O stretching in carbohydrates,^33^
 and below 700 cm<sup>−1</sup>. Pure peanut paste differs in the opposite direction: stronger CH<sub>2</sub> stretching
 (+0.64 and +0.50 at 2920 and 2853 cm<sup>−1</sup>) and ester carbonyl (+0.21 at 1749 cm<sup>−1</sup>), and weaker amide I
 (−0.29 at 1655 cm<sup>−1</sup>) and carbohydrate C–O bands (−0.21 to −0.28 between 1041 and 1132 cm<sup>−1</sup>). Relative
@@ -287,7 +295,7 @@ sample, and every route except PLS-DA flagged every blend scan (Table 1). PLS-DA
 (76 % tahini with sunflower and 84 % tahini with peanut paste) falling on the authentic side.
 Quantification was consistent with the published benchmark: PLS gave R<sup>2</sup> 0.997 and RMSEP 1.93 % tahini and the
 MT-DNN composition head 0.986 and 3.95 %, against 0.994 for PLS and 0.988 for a regression-only multilayer perceptron in
-ref. 14. This partition is the easy case. Its test set holds one authentic lot and no
+ref. 15. This partition is the easy case. Its test set holds one authentic lot and no
 blend below 16 % adulterant, so the perfect specificity rests on a single authentic sample. It also
 gives a misleading detection limit: the softmax output of the MT-DNN saturates at 0 % adulterant for
 the authentic test scans (σ = 0.01 percentage points), which gives an LOD of 0.03 %, whereas PLS, whose
@@ -312,7 +320,7 @@ by the composition cut-off), PLS-R flagged lot T5 (100 %), and PLS-DA flagged T1
 T2. The remaining lots were accepted almost completely by every route. This pattern, in which the
 false positives come from whole lots rather than from scattered scans, was also seen for the six
 single-task models of the earlier study, where PLS and the multilayer perceptron flagged T1 and T5 and
-other models flagged other lots.^14^ It means that the specificity of any of these screens is
+other models flagged other lots.^15^ It means that the specificity of any of these screens is
 set by how far a new authentic lot lies from the calibration lots, not by the scan-to-scan noise that a
 hold-out estimate measures.
 With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rejected at sample level (T1 by both
@@ -326,7 +334,7 @@ pooled error suggests.
 
 
 The pooled lot-out detection limit was 11.1 % adulterant for PLS (σ = 3.2 percentage points), within
-the 10.3–19.5 % reported for the leading models under nested lot-out validation in ref. 14 but
+the 10.3–19.5 % reported for the leading models under nested lot-out validation in ref. 15 but
 below the 19.5 % of its PLS model, which used all 1762 channels and a different model selection, so the
 two values are not directly comparable. Most of this σ is the offset of one lot: authentic T5 averaged
 10.3 % predicted adulterant against 2.3–4.0 % for the other lots, and with T5 left out of the blank the
@@ -386,7 +394,7 @@ than 2 for T2 and T3, and the observed mean prediction for authentic T5 was 10.3
 above 100 %), which the clipping of the PLS output turns into a small positive bias. The PLS vector is
 thus sensitive to lot differences in both directions; clipping hides one of them, and only a departure
 towards adulteration produces a false positive. Lot T2
-departs by +4.05 SDs at 1709 cm<sup>−1</sup>, more than any other lot there, where free fatty acids absorb,^30^
+departs by +4.05 SDs at 1709 cm<sup>−1</sup>, more than any other lot there, where free fatty acids absorb,^34^
 and its largest departure is at 717 cm<sup>−1</sup> (+4.25 SDs), in the CH<sub>2</sub> rocking region whose shape follows the
 physical state of the fat. Neither departure corresponds to a resolved band: in the second derivative no
 lot, and none of the 754 authentic scans, shows a minimum between 1700 and 1718 cm<sup>−1</sup>, where the
@@ -538,7 +546,7 @@ positive at the cost of one 4 % blend; the first part follows by construction on
 reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
 five authentic lots; it needs testing on new lots, other suppliers and a second instrument before it
 can support routine screening. For any such use, the authentic reference set must cover the variation
-between lots that the screen will meet,^31^ and a positive result should be confirmed by a targeted method.
+between lots that the screen will meet,^35^ and a positive result should be confirmed by a targeted method.
 
 
 ## Author contributions
@@ -555,11 +563,11 @@ There are no conflicts to declare.
 
 ## Data availability
 
-The ATR–FTIR spectra analysed in this study were released with ref. 14 and are available
-on Zenodo (version 2.2.0, https://doi.org/10.5281/zenodo.23168994; all versions: https://doi.org/10.5281/zenodo.21446757).^32^ The code for this study (data
+The ATR–FTIR spectra analysed in this study were released with ref. 15 and are available
+on Zenodo (version 2.2.0, https://doi.org/10.5281/zenodo.23168994; all versions: https://doi.org/10.5281/zenodo.21446757).^36^ The code for this study (data
 loading, models, validation, statistics and figures), the analysis plan with its dated amendments,
 and all predictions and result files from which the reported numbers are computed are available at
-https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask (release v1.0.0 archived on Zenodo, https://doi.org/10.5281/zenodo.24087711). Analyses used Python with scikit-learn 1.7.0^33^ and
+https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask (release v1.0.0 archived on Zenodo, https://doi.org/10.5281/zenodo.24087711). Analyses used Python with scikit-learn 1.7.0^37^ and
 PyTorch 2.7.1.
 
 ## Acknowledgements
@@ -585,23 +593,27 @@ scientific decision, checked all output, and take full responsibility for the co
 11. B. Ozen, C. Cavdaroglu and F. Tokatli, *Anal. Methods*, 2024, **16**, 4216–4233, DOI: 10.1039/d4ay00562g.
 12. V. Mureșan, S. Danthine, A. E. Mureșan, E. Racolța, C. Blecker, S. Muste, C. Socaciu and V. Baeten, *Talanta*, 2016, **155**, 336–346, DOI: 10.1016/j.talanta.2016.04.019.
 13. N. Kucukcelebioglu, Y. B. Karakas, C. Cavdaroglu and B. Ozen, *Food Anal. Methods*, 2026, **19**, 358, DOI: 10.1007/s12161-026-03268-5.
-14. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, *Foods*, 2026, **15**, 3639, DOI: 10.3390/foods15203639.
-15. S. Wold, M. Sjöström and L. Eriksson, *Chemom. Intell. Lab. Syst.*, 2001, **58**, 109–130, DOI: 10.1016/s0169-7439(01)00155-1.
-16. R. G. Brereton and G. R. Lloyd, *J. Chemom.*, 2014, **28**, 213–225, DOI: 10.1002/cem.2609.
-17. R. Caruana, *Mach. Learn.*, 1997, **28**, 41–75, DOI: 10.1023/a:1007379606734.
-18. S. Liang, G. Chen, C. Ma, J. Gu, C. Zhu, L. Li, H. Gao, Z. Yang, J. Cao and Z. Chen, *Food Anal. Methods*, 2025, **18**, 385–397, DOI: 10.1007/s12161-024-02728-0.
-19. X. Qin, Y. Chen, B. Li, S. Zeng, G. Mei and C. Yu, *Foods*, 2026, **15**, 2030, DOI: 10.3390/foods15112030.
-20. J. Zeng, Z. Wu, E. Zhang, Z. Liu, T. Zhang and L. Li, *J. AOAC Int.*, 2026, **109**, 924–936, DOI: 10.1093/jaoacint/qsag068.
-21. H. Ning, M. Ma, Z. Shi and L. Ding, *Anal. Chim. Acta*, 2026, **1391**, 345050, DOI: 10.1016/j.aca.2025.345050.
-22. S. Guo, T. Bocklitz, U. Neugebauer and J. Popp, *Anal. Methods*, 2017, **9**, 4410–4417, DOI: 10.1039/c7ay01363a.
-23. S. Kapoor and A. Narayanan, *Patterns*, 2023, **4**, 100804, DOI: 10.1016/j.patter.2023.100804.
-24. A. Batayhi, M. Özgölet and O. Sagdic, *Foods*, 2026, **15**, 2949, DOI: 10.3390/foods15172949.
-25. R. J. Barnes, M. S. Dhanoa and S. J. Lister, *Appl. Spectrosc.*, 1989, **43**, 772–777, DOI: 10.1366/0003702894202201.
-26. International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023, https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf, (accessed November 2026).
-27. F. Allegrini and A. C. Olivieri, *Anal. Chem.*, 2014, **86**, 7858–7866, DOI: 10.1021/ac501786u.
-28. C. A. Field and A. H. Welsh, *J. R. Stat. Soc. B*, 2007, **69**, 369–390, DOI: 10.1111/j.1467-9868.2007.00593.x.
-29. M. Kačuráková and R. H. Wilson, *Carbohydr. Polym.*, 2001, **44**, 291–303, DOI: 10.1016/s0144-8617(00)00245-9.
-30. A. A. Ismail, F. R. van de Voort, G. Emo and J. Sedman, *J. Am. Oil Chem. Soc.*, 1993, **70**, 335–341, DOI: 10.1007/bf02552703.
-31. S. Esslinger, J. Riedl and C. Fauhl-Hassek, *Food Res. Int.*, 2014, **60**, 189–204, DOI: 10.1016/j.foodres.2013.10.015.
-32. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, Zenodo, kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, 2026, DOI: 10.5281/zenodo.21446757.
-33. F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot and E. Duchesnay, *J. Mach. Learn. Res.*, 2011, **12**, 2825–2830.
+14. H. T. Temiz, U. Tamer, A. Berkkan and I. H. Boyaci, *Talanta*, 2017, **167**, 557–562, DOI: 10.1016/j.talanta.2017.02.044.
+15. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, *Foods*, 2026, **15**, 3639, DOI: 10.3390/foods15203639.
+16. S. Wold, M. Sjöström and L. Eriksson, *Chemom. Intell. Lab. Syst.*, 2001, **58**, 109–130, DOI: 10.1016/s0169-7439(01)00155-1.
+17. R. G. Brereton and G. R. Lloyd, *J. Chemom.*, 2014, **28**, 213–225, DOI: 10.1002/cem.2609.
+18. R. Caruana, *Mach. Learn.*, 1997, **28**, 41–75, DOI: 10.1023/a:1007379606734.
+19. S. Liang, G. Chen, C. Ma, J. Gu, C. Zhu, L. Li, H. Gao, Z. Yang, J. Cao and Z. Chen, *Food Anal. Methods*, 2025, **18**, 385–397, DOI: 10.1007/s12161-024-02728-0.
+20. X. Qin, Y. Chen, B. Li, S. Zeng, G. Mei and C. Yu, *Foods*, 2026, **15**, 2030, DOI: 10.3390/foods15112030.
+21. J. Zeng, Z. Wu, E. Zhang, Z. Liu, T. Zhang and L. Li, *J. AOAC Int.*, 2026, **109**, 924–936, DOI: 10.1093/jaoacint/qsag068.
+22. Y. Fan, Y. Gao, J. Cao, K. Wei, L. Qin, R. Li, Y. Zhang, J. Li, C. Wang, Q. Zhao, Q. Shen and Y. Xue, *Food Chem.*, 2026, **529**, 151087, DOI: 10.1016/j.foodchem.2026.151087.
+23. Q. Shao, Y. Li, H. Chai, D. Zhang, Y. Ye, H. Ma and L. Guo, *Food Res. Int.*, 2026, **225**, 118066, DOI: 10.1016/j.foodres.2025.118066.
+24. H. Ding, K. Chen, T. Wang, Y. Zhang, Y. Dai and Z. Liu, *Talanta*, 2027, **311**, 130285, DOI: 10.1016/j.talanta.2026.130285.
+25. H. Ning, M. Ma, Z. Shi and L. Ding, *Anal. Chim. Acta*, 2026, **1391**, 345050, DOI: 10.1016/j.aca.2025.345050.
+26. S. Guo, T. Bocklitz, U. Neugebauer and J. Popp, *Anal. Methods*, 2017, **9**, 4410–4417, DOI: 10.1039/c7ay01363a.
+27. S. Kapoor and A. Narayanan, *Patterns*, 2023, **4**, 100804, DOI: 10.1016/j.patter.2023.100804.
+28. A. Batayhi, M. Özgölet and O. Sagdic, *Foods*, 2026, **15**, 2949, DOI: 10.3390/foods15172949.
+29. R. J. Barnes, M. S. Dhanoa and S. J. Lister, *Appl. Spectrosc.*, 1989, **43**, 772–777, DOI: 10.1366/0003702894202201.
+30. International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023, https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf, (accessed November 2026).
+31. F. Allegrini and A. C. Olivieri, *Anal. Chem.*, 2014, **86**, 7858–7866, DOI: 10.1021/ac501786u.
+32. C. A. Field and A. H. Welsh, *J. R. Stat. Soc. B*, 2007, **69**, 369–390, DOI: 10.1111/j.1467-9868.2007.00593.x.
+33. M. Kačuráková and R. H. Wilson, *Carbohydr. Polym.*, 2001, **44**, 291–303, DOI: 10.1016/s0144-8617(00)00245-9.
+34. A. A. Ismail, F. R. van de Voort, G. Emo and J. Sedman, *J. Am. Oil Chem. Soc.*, 1993, **70**, 335–341, DOI: 10.1007/bf02552703.
+35. S. Esslinger, J. Riedl and C. Fauhl-Hassek, *Food Res. Int.*, 2014, **60**, 189–204, DOI: 10.1016/j.foodres.2013.10.015.
+36. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, Zenodo, kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, version 2.2.0, 2026, DOI: 10.5281/zenodo.23168994.
+37. F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot and E. Duchesnay, *J. Mach. Learn. Res.*, 2011, **12**, 2825–2830.

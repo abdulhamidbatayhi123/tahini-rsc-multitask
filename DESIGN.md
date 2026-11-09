@@ -127,3 +127,9 @@ All exploratory; none changes a reported primary result.
 - 2026-11-09 T-TR3 B2 completed (all 5 folds x 5 seeds): stored thresholds reproduced to 1e-15; MT-DNN-R rejects T1 and
   no other lot with every seed under every alternative rule (T1-fold thresholds 0.30–2.01 %); PLS-R rejects T5 under all
   but the logit rule (not meaningful for clipped PLS; sensitivity 30 %). ESI Table S10, one sentence each in 2.8 and 3.5.
+- 2026-11-10 T-TR3 B3 (full texts): Fan 2026, Shao 2026, Ding 2027 and Temiz 2017 read in full (Liang 2024 and
+  Kucukcelebioglu 2026: publisher abstracts only, paywalled). None derives a screening decision from the predicted amount
+  or compares it with the classification output; none validates on lots or sources not used in training (Shao: random
+  split of all spectra; Ding: held-out repacked replicates; Fan: random partitions). Claim kept; the three added as prior
+  multitask work and Temiz (oil extracted from tahini, SFS) to the tahini paragraph. Reference list now cites the data
+  version DOI 23168994 (references.json had not been regenerated after the manual_refs change).

@@ -36,12 +36,12 @@
    "M. Arici"
   ],
   "repository": "Zenodo",
-  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy",
+  "title": "kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, version 2.2.0",
   "year": 2026,
-  "doi": "10.5281/zenodo.21446757",
+  "doi": "10.5281/zenodo.23168994",
   "verified": true,
-  "note": "concept DOI from Foods 15:3639 data availability statement; check creators and title on zenodo.org",
-  "checked": "2026-11-08 zenodo.org/api/records/21446757 (concept DOI; creators Batayhi, Özgölet, Cankurt, Arici)"
+  "note": "version DOI of v2.2.0 = GitHub tag v2.2.0 = commit 3004a07 used by get_data.sh (concept DOI 10.5281/zenodo.21446757, as cited in Foods 15:3639); data file blob 1221ca8 identical in all versions v1.0.0-v2.2.0",
+  "checked": "2026-11-09 zenodo.org/api/records/23168994 (v2.2.0, 2026-10-05; creators Batayhi, Özgölet, Cankurt, Arici) and conceptrecid:21446757 version list"
  },
  "fsa2018": {
   "type": "web",
@@ -98,7 +98,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "batayhi2026b": {
   "authors": [
@@ -115,7 +115,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "barnes1989": {
   "authors": [
@@ -132,7 +132,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "allegrini2014": {
   "authors": [
@@ -148,7 +148,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "wold2001": {
   "authors": [
@@ -165,7 +165,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "kucukcelebioglu2026": {
   "authors": [
@@ -183,7 +183,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "ozulku2017": {
   "authors": [
@@ -202,7 +202,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "peng2015": {
   "authors": [
@@ -222,7 +222,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "muresan2016": {
   "authors": [
@@ -244,7 +244,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "ozen2024": {
   "authors": [
@@ -261,7 +261,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "guillen1997": {
   "authors": [
@@ -277,7 +277,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "barth2007": {
   "authors": [
@@ -292,7 +292,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "rohman2010": {
   "authors": [
@@ -308,7 +308,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "schmitt2020": {
   "authors": [
@@ -328,7 +328,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "esslinger2014": {
   "authors": [
@@ -345,7 +345,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "field2007": {
   "authors": [
@@ -361,7 +361,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "cui2018": {
   "authors": [
@@ -377,7 +377,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "torricelli2020": {
   "authors": [
@@ -396,7 +396,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "new2020": {
   "authors": [
@@ -417,7 +417,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "keithellakpam2025": {
   "authors": [
@@ -436,7 +436,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "vera2025": {
   "authors": [
@@ -454,7 +454,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "caruana1997": {
   "authors": [
@@ -469,7 +469,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "kapoor2023": {
   "authors": [
@@ -485,7 +485,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "qin2026": {
   "authors": [
@@ -505,7 +505,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "liang2024": {
   "authors": [
@@ -529,7 +529,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "zeng2026": {
   "authors": [
@@ -549,7 +549,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "ning2026": {
   "authors": [
@@ -567,7 +567,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "guo2017": {
   "authors": [
@@ -585,7 +585,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "ismail1993": {
   "authors": [
@@ -603,7 +603,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "stephan2004": {
   "authors": [
@@ -619,7 +619,7 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
  },
  "brereton2014": {
   "authors": [
@@ -635,6 +635,91 @@
   "type_crossref": "journal-article",
   "title_overlap": 1.0,
   "verified": true,
-  "checked": "2026-11-09 Crossref"
+  "checked": "2026-11-10 Crossref"
+ },
+ "fan2026": {
+  "authors": [
+   "Y. Fan",
+   "Y. Gao",
+   "J. Cao",
+   "K. Wei",
+   "L. Qin",
+   "R. Li",
+   "Y. Zhang",
+   "J. Li",
+   "C. Wang",
+   "Q. Zhao",
+   "Q. Shen",
+   "Y. Xue"
+  ],
+  "journal": "Food Chemistry",
+  "year": 2026,
+  "volume": "529",
+  "pages": "151087",
+  "doi": "10.1016/j.foodchem.2026.151087",
+  "title": "Identification and quantification of chicken adulteration in lamb using multi-task deep learning based on near-infrared spectroscopy",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-10 Crossref"
+ },
+ "shao2026": {
+  "authors": [
+   "Q. Shao",
+   "Y. Li",
+   "H. Chai",
+   "D. Zhang",
+   "Y. Ye",
+   "H. Ma",
+   "L. Guo"
+  ],
+  "journal": "Food Research International",
+  "year": 2026,
+  "volume": "225",
+  "pages": "118066",
+  "doi": "10.1016/j.foodres.2025.118066",
+  "title": "A multi-task mixture-of-experts CNN based on time-resolved LIBS for qualitative and quantitative collaborative analysis of milk powder adulteration",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-10 Crossref"
+ },
+ "ding2027": {
+  "authors": [
+   "H. Ding",
+   "K. Chen",
+   "T. Wang",
+   "Y. Zhang",
+   "Y. Dai",
+   "Z. Liu"
+  ],
+  "journal": "Talanta",
+  "year": 2027,
+  "volume": "311",
+  "pages": "130285",
+  "doi": "10.1016/j.talanta.2026.130285",
+  "title": "Hyperspectral imaging-based dual-task learnable spectral mask convolutional neural network for hierarchical adulteration detection in Fritillaria (Beimu) powder",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-10 Crossref"
+ },
+ "temiz2017": {
+  "authors": [
+   "H. T. Temiz",
+   "U. Tamer",
+   "A. Berkkan",
+   "I. H. Boyaci"
+  ],
+  "journal": "Talanta",
+  "year": 2017,
+  "volume": "167",
+  "pages": "557–562",
+  "doi": "10.1016/j.talanta.2017.02.044",
+  "title": "Synchronous fluorescence spectroscopy for determination of tahini adulteration",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-10 Crossref"
  }
 }

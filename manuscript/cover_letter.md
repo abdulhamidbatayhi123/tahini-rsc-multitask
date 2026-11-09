@@ -29,7 +29,8 @@ The main findings are:
 *Foods*, 2026, 15, 3639, doi:10.3390/foods15203639), which compared six single-output calibration models
 on them. The present manuscript reuses those data, that study's grouped hold-out partition, its
 three-fraction output and its detection-limit convention, and states this in the Introduction and
-Experimental section. New are the multitask network with a classification head, the comparison of
+Experimental section. New relative to that article are the multitask network with a classification head (such
+networks have been reported for other foods and are cited), the comparison of
 the two decision routes for both model families under leave-one-lot-out validation, the threshold rule
 set on authentic training samples, and the spectral analysis of why authentic lots are rejected. No
 part of the present results has been published or submitted elsewhere.
