@@ -1,0 +1,1 @@
+lolo full {'fold': np.str_('T4'), 'n_train': 1243, 'n_test': 311, 'samples_test': 11, 'samples_shared': 0, 'pls_k_reg': 10, 'pls_k_cls': 3, 'plsr_threshold': 5.4911355234617645, 'dnn_best_epoch': [56, 34, 56, 76, 30], 'dnnr_threshold': [8.616248661724406, 6.41239593213739, 4.965255630578592, 8.311612112105419, 7.067227739399891], 'cpu_s': 2789.0}

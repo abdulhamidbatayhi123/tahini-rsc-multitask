@@ -1,0 +1,39 @@
+{
+  "scheme": "holdout",
+  "regions": "full",
+  "n_features": 1762,
+  "wn_min": 599.82,
+  "wn_max": 3996.231,
+  "folds": [
+    {
+      "fold": "holdout",
+      "n_train": 1146,
+      "n_test": 408,
+      "samples_test": 17,
+      "samples_shared": 0,
+      "pls_k_reg": 16,
+      "pls_k_cls": 3,
+      "plsr_threshold": 5.484809292029024,
+      "dnn_best_epoch": [
+        134,
+        71,
+        62,
+        37,
+        72
+      ],
+      "dnnr_threshold": [
+        3.3395205483596837,
+        9.56348631778096,
+        3.857242888365451,
+        3.2065915594131322,
+        6.070674526192224
+      ],
+      "cpu_s": 2747.359375
+    }
+  ],
+  "inputs_sha256": {
+    "data": "75b4549a1cc7735dba1fb90936e2f659c17c2ed9fb94cfdb17023b3c927da257",
+    "common.py": "53a0500a96c2a9a56d5466528e63cd9fecf8ae6092030fc1b6e2bdf71ca334d0",
+    "s01_run.py": "37b121d8a5c7b1146031ad9950ae7fc1a9ba0412f384381ab8ebe45086f532a2"
+  }
+}

@@ -1,0 +1,1 @@
+random full {'fold': 'random', 'n_train': 1243, 'n_test': 311, 'samples_test': 54, 'samples_shared': 54, 'pls_k_reg': 18, 'pls_k_cls': 3, 'plsr_threshold': 10.591767243985267, 'dnn_best_epoch': [93, 79, 28, 51, 66], 'dnnr_threshold': [3.055554756358395, 4.550529377398283, 3.567245851934776, 3.2350964704130787, 5.221095585996], 'cpu_s': 2837.953125}

@@ -307,6 +307,11 @@ single-task models of the earlier study, where PLS and the multilayer perceptron
 other models flagged other lots.^14^ It means that the specificity of any of these screens is
 set by how far a new authentic lot lies from the calibration lots, not by the scan-to-scan noise that a
 hold-out estimate measures.
+With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rejected (T1 by both MT-DNN routes and
+PLS-DA, T5 by PLS-R), every route reached 80 % sample-level specificity, and the lot-out RMSEP rose to
+5.32 % for PLS and 5.73 % for the MT-DNN (ESI, Table S7), so the lot effect does not depend on the
+choice of spectral regions.
+
 
 
 The pooled lot-out detection limit was 11.1 % adulterant for PLS (σ = 3.2 percentage points), within

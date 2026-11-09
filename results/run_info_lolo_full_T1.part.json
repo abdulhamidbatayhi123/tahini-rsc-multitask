@@ -1,0 +1,39 @@
+{
+  "scheme": "lolo",
+  "regions": "full",
+  "n_features": 1762,
+  "wn_min": 599.82,
+  "wn_max": 3996.231,
+  "folds": [
+    {
+      "fold": "T1",
+      "n_train": 1243,
+      "n_test": 311,
+      "samples_test": 11,
+      "samples_shared": 0,
+      "pls_k_reg": 14,
+      "pls_k_cls": 17,
+      "plsr_threshold": 7.508581908401916,
+      "dnn_best_epoch": [
+        85,
+        68,
+        57,
+        69,
+        92
+      ],
+      "dnnr_threshold": [
+        0.7839963581869787,
+        0.9691508459145677,
+        0.5703069266137704,
+        0.47588056482536595,
+        0.642202617530415
+      ],
+      "cpu_s": 3045.046875
+    }
+  ],
+  "inputs_sha256": {
+    "data": "75b4549a1cc7735dba1fb90936e2f659c17c2ed9fb94cfdb17023b3c927da257",
+    "common.py": "53a0500a96c2a9a56d5466528e63cd9fecf8ae6092030fc1b6e2bdf71ca334d0",
+    "s01_run.py": "37b121d8a5c7b1146031ad9950ae7fc1a9ba0412f384381ab8ebe45086f532a2"
+  }
+}

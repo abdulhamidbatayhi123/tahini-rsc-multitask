@@ -1,0 +1,1 @@
+holdout full {'fold': 'holdout', 'n_train': 1146, 'n_test': 408, 'samples_test': 17, 'samples_shared': 0, 'pls_k_reg': 16, 'pls_k_cls': 3, 'plsr_threshold': 5.484809292029024, 'dnn_best_epoch': [134, 71, 62, 37, 72], 'dnnr_threshold': [3.3395205483596837, 9.56348631778096, 3.857242888365451, 3.2065915594131322, 6.070674526192224], 'cpu_s': 2747.359375}

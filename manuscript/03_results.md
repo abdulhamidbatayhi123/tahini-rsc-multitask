@@ -77,6 +77,11 @@ single-task models of the earlier study, where PLS and the multilayer perceptron
 other models flagged other lots.[@batayhi2026] It means that the specificity of any of these screens is
 set by how far a new authentic lot lies from the calibration lots, not by the scan-to-scan noise that a
 hold-out estimate measures.
+With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rejected (T1 by both MT-DNN routes and
+PLS-DA, T5 by PLS-R), every route reached 80 % sample-level specificity, and the lot-out RMSEP rose to
+5.32 % for PLS and 5.73 % for the MT-DNN (ESI, Table S7), so the lot effect does not depend on the
+choice of spectral regions.
+<!-- results/metrics.csv regions full lolo: sample specificity 0.8 all routes; scan RMSEP PLS 5.32, MT-DNN 5.73; metrics_lot.csv full fp_rate T1 MT-DNN 1.0, MT-DNN-R 1.0, PLS-DA 1.0, PLS-R T5 1.0 (T1 0.29). -->
 <!-- sample-level counts: results/consensus.json (PLS-R missed [4, peanut, T1]); results/metrics.csv lolo sample fn: PLS-DA 6, PLS-R 1, MT-DNN 0, MT-DNN-R 0; specificity 0.60/0.80/0.80/0.80. Per-lot FP: results/metrics_lot.csv fp_rate_authentic. PLS-DA k range: results/run_info_lolo_chem.json pls_k_cls 22,4,2,3,3. Level shares: Fig. 3b from pred_lolo_chem.csv. Foods Table 5. -->
 
 The pooled lot-out detection limit was 11.1 % adulterant for PLS (σ = 3.2 percentage points), within
