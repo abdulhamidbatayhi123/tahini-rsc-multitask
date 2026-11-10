@@ -44,7 +44,7 @@ hdr = ["Validation", "Level", "Route", "Sensitivity (%)", "Specificity (%)", "AU
        "Identification (%)"]
 lines = ["Table 1 Screening, quantification and identification on withheld samples (chemically informative "
          "regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical "
-         "samples); MT-DNN values are means over five seeds. Quantification and identification are properties "
+         "samples); MT-DNN values are means of the five per-seed values (the figures instead average the predictions of the five seeds per scan). Quantification and identification are properties "
          "of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single "
          "authentic lot; in leave-one-lot-out validation five "
          "authentic samples, one per lot, are withheld. † Exact (Clopper–Pearson) 95 % interval for the number of the five "
