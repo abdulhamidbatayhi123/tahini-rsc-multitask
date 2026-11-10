@@ -4,9 +4,11 @@
     "pred_random_chem.csv": "7c10da5e5756ca819eb2a407130c208b08385f541da4d90fc5eb35150d89c2b2",
     "pred_holdout_chem.csv": "06a57f9982c2fb9bdba3abe6d6e85669db8b392b918d80f8420a5f6714b3c782",
     "pred_lolo_chem.csv": "63a5beffe9959122d250cc63b305b23db08f1b89a61e82247560239248aaa704",
-    "s02_metrics.py": "ed6841f0383206c1466d8c769d7e743b436f72bd718a6dd4a93cbe5cd7b397e8",
+    "s02_metrics.py": "0e980d9f8e7bdd0faa3d1f95a6e15fd4290ea722733d0b09c94072b89864386c",
     "pred_random_full.csv": "96fd8e0981cb3deff88fe2636baa175eb2afcb882734f60b85815df5f1150e53",
     "pred_holdout_full.csv": "435fc48a5a8f44b4a43b7a9470ee1d4baba6c24b4d702c57f4c874448d34840f",
-    "pred_lolo_full.csv": "52b2cce1412c9cabaa144a75ee7b63a564b9f608851ef458e4c13a4d9ef690d8"
+    "pred_lolo_full.csv": "52b2cce1412c9cabaa144a75ee7b63a564b9f608851ef458e4c13a4d9ef690d8",
+    "pred_lolo_chemsnv.csv": "eb14b84ae689d054f5e0cdeae7148e5d29fbfa5ee5725e3532162a83733f6d04",
+    "pred_lolo_chem700.csv": "3f6c0938d884b948d0b23967087db4c4d71722d6a5567bde7eda266b671ba921"
   }
 }

@@ -81,7 +81,14 @@ With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rej
 MT-DNN routes and PLS-DA, T5 by PLS-R) and every route reached 80 % sample-level specificity, so the lot
 effect does not depend on the choice of spectral regions. The scan-level picture did change: PLS-R also
 flagged 29 % of the T1 scans, PLS-DA no longer flagged T2 (3 % of its scans), and the lot-out RMSEP rose
-to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7).
+to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). Two further changes to the input left the
+lot-out decisions unchanged (ESI, Table S12): computing SNV over the retained regions only, and cutting the
+fingerprint region at 700 cm<sup>−1</sup>, near the low-wavenumber limit of the ZnSe element. In both, the MT-DNN
+routes rejected T1, PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes and the
+lot-out RMSEP was 3.62–4.06 % for the MT-DNN and 4.92–5.18 % for PLS. The PLS-DA rejection of half of
+the T2 scans was the only fragile result: it disappeared (7 % of scans) when the region below 700 cm<sup>−1</sup>
+was removed, as it did with the full range.
+<!-- results/metrics.csv lolo chemsnv/chem700 (T-TR4 referee M5/M6): sample spec 0.8 MT-DNN, MT-DNN-R, PLS-R both; PLS-DA 0.6 (chemsnv) / 0.8 (chem700); scan RMSEP MT-DNN 3.621/4.063, PLS 4.923/5.178; metrics_lot fp_rate_authentic PLS-DA T2 0.52 chem/chemsnv, 0.07 chem700. -->
 The region choice therefore matters more for the network's quantification of a departing lot than the
 pooled error suggests.
 <!-- results/metrics.csv regions full lolo: sample specificity 0.8 all routes; scan RMSEP PLS 5.32, MT-DNN 5.73; metrics_lot.csv full fp_rate T1 MT-DNN 1.0, MT-DNN-R 1.0, PLS-DA 1.0, PLS-R T5 1.0 (T1 0.287); PLS-DA T2 0.033; rmsep_tahini T1 MT-DNN 9.76. -->

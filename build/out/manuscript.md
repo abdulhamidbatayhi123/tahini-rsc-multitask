@@ -141,7 +141,8 @@ two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
 band (about 2250–2400 cm<sup>−1</sup>) and the water-vapour rotation lines above 3550 cm<sup>−1</sup> were excluded because
 they record the state of the optical path, not the sample. The full 600–4000 cm<sup>−1</sup> range was run as a
-sensitivity analysis (ESI, Table S7).
+sensitivity analysis (ESI, Table S7), and so were SNV computed over the retained regions only and a
+fingerprint region cut at 700 cm<sup>−1</sup>, where the ZnSe element approaches its transmission limit (ESI, Table S12).
 
 
 ### 2.3 Multitask network
@@ -333,7 +334,14 @@ With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rej
 MT-DNN routes and PLS-DA, T5 by PLS-R) and every route reached 80 % sample-level specificity, so the lot
 effect does not depend on the choice of spectral regions. The scan-level picture did change: PLS-R also
 flagged 29 % of the T1 scans, PLS-DA no longer flagged T2 (3 % of its scans), and the lot-out RMSEP rose
-to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7).
+to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). Two further changes to the input left the
+lot-out decisions unchanged (ESI, Table S12): computing SNV over the retained regions only, and cutting the
+fingerprint region at 700 cm<sup>−1</sup>, near the low-wavenumber limit of the ZnSe element. In both, the MT-DNN
+routes rejected T1, PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes and the
+lot-out RMSEP was 3.62–4.06 % for the MT-DNN and 4.92–5.18 % for PLS. The PLS-DA rejection of half of
+the T2 scans was the only fragile result: it disappeared (7 % of scans) when the region below 700 cm<sup>−1</sup>
+was removed, as it did with the full range.
+
 The region choice therefore matters more for the network's quantification of a departing lot than the
 pooled error suggests.
 

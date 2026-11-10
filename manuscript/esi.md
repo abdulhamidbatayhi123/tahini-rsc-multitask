@@ -29,7 +29,8 @@ detection by nominal level, results without the pure-adulterant samples and the 
 (principal-component T² and Q fitted on authentic training scans only), and Table S10 the regression-route decisions
 under alternative threshold rules (src/s07_robust_threshold.py, which recomputes the cross-validated training
 predictions that set the thresholds and reproduces the stored thresholds within 2 × 10⁻¹⁵). Table S11 gives
-indicators of the optical path (atmospheric CO₂ band and water-vapour lines) for each lot (src/s08_session.py).
+indicators of the optical path (atmospheric CO₂ band and water-vapour lines) for each lot (src/s08_session.py). Table S12 repeats the lot-out analysis with SNV computed over the retained
+regions only and with the fingerprint region cut at 700 cm⁻¹.
 
 ## S3 Training histories
 

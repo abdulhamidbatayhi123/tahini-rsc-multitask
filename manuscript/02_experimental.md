@@ -29,7 +29,8 @@ two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
 band (about 2250–2400 cm<sup>−1</sup>) and the water-vapour rotation lines above 3550 cm<sup>−1</sup> were excluded because
 they record the state of the optical path, not the sample. The full 600–4000 cm<sup>−1</sup> range was run as a
-sensitivity analysis (ESI, Table S7).
+sensitivity analysis (ESI, Table S7), and so were SNV computed over the retained regions only and a
+fingerprint region cut at 700 cm<sup>−1</sup>, where the ZnSe element approaches its transmission limit (ESI, Table S12).
 <!-- n_channels_chem=752: results/f1_numbers.json -->
 
 ### 2.3 Multitask network

@@ -29,7 +29,8 @@ detection by nominal level, results without the pure-adulterant samples and the 
 (principal-component T² and Q fitted on authentic training scans only), and Table S10 the regression-route decisions
 under alternative threshold rules (src/s07_robust_threshold.py, which recomputes the cross-validated training
 predictions that set the thresholds and reproduces the stored thresholds within 2 × 10⁻¹⁵). Table S11 gives
-indicators of the optical path (atmospheric CO₂ band and water-vapour lines) for each lot (src/s08_session.py).
+indicators of the optical path (atmospheric CO₂ band and water-vapour lines) for each lot (src/s08_session.py). Table S12 repeats the lot-out analysis with SNV computed over the retained
+regions only and with the fingerprint region cut at 700 cm⁻¹.
 
 ## S3 Training histories
 
@@ -239,5 +240,24 @@ Source: results/robust_threshold.json (src/s07_robust_threshold.py). Thresholds 
 |  | T5 | 23.92 ± 2.55 | 18.00 |
 
 Source: results/session_indicators.json (src/s08_session.py). CO₂: mean absorbance at 2340–2370 cm⁻¹ minus the mean of its flanks (2240–2260 and 2400–2420 cm⁻¹); water vapour: SD of the first difference over 3600–3900 cm⁻¹. Differences between authentic lots: one-way ANOVA F = 192 (CO₂) and 401 (water vapour), p < 10⁻¹⁰⁰ for both; between the blend groups of the lots: F = 28 and 19, p < 10⁻⁸. The data carry no acquisition dates. The authentic lots were therefore not all measured under the same optical-path conditions (T1 and T2 low, T3–T5 high; T1 lowest on both indicators), and the blends of all lots lie close to T1 and T2, so the effect of a lot cannot be separated from that of its measurement session.
+
+**Table S12 Sensitivity analysis: preprocessing (leave-one-lot-out; MT-DNN: means over five seeds).**
+
+| Input | Route | Sample sensitivity (%) | Sample specificity (%) | Scan RMSEP (% tahini) | Authentic lots with more than half of their scans flagged |
+|---|---|---|---|---|---|
+| As reported (SNV over 600–4000 cm⁻¹; 600–1800 and 2800–3050 cm⁻¹) | PLS-DA | 88 | 60 |  | T1 (100 %), T2 (52 %) |
+|  | PLS-R | 98 | 80 | 4.87 | T5 (100 %) |
+|  | MT-DNN | 100 | 80 | 3.95 | T1 (98 %) |
+|  | MT-DNN-R | 100 | 80 |  | T1 (100 %) |
+| SNV computed over the retained regions only | PLS-DA | 88 | 60 |  | T1 (100 %), T2 (52 %) |
+|  | PLS-R | 94 | 80 | 4.92 | T5 (100 %) |
+|  | MT-DNN | 100 | 80 | 3.62 | T1 (97 %) |
+|  | MT-DNN-R | 100 | 80 |  | T1 (99 %) |
+| Fingerprint region cut at 700 cm⁻¹ (ZnSe edge excluded) | PLS-DA | 96 | 80 |  | T1 (100 %) |
+|  | PLS-R | 96 | 80 | 5.18 | T5 (100 %) |
+|  | MT-DNN | 100 | 80 | 4.06 | T1 (91 %) |
+|  | MT-DNN-R | 100 | 80 |  | T1 (100 %) |
+
+Source: results/metrics.csv and results/metrics_lot.csv (regions chem, chemsnv, chem700; src/s01_run.py, src/s02_metrics.py).
 
 
