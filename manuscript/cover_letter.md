@@ -44,7 +44,7 @@ We believe the work fits the analytical and food chemistry scope of *RSC Advance
 practical message is useful beyond tahini: the authentic reference set, not the model architecture,
 limits infrared screening of food pastes.
 
-There are no conflicts of interest to declare. Possible reviewers can be provided on request.
+There are no conflicts of interest to declare.
 
 Yours sincerely,
 
