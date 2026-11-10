@@ -4,7 +4,7 @@ Code, analysis plan, predictions and manuscript sources for the paper *"Screenin
 and peanut paste on unseen production lots: a multitask neural network and partial least squares on
 ATR–FTIR spectra"* (in preparation for *RSC Advances*).
 
-Archived release: v1.0.0, <https://doi.org/10.5281/zenodo.24087711>. Please cite the paper and this archive
+Archived release: v1.1.0, <https://doi.org/10.5281/zenodo.24120431> (all versions: <https://doi.org/10.5281/zenodo.24087710>). Please cite the paper and this archive
 (see `CITATION.cff`).
 
 The study reuses the tahini ATR–FTIR spectra released with Batayhi et al., *Foods* 2026, **15**, 3639
@@ -42,6 +42,7 @@ A scan-level random split (54 of 55 samples on both sides) hides these false pos
 | `results/` | Predictions, run information (selected components, thresholds, input hashes), metrics |
 | `figures/` | PDF, 600 dpi TIFF and PNG of every figure, each with a provenance file (script and input hashes) |
 | `manuscript/`, `build/` | Markdown sources and the builder (citations checked live on Crossref; `build/build.py` -> `.docx`) |
+| `src/s08_session.py` | Optical-path indicators (CO₂ band, water-vapour lines) by lot (`results/session_indicators.json`, ESI Table S11) |
 | `audit/check_split.py` | Shows that the preliminary scan-level split put 54 of 55 samples on both sides |
 | `originals_preliminary/` | Figures of the preliminary (leaked) analysis that motivated the rebuild |
 
@@ -50,13 +51,16 @@ A scan-level random split (54 of 55 samples on both sides) hides these false pos
 ```bash
 pip install -r requirements.txt
 bash get_data.sh            # clones the data repository at the pinned commit into source_repo/
-bash run_all.sh             # all schemes, one at a time (CPU; about 30 min per scheme and region set)
+bash run_all.sh             # all schemes and input variants, one at a time (CPU; 0.5-4 h per run on a shared machine)
 cd src && python s02_metrics.py 1000 && python s03_lots.py && python s04_consensus.py
-python s05_extra.py && python s06_oneclass.py && TORCH_THREADS=6 python s07_robust_threshold.py && python ../audit/a2_val_split.py
+python s04_consensus.py chemsnv && python s04_consensus.py chem700
+python s05_extra.py && python s06_oneclass.py && TORCH_THREADS=6 python s07_robust_threshold.py && python s08_session.py
+python ../audit/a2_val_split.py
 python f1_spectra.py && python f2_workflow.py && python f3_detection.py lolo && python f4_quantification.py lolo && python f6_lots.py
 python fS1_histories.py && python f4_quantification.py holdout && python fS3_derivative.py && python fTOC.py
 python t1_table.py && python t2_leakage.py && python esi_tables.py
 cd .. && python build/build.py && python build/build.py esi   # needs pandoc
+python build/package.py            # RSC Advances submission package (build/submission_rsc_advances.zip)
 ```
 
 `s07_robust_threshold.py` reads the cross-validated training predictions cached in `audit/robust_cv/` and needs no

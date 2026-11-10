@@ -40,7 +40,7 @@ part of the present results has been published or submitted elsewhere.
 
 All code, the analysis plan with its dated amendments, and every prediction from which the reported
 numbers are computed are openly available (https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask;
-archived release https://doi.org/10.5281/zenodo.24087711).
+archived release v1.1.0, https://doi.org/10.5281/zenodo.24120431).
 Analyses added after the results were seen are labelled exploratory in the manuscript.
 
 We believe the work fits the analytical and food chemistry scope of *RSC Advances*, and that its
