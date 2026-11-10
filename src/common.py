@@ -68,6 +68,13 @@ def region_mask(wn, regions=CHEM_REGIONS):
 
 def features(d, regions="chem"):
     """SNV over the full spectrum, then keep the chosen regions (SNV is per spectrum: no leakage)."""
+    if regions == "chemsnv":     # sensitivity (referee read 2026-11-10): SNV over the retained regions only
+        m = region_mask(d["wn"])
+        return snv(d["X"][:, m]), d["wn"][m]
+    if regions == "chem700":     # sensitivity: ZnSe low-wavenumber edge excluded (fingerprint 700-1800)
+        Z = snv(d["X"])
+        m = region_mask(d["wn"], [(700.0, 1800.0), (2800.0, 3050.0)])
+        return Z[:, m], d["wn"][m]
     Z = snv(d["X"])
     if regions == "full":
         return Z, d["wn"]

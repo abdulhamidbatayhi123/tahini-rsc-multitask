@@ -33,7 +33,7 @@ stopping and the decision thresholds were still chosen by grouped cross-validati
 scans, so only the outer split leaked. On that split the composition was predicted with an RMSEP of
 1.79 % tahini by PLS and 2.75 % by the MT-DNN, and every route except PLS-DA accepted every
 authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 3.95 % and lowered the specificity of
-the same routes to about 80 %, with intervals reaching down to 33–35 %. The random split therefore
+the same routes to about 80 %, with scan-level bootstrap intervals reaching down to 33–35 %. The random split therefore
 makes the quantification error look 1.4–2.7 times smaller and hides the false positives completely, because
 every authentic lot is represented in training and the test scans of a lot are near-copies of its
 training scans. The grouped hold-out of the earlier study removes the replicate leakage but, with a
@@ -68,7 +68,7 @@ direction was poorly determined by four lots.
 
 Authentic tahini from a new lot was the problem. Every route rejected at least one of the five withheld
 authentic lots (Fig. 3a), so the sample-level specificity was 60 % for PLS-DA and 80 % for the other
-three routes, with 95 % intervals reaching down to 0–33 %. The failures were concentrated in one
+three routes, with exact 95 % intervals reaching down to 15 and 28 % (Table 1). The failures were concentrated in one
 lot per model family. The two MT-DNN routes flagged lot T1 (98 % of its scans by the class head and 100 %
 by the composition cut-off), PLS-R flagged lot T5 (100 %), and PLS-DA flagged T1 entirely and half of
 T2. The remaining lots were accepted almost completely by every route. This pattern, in which the
@@ -114,8 +114,10 @@ blends) nor the calibration slopes by more than 0.01 (ESI, Table S8).
 The rejected lots are those whose spectra depart from the other four in the directions that each model
 reads as adulteration (Fig. 5). Lot T1 departs most: the root-mean-square departure of its mean SNV
 spectrum from the other lots is 1.61 pooled within-lot SDs, against 1.11–1.36 for the others, and the
-departure is concentrated between 1180 and 1280 cm<sup>−1</sup>, where T1 absorbs 4.9 to 8.35 SDs less than the other lots
-at 1215, 1248 and 1273 cm<sup>−1</sup> (Fig. 5b). This region holds the C–O stretching of the triglyceride ester
+departure is concentrated between 1180 and 1280 cm<sup>−1</sup>, where T1 absorbs 4.90 to 8.35 SDs less than the other lots
+at 1215, 1248 and 1273 cm<sup>−1</sup> (Fig. 5b). Lots T4 and T5 depart the other way in the same window (+5.40 SDs at
+1246 cm<sup>−1</sup> and +4.10 SDs at 1213 cm<sup>−1</sup>), so this region varies between lots in general, and T1 lies at
+one end of that variation. This region holds the C–O stretching of the triglyceride ester
 groups, tabulated near 1238 cm<sup>−1</sup>,[@guillen1997] and the weak amide III band of the proteins.[@barth2007]
 Second-derivative spectra (Savitzky–Golay, 13 points or 23 cm<sup>−1</sup>; ESI, Fig. S3) resolve the same three
 bands in this region, near 1162, 1239 and 1278 cm<sup>−1</sup>, at the same positions in all five lots (within 0.3
@@ -160,13 +162,20 @@ T2 departure is thus also a broad change in band shape or baseline, which could 
 temperature was not recorded. It did not cause false positives for the regression routes but may explain
 why PLS-DA rejected half of its scans. These observations describe how the lots differ, not why: no
 further chemical analysis of the lots (free fatty acids, oil, protein or moisture content) was
-possible, and finding the cause requires reference measurements on new lots.
+possible, and finding the cause requires reference measurements on new lots. Part of the differences may also
+arise in the measurement rather than in the tahini. The data carry no acquisition dates, but two bands
+that the sample does not produce, the atmospheric CO<sub>2</sub> band and the water-vapour lines, record the
+state of the optical path, and both differed between the authentic lots (one-way ANOVA, p < 10<sup>−100</sup>;
+ESI, Table S11): they were low for T1 and T2 and high for T3–T5, with T1 lowest on both. The authentic
+lots were therefore not all measured under the same conditions, and in this set the effect of a lot
+cannot be separated from that of its measurement session.
+<!-- results/session_indicators.json (src/s08_session.py): authentic ANOVA F co2 192.2 p 2.5e-113, water_vapour 400.7 p 2.0e-184; lowest_authentic_lot T1 for both; T1 minus others -2.05 / -2.83 within-lot SD. Referee read T-TR4 M4. -->
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
 rejected when its spectral difference happens to align with the regression vector, whatever the size of
 that difference. The MT-DNN is non-linear and its softmax output is confident wherever the training data
 are dense, so a lot is rejected when it is far from all four training lots in any direction, as T1 is.
-<!-- results/lot_departure.json: rms_d T1 1.61, others 1.11-1.36; top_bands T1 1215 -8.35, 1273 -5.48, 1248 -4.90; T2 1709 +4.05; pls_adulterant_shift T5 8.92, T1 3.04, T2 0.82, T3 1.51, T4 -12.59; observed MT-DNN T1 authentic_adult_mean 2.92, blend_tahini_bias -5.27 (others -0.74..3.23); PLS-R T5 authentic_adult_mean 10.34. Thresholds: run_info_lolo_chem.json T1 dnnr 0.400-0.781 (other folds 1.82-5.16); T5 plsr 6.08. -->
+<!-- results/lot_departure.json: rms_d T1 1.61, others 1.11-1.36; top_bands T1 1215 -8.35, 1273 -5.48, 1248 -4.90; T4 1246 +5.40, T5 1213 +4.10; T2 1709 +4.05; pls_adulterant_shift T5 8.92, T1 3.04, T2 0.82, T3 1.51, T4 -12.59; observed MT-DNN T1 authentic_adult_mean 2.92, blend_tahini_bias -5.27 (others -0.74..3.23); PLS-R T5 authentic_adult_mean 10.34. Thresholds: run_info_lolo_chem.json T1 dnnr 0.400-0.781 (other folds 1.82-5.16); T5 plsr 6.08. -->
 <!-- results/derivative_bands.json (src/fS2_derivative.py): sg13 window a minima T1 1161.57/1238.65/1277.93 vs others 1161.59/1238.59/1277.67 (max shift 0.26 cm-1 = 0.13 channel); std_diff_at_section35_bands T1@1215 1.30, @1248 0.62, @1273 1.77, T2@1709 -0.89, T2@717 0.44; max |d| in window a over sg9/13/17: 2.10/1.86/1.82; component_1709 no minimum in any lot, 0 % of scans; window c minimum T2 722.53, others 722.48; lot_departure_600_1800 rms T1 1.10, others 0.65-0.86. Dataset metadata: no acquisition date or temperature. -->
 
 ### 3.6 Quantification and identification of the adulterant
@@ -208,9 +217,9 @@ rule was chosen, not evidence for it; its cost in sensitivity is the informative
 all five withheld authentic lots and still flagged 49 of the 50 blends, for each of the five network
 seeds; the one blend missed was the 4 % peanut paste blend of lot T1, which PLS-R alone also missed.
 With five authentic lots this is a hypothesis, not a validated screening rule, and it will fail for a
-lot that departs along the PLS vector and from the network's training data at the same time. It does
-show that combining a linear and a non-linear calibration is a cheaper way to protect specificity than
-an additional classification head, and it should be tested on lots not used here.
+lot that departs along the PLS vector and from the network's training data at the same time. It
+suggests that combining a linear and a non-linear calibration, which costs no extra model, may protect
+specificity where an additional classification head did not, and it should be tested on lots not used here.
 
 A one-class model answers the screening question without seeing either adulterant and might avoid the
 lot problem. As a simple baseline, a principal-component model fitted on the

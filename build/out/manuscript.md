@@ -13,21 +13,22 @@ Electronic supplementary information (ESI) available. See DOI: to be assigned.
 ## Abstract
 
 Tahini is substituted with cheaper oilseed pastes, and peanut paste adds an undeclared allergen. We
-tested whether a multitask neural network can screen tahini for sunflower or peanut paste and
-estimate the substitution from one attenuated total reflectance Fourier-transform infrared (ATR–FTIR)
-spectrum when it meets a production lot it was not calibrated on, and whether the screening
+tested whether a multitask neural network screens tahini for sunflower or peanut paste and
+estimates the substitution from one attenuated total reflectance Fourier-transform infrared (ATR–FTIR)
+spectrum of a production lot it was not calibrated on, and whether the screening
 decision should come from a classification head or from the predicted composition. On 1554 spectra
-of 55 physical samples from five tahini lots, the network and the chemometric pair of PLS-DA and PLS
-regression were validated with whole samples and whole lots withheld. On a conventional grouped
-hold-out, every decision route accepted the authentic test lot. With each lot withheld in turn, blends
-were still detected (sample-level sensitivity 98–100% for the composition-based routes) and the
+of 55 physical samples from five tahini lots, the network and partial least squares discriminant analysis and
+regression (PLS-DA, PLS) were validated with whole samples or lots withheld. On a grouped
+hold-out, every route accepted the authentic test lot. With each lot withheld in turn, blends
+were still detected (sample-level sensitivity 98–100% for the composition routes) and the
 composition was predicted with a scan-level root-mean-square error of 4.0–4.9% tahini, but every route rejected at
-least one authentic lot (specificity 60–80%). The classification head showed no detectable advantage over a
-cut-off on the predicted composition. The rejected lot differed between model families: lot T1, whose
-spectrum departs most from the other lots, as a broad absorbance difference near 1180–1280 cm<sup>−1</sup>, for the network, and lot T5,
+least one authentic lot (specificity 60–80%). The classification head showed no advantage over a
+cut-off on the predicted composition. The rejected lot differed between model families: lot T1, the most
+atypical lot (a broad absorbance difference near 1180–1280 cm<sup>−1</sup>), for the network, and lot T5,
 whose spectral departure lies along the PLS regression vector, for PLS. A post hoc rule flagging a
-sample only when both composition routes agreed accepted all five authentic lots and detected 49 of 50
-blends. Lot-to-lot variation of authentic tahini, not model architecture, limited screening in this set.
+sample only when both composition routes agreed accepted all five authentic lots, as it must once the
+families reject different lots, and detected 49 of 50 blends. Differences between authentic lots, not model architecture, limited screening; here they cannot be separated
+from measurement session.
 
 
 
@@ -83,9 +84,11 @@ data, and the reported accuracy measures memory rather than generalisation; this
 is a recognised cause of irreproducible results in spectroscopy and machine learning.^26,27^
 Of the multitask studies above, one divided its samples, each measured repeatedly, between cross-validation
 folds at random without stating that the repeated measurements were kept together,^20^ one divided all
-spectra at random between training, validation and test sets,^23^ and one held out repacked replicates
-of the same mixtures.^24^ None of these three tested its network on samples from lots or sources not used
-in training, so how such networks behave on new material is largely unknown. On the present data the
+spectra at random between training, validation and test sets,^23^ and one held out, for each mixture,
+one of four replicate preparations made from the same raw materials.^24^ Only the first applied its
+network to material from outside the training set: commercial blends of one nominal composition, for which it
+reported the predicted olive-oil content, without testing whether authentic oil from new sources was accepted.^20^
+How such networks decide on new authentic material is therefore largely unknown. On the present data the
 difference is large: a scan-level random split, the default of most machine-learning tutorials, puts
 54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, with each
 authentic lot serving as the blank while it was withheld, the detection limits were 8.9–21.6 % adulterant,
@@ -218,6 +221,9 @@ withheld lots are pooled, so σ includes the differences between authentic lots;
 set, which holds a single authentic lot, σ reflects replicate scatter only and the LOD is given for
 comparison. All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
 resample whole physical samples, never single scans;^32^ for the MT-DNN each draw averages the five seeds.
+For lot-out specificity at sample level, which rests on five authentic samples, the exact Clopper–Pearson
+interval is given instead.^33^ Blends of one lot share that lot's bias, so the sensitivity intervals,
+which resample blends as independent samples, are too narrow for new lots.
 With five lots the lot level is too coarse to resample, so lot-out results are also reported fold by
 fold.
 
@@ -255,7 +261,7 @@ rocking band near 721 cm<sup>−1</sup>.^7^ The protein of the seeds adds the am
 near 1650 and 1540 cm<sup>−1</sup>.^8^ Adulteration therefore changes the relative intensity of bands
 that all three pastes share. After SNV, pure sunflower paste differs from authentic tahini mainly by
 weaker CH<sub>2</sub> stretching (−0.29 and −0.22 SNV units at 2920 and 2851 cm<sup>−1</sup>) and stronger absorption at
-989 and 1051 cm<sup>−1</sup> (+0.25 and +0.20), the region of C–O stretching in carbohydrates,^33^
+989 and 1051 cm<sup>−1</sup> (+0.25 and +0.20), the region of C–O stretching in carbohydrates,^34^
 and below 700 cm<sup>−1</sup>. Pure peanut paste differs in the opposite direction: stronger CH<sub>2</sub> stretching
 (+0.64 and +0.50 at 2920 and 2853 cm<sup>−1</sup>) and ester carbonyl (+0.21 at 1749 cm<sup>−1</sup>), and weaker amide I
 (−0.29 at 1655 cm<sup>−1</sup>) and carbohydrate C–O bands (−0.21 to −0.28 between 1041 and 1132 cm<sup>−1</sup>). Relative
@@ -279,7 +285,7 @@ stopping and the decision thresholds were still chosen by grouped cross-validati
 scans, so only the outer split leaked. On that split the composition was predicted with an RMSEP of
 1.79 % tahini by PLS and 2.75 % by the MT-DNN, and every route except PLS-DA accepted every
 authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 3.95 % and lowered the specificity of
-the same routes to about 80 %, with intervals reaching down to 33–35 %. The random split therefore
+the same routes to about 80 %, with scan-level bootstrap intervals reaching down to 33–35 %. The random split therefore
 makes the quantification error look 1.4–2.7 times smaller and hides the false positives completely, because
 every authentic lot is represented in training and the test scans of a lot are near-copies of its
 training scans. The grouped hold-out of the earlier study removes the replicate leakage but, with a
@@ -314,7 +320,7 @@ direction was poorly determined by four lots.
 
 Authentic tahini from a new lot was the problem. Every route rejected at least one of the five withheld
 authentic lots (Fig. 3a), so the sample-level specificity was 60 % for PLS-DA and 80 % for the other
-three routes, with 95 % intervals reaching down to 0–33 %. The failures were concentrated in one
+three routes, with exact 95 % intervals reaching down to 15 and 28 % (Table 1). The failures were concentrated in one
 lot per model family. The two MT-DNN routes flagged lot T1 (98 % of its scans by the class head and 100 %
 by the composition cut-off), PLS-R flagged lot T5 (100 %), and PLS-DA flagged T1 entirely and half of
 T2. The remaining lots were accepted almost completely by every route. This pattern, in which the
@@ -360,8 +366,10 @@ blends) nor the calibration slopes by more than 0.01 (ESI, Table S8).
 The rejected lots are those whose spectra depart from the other four in the directions that each model
 reads as adulteration (Fig. 5). Lot T1 departs most: the root-mean-square departure of its mean SNV
 spectrum from the other lots is 1.61 pooled within-lot SDs, against 1.11–1.36 for the others, and the
-departure is concentrated between 1180 and 1280 cm<sup>−1</sup>, where T1 absorbs 4.9 to 8.35 SDs less than the other lots
-at 1215, 1248 and 1273 cm<sup>−1</sup> (Fig. 5b). This region holds the C–O stretching of the triglyceride ester
+departure is concentrated between 1180 and 1280 cm<sup>−1</sup>, where T1 absorbs 4.90 to 8.35 SDs less than the other lots
+at 1215, 1248 and 1273 cm<sup>−1</sup> (Fig. 5b). Lots T4 and T5 depart the other way in the same window (+5.40 SDs at
+1246 cm<sup>−1</sup> and +4.10 SDs at 1213 cm<sup>−1</sup>), so this region varies between lots in general, and T1 lies at
+one end of that variation. This region holds the C–O stretching of the triglyceride ester
 groups, tabulated near 1238 cm<sup>−1</sup>,^7^ and the weak amide III band of the proteins.^8^
 Second-derivative spectra (Savitzky–Golay, 13 points or 23 cm<sup>−1</sup>; ESI, Fig. S3) resolve the same three
 bands in this region, near 1162, 1239 and 1278 cm<sup>−1</sup>, at the same positions in all five lots (within 0.3
@@ -394,7 +402,7 @@ than 2 for T2 and T3, and the observed mean prediction for authentic T5 was 10.3
 above 100 %), which the clipping of the PLS output turns into a small positive bias. The PLS vector is
 thus sensitive to lot differences in both directions; clipping hides one of them, and only a departure
 towards adulteration produces a false positive. Lot T2
-departs by +4.05 SDs at 1709 cm<sup>−1</sup>, more than any other lot there, where free fatty acids absorb,^34^
+departs by +4.05 SDs at 1709 cm<sup>−1</sup>, more than any other lot there, where free fatty acids absorb,^35^
 and its largest departure is at 717 cm<sup>−1</sup> (+4.25 SDs), in the CH<sub>2</sub> rocking region whose shape follows the
 physical state of the fat. Neither departure corresponds to a resolved band: in the second derivative no
 lot, and none of the 754 authentic scans, shows a minimum between 1700 and 1718 cm<sup>−1</sup>, where the
@@ -405,7 +413,14 @@ T2 departure is thus also a broad change in band shape or baseline, which could 
 temperature was not recorded. It did not cause false positives for the regression routes but may explain
 why PLS-DA rejected half of its scans. These observations describe how the lots differ, not why: no
 further chemical analysis of the lots (free fatty acids, oil, protein or moisture content) was
-possible, and finding the cause requires reference measurements on new lots.
+possible, and finding the cause requires reference measurements on new lots. Part of the differences may also
+arise in the measurement rather than in the tahini. The data carry no acquisition dates, but two bands
+that the sample does not produce, the atmospheric CO<sub>2</sub> band and the water-vapour lines, record the
+state of the optical path, and both differed between the authentic lots (one-way ANOVA, p < 10<sup>−100</sup>;
+ESI, Table S11): they were low for T1 and T2 and high for T3–T5, with T1 lowest on both. The authentic
+lots were therefore not all measured under the same conditions, and in this set the effect of a lot
+cannot be separated from that of its measurement session.
+
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
 rejected when its spectral difference happens to align with the regression vector, whatever the size of
@@ -453,9 +468,9 @@ rule was chosen, not evidence for it; its cost in sensitivity is the informative
 all five withheld authentic lots and still flagged 49 of the 50 blends, for each of the five network
 seeds; the one blend missed was the 4 % peanut paste blend of lot T1, which PLS-R alone also missed.
 With five authentic lots this is a hypothesis, not a validated screening rule, and it will fail for a
-lot that departs along the PLS vector and from the network's training data at the same time. It does
-show that combining a linear and a non-linear calibration is a cheaper way to protect specificity than
-an additional classification head, and it should be tested on lots not used here.
+lot that departs along the PLS vector and from the network's training data at the same time. It
+suggests that combining a linear and a non-linear calibration, which costs no extra model, may protect
+specificity where an additional classification head did not, and it should be tested on lots not used here.
 
 A one-class model answers the screening question without seeing either adulterant and might avoid the
 lot problem. As a simple baseline, a principal-component model fitted on the
@@ -471,7 +486,7 @@ the other side.
 
 
 
-Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means over five seeds. Quantification and identification are properties of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single authentic lot; in leave-one-lot-out validation five authentic samples, one per lot, are withheld.
+Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means over five seeds. Quantification and identification are properties of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single authentic lot; in leave-one-lot-out validation five authentic samples, one per lot, are withheld. † Exact (Clopper–Pearson) 95 % interval for the number of the five authentic lots accepted; scan-level specificity intervals resample the same five authentic samples and are indicative only. Sensitivity intervals resample blends as independent samples and do not account for the shared bias of the blends of one lot, so they are too narrow for new lots.
 
 | Validation | Level | Route | Sensitivity (%) | Specificity (%) | AUC | RMSEP (%) | R² | Identification (%) |
 |---|---|---|---|---|---|---|---|---|
@@ -483,10 +498,10 @@ Table 1 Screening, quantification and identification on withheld samples (chemic
 | Grouped hold-out | scan | PLS-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 1.93 (1.69–2.30) | 0.997 (0.987–0.997) | 100.0 (100.0–100.0) |
 | Grouped hold-out | scan | MT-DNN | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) | 3.95 (2.58–5.53) | 0.986 (0.934–0.993) | 100.0 (100.0–100.0) |
 | Grouped hold-out | scan | MT-DNN-R | 100.0 (100.0–100.0) | 100.0 (one authentic sample) | 1.000 (1.000–1.000) |  |  |  |
-| Leave-one-lot-out | sample | PLS-DA | 88.0 (77.8–96.1) | 60.0 (0.0–100.0) | 0.888 (0.690–1.000) |  |  |  |
-| Leave-one-lot-out | sample | PLS-R | 98.0 (93.8–100.0) | 80.0 (33.3–100.0) | 0.988 (0.951–1.000) | 3.80 (2.98–4.62) | 0.985 (0.976–0.991) | 96.0 (90.4–100.0) |
-| Leave-one-lot-out | sample | MT-DNN | 100.0 (100.0–100.0) | 80.0 (33.3–100.0) | 0.998 (0.992–1.000) | 4.55 (3.80–5.28) | 0.979 (0.968–0.986) | 97.2 (94.3–100.0) |
-| Leave-one-lot-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 80.0 (33.3–100.0) | 1.000 (1.000–1.000) |  |  |  |
+| Leave-one-lot-out | sample | PLS-DA | 88.0 (77.8–96.1) | 60.0 (14.7–94.7)† | 0.888 (0.690–1.000) |  |  |  |
+| Leave-one-lot-out | sample | PLS-R | 98.0 (93.8–100.0) | 80.0 (28.4–99.5)† | 0.988 (0.951–1.000) | 3.80 (2.98–4.62) | 0.985 (0.976–0.991) | 96.0 (90.4–100.0) |
+| Leave-one-lot-out | sample | MT-DNN | 100.0 (100.0–100.0) | 80.0 (28.4–99.5)† | 0.998 (0.992–1.000) | 4.55 (3.80–5.28) | 0.979 (0.968–0.986) | 97.2 (94.3–100.0) |
+| Leave-one-lot-out | sample | MT-DNN-R | 100.0 (100.0–100.0) | 80.0 (28.4–99.5)† | 1.000 (1.000–1.000) |  |  |  |
 | Leave-one-lot-out | scan | PLS-DA | 88.5 (79.5–95.9) | 69.6 (27.1–100.0) | 0.871 (0.655–0.997) |  |  |  |
 | Leave-one-lot-out | scan | PLS-R | 97.4 (94.4–100.0) | 79.7 (33.0–100.0) | 0.986 (0.950–1.000) | 4.87 (3.37–6.58) | 0.979 (0.953–0.990) | 97.2 (93.5–100.0) |
 | Leave-one-lot-out | scan | MT-DNN | 100.0 (99.8–100.0) | 79.9 (34.8–100.0) | 0.996 (0.986–1.000) | 3.95 (3.17–4.99) | 0.986 (0.976–0.990) | 97.2 (94.4–99.9) |
@@ -537,16 +552,19 @@ Second, specificity on new lots, not sensitivity, limits the method. Blends were
 completely on unseen lots, but every route rejected at least one of five authentic lots. The rejected
 lot depended on the model: the network rejected the lot that departed most from the others, a broad
 absorbance difference near 1180–1280 cm<sup>−1</sup> rather than a shifted band, and PLS rejected the lot whose departure happened to
-lie along its regression vector. Hold-out estimates with a single authentic lot, and scan-level random
+lie along its regression vector. Whether these departures arise in the tahini or in the measurement
+session cannot be decided from these data, because the authentic lots were measured under different
+optical-path conditions. Hold-out estimates with a single authentic lot, and scan-level random
 splits even more so, hide this behaviour completely.
 
-Third, because the two families fail on different lots, combining them is a promising and cheap way
-to protect specificity. In this set, requiring both composition routes to agree removed every false
+Third, because the two families fail on different lots, combining them may protect specificity at
+little cost. In this set, requiring both composition routes to agree removed every false
 positive at the cost of one 4 % blend; the first part follows by construction once the two families
 reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
-five authentic lots; it needs testing on new lots, other suppliers and a second instrument before it
+five authentic lots; it needs testing on new lots measured on different days, other suppliers and a
+second instrument before it
 can support routine screening. For any such use, the authentic reference set must cover the variation
-between lots that the screen will meet,^35^ and a positive result should be confirmed by a targeted method.
+between lots that the screen will meet,^36^ and a positive result should be confirmed by a targeted method.
 
 
 ## Author contributions
@@ -564,10 +582,10 @@ There are no conflicts to declare.
 ## Data availability
 
 The ATR–FTIR spectra analysed in this study were released with ref. 15 and are available
-on Zenodo (version 2.2.0, https://doi.org/10.5281/zenodo.23168994; all versions: https://doi.org/10.5281/zenodo.21446757).^36^ The code for this study (data
+on Zenodo (version 2.2.0, https://doi.org/10.5281/zenodo.23168994; all versions: https://doi.org/10.5281/zenodo.21446757).^37^ The code for this study (data
 loading, models, validation, statistics and figures), the analysis plan with its dated amendments,
 and all predictions and result files from which the reported numbers are computed are available at
-https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask (release v1.0.0 archived on Zenodo, https://doi.org/10.5281/zenodo.24087711). Analyses used Python with scikit-learn 1.7.0^37^ and
+https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask (release v1.0.0 archived on Zenodo, https://doi.org/10.5281/zenodo.24087711). Analyses used Python with scikit-learn 1.7.0^38^ and
 PyTorch 2.7.1.
 
 ## Acknowledgements
@@ -611,9 +629,10 @@ scientific decision, checked all output, and take full responsibility for the co
 29. R. J. Barnes, M. S. Dhanoa and S. J. Lister, *Appl. Spectrosc.*, 1989, **43**, 772–777, DOI: 10.1366/0003702894202201.
 30. International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023, https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf, (accessed November 2026).
 31. F. Allegrini and A. C. Olivieri, *Anal. Chem.*, 2014, **86**, 7858–7866, DOI: 10.1021/ac501786u.
-32. C. A. Field and A. H. Welsh, *J. R. Stat. Soc. B*, 2007, **69**, 369–390, DOI: 10.1111/j.1467-9868.2007.00593.x.
-33. M. Kačuráková and R. H. Wilson, *Carbohydr. Polym.*, 2001, **44**, 291–303, DOI: 10.1016/s0144-8617(00)00245-9.
-34. A. A. Ismail, F. R. van de Voort, G. Emo and J. Sedman, *J. Am. Oil Chem. Soc.*, 1993, **70**, 335–341, DOI: 10.1007/bf02552703.
-35. S. Esslinger, J. Riedl and C. Fauhl-Hassek, *Food Res. Int.*, 2014, **60**, 189–204, DOI: 10.1016/j.foodres.2013.10.015.
-36. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, Zenodo, kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, version 2.2.0, 2026, DOI: 10.5281/zenodo.23168994.
-37. F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot and E. Duchesnay, *J. Mach. Learn. Res.*, 2011, **12**, 2825–2830.
+32. C. A. Field and A. H. Welsh, *J. R. Stat. Soc. Ser. B Stat. Methodol.*, 2007, **69**, 369–390, DOI: 10.1111/j.1467-9868.2007.00593.x.
+33. C. J. CLOPPER and E. S. PEARSON, *Biometrika*, 1934, **26**, 404–413, DOI: 10.1093/biomet/26.4.404.
+34. M. Kačuráková and R. H. Wilson, *Carbohydr. Polym.*, 2001, **44**, 291–303, DOI: 10.1016/s0144-8617(00)00245-9.
+35. A. A. Ismail, F. R. van de Voort, G. Emo and J. Sedman, *J. Am. Oil Chem. Soc.*, 1993, **70**, 335–341, DOI: 10.1007/bf02552703.
+36. S. Esslinger, J. Riedl and C. Fauhl-Hassek, *Food Res. Int.*, 2014, **60**, 189–204, DOI: 10.1016/j.foodres.2013.10.015.
+37. A. Batayhi, M. Özgölet, H. Cankurt and M. Arici, Zenodo, kanfood: Kolmogorov–Arnold networks as closed-form calibrations for food spectroscopy, version 2.2.0, 2026, DOI: 10.5281/zenodo.23168994.
+38. F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot and E. Duchesnay, *J. Mach. Learn. Res.*, 2011, **12**, 2825–2830.

@@ -50,16 +50,18 @@ data, and the reported accuracy measures memory rather than generalisation; this
 is a recognised cause of irreproducible results in spectroscopy and machine learning.[@guo2017;@kapoor2023]
 Of the multitask studies above, one divided its samples, each measured repeatedly, between cross-validation
 folds at random without stating that the repeated measurements were kept together,[@qin2026] one divided all
-spectra at random between training, validation and test sets,[@shao2026] and one held out repacked replicates
-of the same mixtures.[@ding2027] None of these three tested its network on samples from lots or sources not used
-in training, so how such networks behave on new material is largely unknown. On the present data the
+spectra at random between training, validation and test sets,[@shao2026] and one held out, for each mixture,
+one of four replicate preparations made from the same raw materials.[@ding2027] Only the first applied its
+network to material from outside the training set: commercial blends of one nominal composition, for which it
+reported the predicted olive-oil content, without testing whether authentic oil from new sources was accepted.[@qin2026]
+How such networks decide on new authentic material is therefore largely unknown. On the present data the
 difference is large: a scan-level random split, the default of most machine-learning tutorials, puts
 54 of the 55 physical samples on both sides of the split (ESI). In our earlier study, with each
 authentic lot serving as the blank while it was withheld, the detection limits were 8.9–21.6 % adulterant,
 and authentic tahini from the lots least like the others was flagged as adulterated;[@batayhi2026] on
 other ATR–FTIR adulteration data, withholding whole brands degraded every model we tested.[@batayhi2026b]
 <!-- Full texts read 2026-11-10 (hub pdfs/; extracted text checked): Fan 2026 p3 'classification dataset (240 samples) was randomly partitioned into five equal-sized subsets', regression 80/20, decision from classification head only, no LOD; Shao 2026 p5 'all spectra randomly partitioned into 70 % for training, 20 % for validation ... 10 % for final testing', 86 pellets, single local-market source; Ding 2027 p4 'partitioned based on the independent repacking sessions', p12 'closed-set scenario', no decision rule. Temiz 2017 p2: oil extracted from tahini with cyclohexane, sunflower oil blends, SFS + PLS. Liang 2024 and Kucukcelebioglu 2026: publisher abstract only (paywalled). -->
-<!-- 54 of 55: audit/check_split.py. LOD 8.9-21.6 % (pooled out-of-fold, each authentic lot as blank; nested LOLO 10.3-19.5 %) and T1/T5 false positives: Foods 15:3639 Section 3.2 and Table 5 (T-TR2 fix). Qin 2026: 'all samples were randomly divided into five mutually exclusive subsets' (T-TR2 wording). Foods 15:2949 abstract: 'leave-one-brand-out validation degraded every model' (read live 2026-11-09). -->
+<!-- 54 of 55: audit/check_split.py. LOD 8.9-21.6 % (pooled out-of-fold, each authentic lot as blank; nested LOLO 10.3-19.5 %) and T1/T5 false positives: Foods 15:3639 Section 3.2 and Table 5 (T-TR2 fix). Qin 2026 (open access, read live 2026-11-10): Sec. 2.7 'all samples were randomly divided into five mutually exclusive subsets'; Sec. 2.2 three positions x 10 repeated measurements per sample; Sec. 3.7 external validation on 'commercially available blended oil (BO) samples' with 'a nominal olive oil content of 5%', regression only. Ding 2027: Sec. 2.1 four independently weighed, mixed and packed batches, the fourth held out; Sec. 2.3 'repacking sessions' (T-TR4 wording fix). Foods 15:2949 abstract: 'leave-one-brand-out validation degraded every model' (read live 2026-11-09). -->
 
 The present study uses the released tahini spectra[@batayhi2026] to ask three questions under
 validation that withholds whole physical samples and whole production lots. First, does a multitask

@@ -721,5 +721,21 @@
   "title_overlap": 1.0,
   "verified": true,
   "checked": "2026-11-10 Crossref"
+ },
+ "clopper1934": {
+  "authors": [
+   "C. J. CLOPPER",
+   "E. S. PEARSON"
+  ],
+  "journal": "Biometrika",
+  "year": 1934,
+  "volume": "26",
+  "pages": "404–413",
+  "doi": "10.1093/biomet/26.4.404",
+  "title": "THE USE OF CONFIDENCE OR FIDUCIAL LIMITS ILLUSTRATED IN THE CASE OF THE BINOMIAL",
+  "type_crossref": "journal-article",
+  "title_overlap": 1.0,
+  "verified": true,
+  "checked": "2026-11-10 Crossref"
  }
 }

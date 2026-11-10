@@ -59,10 +59,12 @@ python t1_table.py && python t2_leakage.py && python esi_tables.py
 cd .. && python build/build.py && python build/build.py esi   # needs pandoc
 ```
 
-`s07_robust_threshold.py` reads the cross-validated training predictions cached in `audit/robust_cv/` and finishes in
-about a minute; delete that folder to recompute them (about 2.5 h on CPU). Bit-exact agreement with the stored thresholds
-needs `TORCH_THREADS=6`, the thread count of the original run; other counts give differences at the level of
-floating-point rounding.
+`s07_robust_threshold.py` reads the cross-validated training predictions cached in `audit/robust_cv/` and needs no
+network training; delete that folder to recompute them (25 network fits plus PLS, a few hours on CPU; 20 of the 25 fits
+took 1.8 h in the original run, `results/robust_threshold_run.log`). Bit-exact agreement with the stored thresholds
+needs `TORCH_THREADS=6`, the thread count of the original run. Other thread counts change the network predictions
+slightly, because rounding differences can shift the early-stopping epoch: with 2 threads (fold T1, seed 0, cached in
+`audit/robust_cv/threads2_dnn_T1_s0.csv`) the mean + 3 SD threshold was 0.80 % instead of 0.76 %.
 
 Tested with Python 3.13.5, PyTorch 2.7.1 (CPU), scikit-learn 1.7.0, NumPy 2.2.6, pandas 2.3.0,
 matplotlib 3.10.3 on Windows 11. Network results are means over five seeds; exact values can differ in

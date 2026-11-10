@@ -38,7 +38,7 @@ ABBR = {  # CASSI / ISO 4 abbreviations for journals whose Crossref record gives
     "Chemometrics and Intelligent Laboratory Systems": "Chemom. Intell. Lab. Syst.",
     "Food Chemistry": "Food Chem.", "Food Research International": "Food Res. Int.",
     "Journal of AOAC INTERNATIONAL": "J. AOAC Int.", "Journal of AOAC International": "J. AOAC Int.",
-    "Journal of the Royal Statistical Society Series B: Statistical Methodology": "J. R. Stat. Soc. B",
+    "Journal of the Royal Statistical Society Series B: Statistical Methodology": "J. R. Stat. Soc. Ser. B Stat. Methodol.",
     "Machine Learning": "Mach. Learn.",
     "Journal of the American Oil Chemists' Society": "J. Am. Oil Chem. Soc.",
     "J Americ Oil Chem Soc": "J. Am. Oil Chem. Soc.",  # Crossref container short form (Ismail 1993)

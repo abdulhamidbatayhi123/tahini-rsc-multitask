@@ -22,8 +22,11 @@ The main findings are:
 3. The rejected lot differs between model families, and we trace it to where the spectra differ: the
    network rejects the lot that departs most from the others (a broad absorbance difference near
    1180–1280 cm⁻¹, confirmed by second-derivative spectra to involve no shifted band), and PLS
-   rejects the lot whose spectral departure lies along its regression vector. In an exploratory
-   analysis, requiring both models to agree removed the false positives.
+   rejects the lot whose spectral departure lies along its regression vector. Bands that the sample
+   does not produce show that the authentic lots were measured under different conditions, so lot and
+   measurement session cannot be separated; the manuscript says so. In an exploratory analysis,
+   requiring both models to agree removed the false positives, as it must once they reject different
+   lots, at the cost of one 4 % blend.
 
 **Relation to our earlier work.** The spectra were released with our earlier article (Batayhi et al.,
 *Foods*, 2026, 15, 3639, doi:10.3390/foods15203639), which compared six single-output calibration models
@@ -41,8 +44,8 @@ archived release https://doi.org/10.5281/zenodo.24087711).
 Analyses added after the results were seen are labelled exploratory in the manuscript.
 
 We believe the work fits the analytical and food chemistry scope of *RSC Advances*, and that its
-practical message is useful beyond tahini: the authentic reference set, not the model architecture,
-limits infrared screening of food pastes.
+practical message is useful beyond tahini: the authentic reference set and the conditions under which
+it is measured, not the model architecture, limit infrared screening of food pastes.
 
 There are no conflicts of interest to declare.
 

@@ -109,6 +109,9 @@ withheld lots are pooled, so σ includes the differences between authentic lots;
 set, which holds a single authentic lot, σ reflects replicate scatter only and the LOD is given for
 comparison. All 95 % intervals are cluster-bootstrap percentiles (1000 draws) that
 resample whole physical samples, never single scans;[@field2007] for the MT-DNN each draw averages the five seeds.
+For lot-out specificity at sample level, which rests on five authentic samples, the exact Clopper–Pearson
+interval is given instead.[@clopper1934] Blends of one lot share that lot's bias, so the sensitivity intervals,
+which resample blends as independent samples, are too narrow for new lots.
 With five lots the lot level is too coarse to resample, so lot-out results are also reported fold by
 fold.
 

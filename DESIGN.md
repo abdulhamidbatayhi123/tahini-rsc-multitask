@@ -133,3 +133,19 @@ All exploratory; none changes a reported primary result.
   split of all spectra; Ding: held-out repacked replicates; Fan: random partitions). Claim kept; the three added as prior
   multitask work and Temiz (oil extracted from tahini, SFS) to the tahini paragraph. Reference list now cites the data
   version DOI 23168994 (references.json had not been regenerated after the manual_refs change).
+
+## 2026-11-10 T-TR4 done by cc (Claude Science out of usage)
+Number trace (subagent): all changed numbers match results/; README thread/timing statements corrected.
+Intro vs sources: Qin 2026 (open access, read live) DID run an external test on commercial blends (nominal 5 %
+olive oil, regression only) -> sentence corrected; Ding wording hedged (four replicate preparations); Zeng 2026
+abstract confirms a multitask network.
+Independent referee read (fresh subagent): major revision. Verified and applied:
+- M4 lot/session confound: src/s08_session.py -> results/session_indicators.json, ESI Table S11. CO2 band and
+  water-vapour lines differ between authentic lots (p < 1e-100), T1 lowest; text in 3.5, abstract, conclusions,
+  cover letter.
+- M3 exact Clopper-Pearson intervals for lot-out sample specificity (Table 1); note on clustered sensitivity CIs.
+- M5/M6 sensitivity runs started: regions 'chemsnv' (SNV over retained regions) and 'chem700' (fingerprint cut at
+  700 cm-1, ZnSe edge); results pending.
+- T4/T5 opposite departures in the T1 window stated; '4.90 to 8.35'; post hoc AND rule circularity in abstract;
+  'promising and cheap' and 'cheaper way' softened; CASSI J. R. Stat. Soc. Ser. B Stat. Methodol.
+Not applied (no new lab work possible, user 2026-11-09): reference chemistry of lots (M1), new lots (top-5 #5).

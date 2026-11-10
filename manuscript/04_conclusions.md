@@ -16,13 +16,16 @@ Second, specificity on new lots, not sensitivity, limits the method. Blends were
 completely on unseen lots, but every route rejected at least one of five authentic lots. The rejected
 lot depended on the model: the network rejected the lot that departed most from the others, a broad
 absorbance difference near 1180–1280 cm<sup>−1</sup> rather than a shifted band, and PLS rejected the lot whose departure happened to
-lie along its regression vector. Hold-out estimates with a single authentic lot, and scan-level random
+lie along its regression vector. Whether these departures arise in the tahini or in the measurement
+session cannot be decided from these data, because the authentic lots were measured under different
+optical-path conditions. Hold-out estimates with a single authentic lot, and scan-level random
 splits even more so, hide this behaviour completely.
 
-Third, because the two families fail on different lots, combining them is a promising and cheap way
-to protect specificity. In this set, requiring both composition routes to agree removed every false
+Third, because the two families fail on different lots, combining them may protect specificity at
+little cost. In this set, requiring both composition routes to agree removed every false
 positive at the cost of one 4 % blend; the first part follows by construction once the two families
 reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
-five authentic lots; it needs testing on new lots, other suppliers and a second instrument before it
+five authentic lots; it needs testing on new lots measured on different days, other suppliers and a
+second instrument before it
 can support routine screening. For any such use, the authentic reference set must cover the variation
 between lots that the screen will meet,[@esslinger2014] and a positive result should be confirmed by a targeted method.
