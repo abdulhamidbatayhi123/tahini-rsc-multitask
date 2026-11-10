@@ -1,0 +1,163 @@
+{
+  "PLS-R": {
+    "fp_lots": [
+      "T5"
+    ],
+    "n_authentic": 5,
+    "n_blends": 50,
+    "missed": [
+      [
+        4,
+        "peanut",
+        "T1"
+      ],
+      [
+        4,
+        "sunflower",
+        "T1"
+      ]
+    ]
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "mtdnn_r": {
+        "fp_lots": [
+          "T1"
+        ],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": []
+      },
+      "both": {
+        "fp_lots": [],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": [
+          [
+            4,
+            "peanut",
+            "T1"
+          ],
+          [
+            4,
+            "sunflower",
+            "T1"
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "mtdnn_r": {
+        "fp_lots": [
+          "T1"
+        ],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": []
+      },
+      "both": {
+        "fp_lots": [],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": [
+          [
+            4,
+            "peanut",
+            "T1"
+          ],
+          [
+            4,
+            "sunflower",
+            "T1"
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "mtdnn_r": {
+        "fp_lots": [
+          "T1"
+        ],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": []
+      },
+      "both": {
+        "fp_lots": [],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": [
+          [
+            4,
+            "peanut",
+            "T1"
+          ],
+          [
+            4,
+            "sunflower",
+            "T1"
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "mtdnn_r": {
+        "fp_lots": [
+          "T1"
+        ],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": []
+      },
+      "both": {
+        "fp_lots": [],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": [
+          [
+            4,
+            "peanut",
+            "T1"
+          ],
+          [
+            4,
+            "sunflower",
+            "T1"
+          ]
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "mtdnn_r": {
+        "fp_lots": [
+          "T1"
+        ],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": []
+      },
+      "both": {
+        "fp_lots": [],
+        "n_authentic": 5,
+        "n_blends": 50,
+        "missed": [
+          [
+            4,
+            "peanut",
+            "T1"
+          ],
+          [
+            4,
+            "sunflower",
+            "T1"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -30,7 +30,7 @@ detection by nominal level, results without the pure-adulterant samples and the 
 under alternative threshold rules (src/s07_robust_threshold.py, which recomputes the cross-validated training
 predictions that set the thresholds and reproduces the stored thresholds within 2 × 10⁻¹⁵). Table S11 gives
 indicators of the optical path (atmospheric CO₂ band and water-vapour lines) for each lot (src/s08_session.py). Table S12 repeats the lot-out analysis with SNV computed over the retained
-regions only and with the fingerprint region cut at 700 cm⁻¹.
+regions only and with the fingerprint region starting at 700 cm⁻¹.
 
 ## S3 Training histories
 
@@ -239,7 +239,7 @@ Source: results/robust_threshold.json (src/s07_robust_threshold.py). Thresholds 
 |  | T4 | 24.89 ± 2.02 | 18.77 |
 |  | T5 | 23.92 ± 2.55 | 18.00 |
 
-Source: results/session_indicators.json (src/s08_session.py). CO₂: mean absorbance at 2340–2370 cm⁻¹ minus the mean of its flanks (2240–2260 and 2400–2420 cm⁻¹); water vapour: SD of the first difference over 3600–3900 cm⁻¹. Differences between authentic lots: one-way ANOVA F = 192 (CO₂) and 401 (water vapour), p < 10⁻¹⁰⁰ for both; between the blend groups of the lots: F = 28 and 19, p < 10⁻⁸. The data carry no acquisition dates. The authentic lots were therefore not all measured under the same optical-path conditions (T1 and T2 low, T3–T5 high; T1 lowest on both indicators), and the blends of all lots lie close to T1 and T2, so the effect of a lot cannot be separated from that of its measurement session.
+Source: results/session_indicators.json (src/s08_session.py). CO₂: mean absorbance at 2340–2370 cm⁻¹ minus the mean of its flanks (2240–2260 and 2400–2420 cm⁻¹); water vapour: SD of the first difference over 3600–3900 cm⁻¹. The water-vapour indicator also contains detector noise. T1 lies 2.0 (CO₂) and 2.8 (water vapour) pooled within-lot SDs below the mean of the other lots; the replicate scans of one sample per lot are not independent, so these figures are descriptive. The data carry no acquisition dates. The authentic lots were therefore not all measured under the same optical-path conditions (T1 and T2 low, T3–T5 high), and the effect of a lot cannot be separated from that of its measurement session. The blends were not necessarily measured with their own lot: their water-vapour values all lie near those of T1 and T2.
 
 **Table S12 Sensitivity analysis: preprocessing (leave-one-lot-out; MT-DNN: means over five seeds).**
 

@@ -47,7 +47,8 @@ ABBR = {  # CASSI / ISO 4 abbreviations for journals whose Crossref record gives
 
 
 def fmt_ref(r):
-    a = r["authors"]
+    # Crossref gives some older records in capitals ("C. J. CLOPPER"): print surnames in normal case
+    a = [" ".join(w.capitalize() if w.isalpha() and w.isupper() and len(w) > 2 else w for w in n.split()) for n in r["authors"]]
     names = a[0] if len(a) == 1 else ", ".join(a[:-1]) + " and " + a[-1]
     if r.get("type") == "data":
         return f"{names}, {r['repository']}, {r['title']}, {r['year']}, DOI: {r['doi']}."

@@ -28,7 +28,7 @@ atypical lot (a broad absorbance difference near 1180–1280 cm<sup>−1</sup>),
 whose spectral departure lies along the PLS regression vector, for PLS. A post hoc rule flagging a
 sample only when both composition routes agreed accepted all five authentic lots, as it must once the
 families reject different lots, and detected 49 of 50 blends. Differences between authentic lots, not model architecture, limited screening; here they cannot be separated
-from measurement session.
+from the measurement session.
 
 
 
@@ -141,8 +141,9 @@ two regions that carry the chemistry of the pastes, 2800–3050 cm<sup>−1</sup
 600–1800 cm<sup>−1</sup> (carbonyl, amide and fingerprint bands), 752 channels in total. The atmospheric CO<sub>2</sub>
 band (about 2250–2400 cm<sup>−1</sup>) and the water-vapour rotation lines above 3550 cm<sup>−1</sup> were excluded because
 they record the state of the optical path, not the sample. The full 600–4000 cm<sup>−1</sup> range was run as a
-sensitivity analysis (ESI, Table S7), and so were SNV computed over the retained regions only and a
-fingerprint region cut at 700 cm<sup>−1</sup>, where the ZnSe element approaches its transmission limit (ESI, Table S12).
+sensitivity analysis (ESI, Table S7); SNV computed over the retained regions only, and a fingerprint
+region starting at 700 cm<sup>−1</sup>, where the ZnSe element approaches its transmission limit, were run as further
+sensitivity analyses (Section 3.4).
 
 
 ### 2.3 Multitask network
@@ -334,16 +335,17 @@ With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rej
 MT-DNN routes and PLS-DA, T5 by PLS-R) and every route reached 80 % sample-level specificity, so the lot
 effect does not depend on the choice of spectral regions. The scan-level picture did change: PLS-R also
 flagged 29 % of the T1 scans, PLS-DA no longer flagged T2 (3 % of its scans), and the lot-out RMSEP rose
-to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). Two further changes to the input left the
-lot-out decisions unchanged (ESI, Table S12): computing SNV over the retained regions only, and cutting the
+to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). The region choice therefore matters more for
+the network's quantification of a departing lot than the pooled error suggests. Two further changes to the
+input left the rejected lots unchanged (ESI, Table S12): computing SNV over the retained regions only, which
+removes any influence of the CO<sub>2</sub> and water-vapour regions on the normalisation, and starting the
 fingerprint region at 700 cm<sup>−1</sup>, near the low-wavenumber limit of the ZnSe element. In both, the MT-DNN
-routes rejected T1, PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes and the
-lot-out RMSEP was 3.62–4.06 % for the MT-DNN and 4.92–5.18 % for PLS. The PLS-DA rejection of half of
-the T2 scans was the only fragile result: it disappeared (7 % of scans) when the region below 700 cm<sup>−1</sup>
-was removed, as it did with the full range.
+routes rejected T1 and PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes,
+the sample-level sensitivity of PLS-R fell from 98 to 94 and 96 %, and the lot-out RMSEP was 3.62–4.06 % for
+the MT-DNN and 4.92–5.18 % for PLS. PLS-DA changed most: its rejection of half of the T2 scans disappeared
+(7 % of scans) when the region below 700 cm<sup>−1</sup> was removed, as it did with the full range, which raised its
+sample-level specificity from 60 to 80 %.
 
-The region choice therefore matters more for the network's quantification of a departing lot than the
-pooled error suggests.
 
 
 
@@ -424,10 +426,11 @@ further chemical analysis of the lots (free fatty acids, oil, protein or moistur
 possible, and finding the cause requires reference measurements on new lots. Part of the differences may also
 arise in the measurement rather than in the tahini. The data carry no acquisition dates, but two bands
 that the sample does not produce, the atmospheric CO<sub>2</sub> band and the water-vapour lines, record the
-state of the optical path, and both differed between the authentic lots (one-way ANOVA, p < 10<sup>−100</sup>;
-ESI, Table S11): they were low for T1 and T2 and high for T3–T5, with T1 lowest on both. The authentic
-lots were therefore not all measured under the same conditions, and in this set the effect of a lot
-cannot be separated from that of its measurement session.
+state of the optical path, and both differed between the authentic lots (ESI, Table S11): they were low
+for T1 and T2 and high for T3–T5, with no overlap of the lot means, and T1 lay 2.0 and 2.8 within-lot SDs
+below the other lots. The authentic lots were therefore not all measured under the same conditions, and in
+this set the effect of a lot cannot be separated from that of its measurement session. This applies most
+to T1; T5, the lot rejected by PLS, shares its optical-path state with the accepted lots T3 and T4.
 
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
@@ -475,10 +478,14 @@ rule accepts every authentic lot by construction, so its specificity here is a c
 rule was chosen, not evidence for it; its cost in sensitivity is the informative part. Applied to the lot-out predictions, the rule accepted
 all five withheld authentic lots and still flagged 49 of the 50 blends, for each of the five network
 seeds; the one blend missed was the 4 % peanut paste blend of lot T1, which PLS-R alone also missed.
+With the two input variants of Table S12 the rule again accepted all five authentic lots and flagged 47
+and 48 of the 50 blends, missing the 4 % blends of T1 and, with SNV over the retained regions, the 16 %
+sunflower blend of T4.
+
 With five authentic lots this is a hypothesis, not a validated screening rule, and it will fail for a
 lot that departs along the PLS vector and from the network's training data at the same time. It
-suggests that combining a linear and a non-linear calibration, which costs no extra model, may protect
-specificity where an additional classification head did not, and it should be tested on lots not used here.
+suggests that combining a linear and a non-linear calibration may protect specificity where an additional
+classification head did not, at the cost of maintaining two models, and it should be tested on lots not used here.
 
 A one-class model answers the screening question without seeing either adulterant and might avoid the
 lot problem. As a simple baseline, a principal-component model fitted on the
@@ -494,7 +501,7 @@ the other side.
 
 
 
-Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means of the five per-seed values (the figures instead average the predictions of the five seeds per scan). Quantification and identification are properties of the composition output and are shown once per model family. Hold-out: grouped hold-out; lot-out: leave-one-lot-out; ID: identification of the adulterant. ‡ No interval: the hold-out test set contains a single authentic lot; in leave-one-lot-out validation five authentic samples, one per lot, are withheld. † Exact (Clopper–Pearson) 95 % interval for the number of the five authentic lots accepted; scan-level specificity intervals resample the same five authentic samples and are indicative only. Sensitivity intervals resample blends as independent samples and do not account for the shared bias of the blends of one lot, so they are too narrow for new lots.
+Table 1 Screening, quantification and identification on withheld samples (chemically informative regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical samples); MT-DNN values are means of the five per-seed values (the figures instead average the predictions of the five seeds per scan). Quantification and identification are properties of the composition output and are shown once per model family. Hold-out: grouped hold-out; lot-out: leave-one-lot-out; ID: identification of the adulterant. ‡ No interval: the hold-out test set contains a single authentic lot. † In leave-one-lot-out validation five authentic samples, one per lot, are withheld; exact (Clopper–Pearson) 95 % interval for the proportion of the five authentic lots accepted; scan-level specificity intervals resample the same five authentic samples and are indicative only. Sensitivity intervals resample blends as independent samples and do not account for the shared bias of the blends of one lot, so they are too narrow for new lots.
 
 | Validation | Level | Route | Sensitivity (%) | Specificity (%) | AUC | RMSEP (%) | R² | ID (%) |
 |---|---|---|---|---|---|---|---|---|
@@ -518,7 +525,7 @@ Table 1 Screening, quantification and identification on withheld samples (chemic
 
 
 
-Table 2 The same models under three validation designs (scan level, chemically informative regions; cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the tahini fraction.
+Table 2 The same models under three validation designs (scan level, chemically informative regions; cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the tahini fraction. Lot-out specificity intervals resample the five authentic samples and are indicative only (exact sample-level intervals: Table 1).
 
 | Validation | RMSEP PLS (%) | RMSEP MT-DNN (%) | Specificity PLS-R (%) | Specificity MT-DNN-R (%) | Specificity MT-DNN class head (%) |
 |---|---|---|---|---|---|
@@ -561,15 +568,15 @@ completely on unseen lots, but every route rejected at least one of five authent
 lot depended on the model: the network rejected the lot that departed most from the others, a broad
 absorbance difference near 1180–1280 cm<sup>−1</sup> rather than a shifted band, and PLS rejected the lot whose departure happened to
 lie along its regression vector. Whether these departures arise in the tahini or in the measurement
-session cannot be decided from these data, because the authentic lots were measured under different
-optical-path conditions. Hold-out estimates with a single authentic lot, and scan-level random
+session cannot be decided from these data, because the authentic lots were not all measured under the
+same optical-path conditions. Hold-out estimates with a single authentic lot, and scan-level random
 splits even more so, hide this behaviour completely.
 
-Third, because the two families fail on different lots, combining them may protect specificity at
-little cost. In this set, requiring both composition routes to agree removed every false
+Third, because the two families fail on different lots, combining them may protect specificity, at
+the cost of maintaining two models. In this set, requiring both composition routes to agree removed every false
 positive at the cost of one 4 % blend; the first part follows by construction once the two families
 reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
-five authentic lots; it needs testing on new lots measured on different days, other suppliers and a
+five authentic lots; it needs testing on new lots, each measured in several sessions in interleaved order, other suppliers and a
 second instrument before it
 can support routine screening. For any such use, the authentic reference set must cover the variation
 between lots that the screen will meet,^36^ and a positive result should be confirmed by a targeted method.
@@ -638,7 +645,7 @@ scientific decision, checked all output, and take full responsibility for the co
 30. International Council for Harmonisation, ICH Harmonised Guideline Q2(R2): Validation of Analytical Procedures, adopted 1 November 2023, https://database.ich.org/sites/default/files/ICH_Q2%28R2%29_Guideline_2023_1130.pdf, (accessed November 2026).
 31. F. Allegrini and A. C. Olivieri, *Anal. Chem.*, 2014, **86**, 7858–7866, DOI: 10.1021/ac501786u.
 32. C. A. Field and A. H. Welsh, *J. R. Stat. Soc. Ser. B Stat. Methodol.*, 2007, **69**, 369–390, DOI: 10.1111/j.1467-9868.2007.00593.x.
-33. C. J. CLOPPER and E. S. PEARSON, *Biometrika*, 1934, **26**, 404–413, DOI: 10.1093/biomet/26.4.404.
+33. C. J. Clopper and E. S. Pearson, *Biometrika*, 1934, **26**, 404–413, DOI: 10.1093/biomet/26.4.404.
 34. M. Kačuráková and R. H. Wilson, *Carbohydr. Polym.*, 2001, **44**, 291–303, DOI: 10.1016/s0144-8617(00)00245-9.
 35. A. A. Ismail, F. R. van de Voort, G. Emo and J. Sedman, *J. Am. Oil Chem. Soc.*, 1993, **70**, 335–341, DOI: 10.1007/bf02552703.
 36. S. Esslinger, J. Riedl and C. Fauhl-Hassek, *Food Res. Int.*, 2014, **60**, 189–204, DOI: 10.1016/j.foodres.2013.10.015.

@@ -1,4 +1,4 @@
-Table 2 The same models under three validation designs (scan level, chemically informative regions; cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the tahini fraction.
+Table 2 The same models under three validation designs (scan level, chemically informative regions; cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the tahini fraction. Lot-out specificity intervals resample the five authentic samples and are indicative only (exact sample-level intervals: Table 1).
 
 | Validation | RMSEP PLS (%) | RMSEP MT-DNN (%) | Specificity PLS-R (%) | Specificity MT-DNN-R (%) | Specificity MT-DNN class head (%) |
 |---|---|---|---|---|---|

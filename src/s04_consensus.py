@@ -4,17 +4,18 @@ A physical sample is flagged when BOTH regression routes flag it: PLS-R (mean pr
 scans > the fold's PLS-R threshold) AND MT-DNN-R (same, per seed, fold threshold of that seed).
 Reported per seed with the lots of any false positive and the nominal levels of missed blends; compared
 with each route alone. Leave-one-lot-out, chemically informative regions.
-Output: results/consensus.json."""
+Output: results/consensus.json (sensitivity variants: python s04_consensus.py chemsnv|chem700 -> consensus_<regions>.json)."""
 import json
+import sys
 
 import pandas as pd
 
 from common import RESULTS, dump
 
 
-def main():
-    p = pd.read_csv(RESULTS / "pred_lolo_chem.csv")
-    info = {f["fold"]: f for f in json.loads((RESULTS / "run_info_lolo_chem.json").read_text())["folds"]}
+def main(regions="chem"):
+    p = pd.read_csv(RESULTS / f"pred_lolo_{regions}.csv")
+    info = {f["fold"]: f for f in json.loads((RESULTS / f"run_info_lolo_{regions}.json").read_text())["folds"]}
     p["adult_pred"] = 100 - p["p_tahini"]
     s = (p[p.model.isin(["PLS-R", "MT-DNN-R"])]
          .groupby(["model", "seed", "fold", "group", "tag"])
@@ -36,9 +37,9 @@ def main():
         dn = s[(s.model == "MT-DNN-R") & (s.seed == seed)].set_index("group").reindex(pl.index)
         out["per_seed"].append(dict(seed=int(seed), mtdnn_r=summary(dn["flag"], dn),
                                     both=summary(pl["flag"] & dn["flag"], pl)))
-    dump(out, "consensus.json")
+    dump(out, "consensus.json" if regions == "chem" else f"consensus_{regions}.json")
     print(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "chem")

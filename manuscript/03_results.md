@@ -81,16 +81,17 @@ With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rej
 MT-DNN routes and PLS-DA, T5 by PLS-R) and every route reached 80 % sample-level specificity, so the lot
 effect does not depend on the choice of spectral regions. The scan-level picture did change: PLS-R also
 flagged 29 % of the T1 scans, PLS-DA no longer flagged T2 (3 % of its scans), and the lot-out RMSEP rose
-to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). Two further changes to the input left the
-lot-out decisions unchanged (ESI, Table S12): computing SNV over the retained regions only, and cutting the
+to 5.32 % for PLS and 5.73 % for the MT-DNN, with the MT-DNN error on T1 reaching 9.76 % (ESI, Table S7). The region choice therefore matters more for
+the network's quantification of a departing lot than the pooled error suggests. Two further changes to the
+input left the rejected lots unchanged (ESI, Table S12): computing SNV over the retained regions only, which
+removes any influence of the CO<sub>2</sub> and water-vapour regions on the normalisation, and starting the
 fingerprint region at 700 cm<sup>−1</sup>, near the low-wavenumber limit of the ZnSe element. In both, the MT-DNN
-routes rejected T1, PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes and the
-lot-out RMSEP was 3.62–4.06 % for the MT-DNN and 4.92–5.18 % for PLS. The PLS-DA rejection of half of
-the T2 scans was the only fragile result: it disappeared (7 % of scans) when the region below 700 cm<sup>−1</sup>
-was removed, as it did with the full range.
-<!-- results/metrics.csv lolo chemsnv/chem700 (T-TR4 referee M5/M6): sample spec 0.8 MT-DNN, MT-DNN-R, PLS-R both; PLS-DA 0.6 (chemsnv) / 0.8 (chem700); scan RMSEP MT-DNN 3.621/4.063, PLS 4.923/5.178; metrics_lot fp_rate_authentic PLS-DA T2 0.52 chem/chemsnv, 0.07 chem700. -->
-The region choice therefore matters more for the network's quantification of a departing lot than the
-pooled error suggests.
+routes rejected T1 and PLS-R rejected T5, sample-level specificity stayed at 80 % for these three routes,
+the sample-level sensitivity of PLS-R fell from 98 to 94 and 96 %, and the lot-out RMSEP was 3.62–4.06 % for
+the MT-DNN and 4.92–5.18 % for PLS. PLS-DA changed most: its rejection of half of the T2 scans disappeared
+(7 % of scans) when the region below 700 cm<sup>−1</sup> was removed, as it did with the full range, which raised its
+sample-level specificity from 60 to 80 %.
+<!-- results/metrics.csv lolo chemsnv/chem700 (T-TR4 referee M5/M6): sample spec 0.8 MT-DNN, MT-DNN-R, PLS-R both; PLS-DA 0.6 (chemsnv) / 0.8 (chem700); PLS-R sample sens 0.94 (chemsnv) / 0.96 (chem700), chem 0.98; scan RMSEP MT-DNN 3.621/4.063, PLS 4.923/5.178; metrics_lot fp_rate_authentic PLS-DA T2 0.52 chem/chemsnv, 0.07 chem700. -->
 <!-- results/metrics.csv regions full lolo: sample specificity 0.8 all routes; scan RMSEP PLS 5.32, MT-DNN 5.73; metrics_lot.csv full fp_rate T1 MT-DNN 1.0, MT-DNN-R 1.0, PLS-DA 1.0, PLS-R T5 1.0 (T1 0.287); PLS-DA T2 0.033; rmsep_tahini T1 MT-DNN 9.76. -->
 <!-- sample-level counts: results/consensus.json (PLS-R missed [4, peanut, T1]); results/metrics.csv lolo sample fn: PLS-DA 6, PLS-R 1, MT-DNN 0, MT-DNN-R 0; specificity 0.60/0.80/0.80/0.80. Per-lot FP: results/metrics_lot.csv fp_rate_authentic. PLS-DA k range: results/run_info_lolo_chem.json pls_k_cls 22,4,2,3,3. Level shares: Fig. 3b from pred_lolo_chem.csv. Foods Table 5. -->
 
@@ -172,10 +173,11 @@ further chemical analysis of the lots (free fatty acids, oil, protein or moistur
 possible, and finding the cause requires reference measurements on new lots. Part of the differences may also
 arise in the measurement rather than in the tahini. The data carry no acquisition dates, but two bands
 that the sample does not produce, the atmospheric CO<sub>2</sub> band and the water-vapour lines, record the
-state of the optical path, and both differed between the authentic lots (one-way ANOVA, p < 10<sup>−100</sup>;
-ESI, Table S11): they were low for T1 and T2 and high for T3–T5, with T1 lowest on both. The authentic
-lots were therefore not all measured under the same conditions, and in this set the effect of a lot
-cannot be separated from that of its measurement session.
+state of the optical path, and both differed between the authentic lots (ESI, Table S11): they were low
+for T1 and T2 and high for T3–T5, with no overlap of the lot means, and T1 lay 2.0 and 2.8 within-lot SDs
+below the other lots. The authentic lots were therefore not all measured under the same conditions, and in
+this set the effect of a lot cannot be separated from that of its measurement session. This applies most
+to T1; T5, the lot rejected by PLS, shares its optical-path state with the accepted lots T3 and T4.
 <!-- results/session_indicators.json (src/s08_session.py): authentic ANOVA F co2 192.2 p 2.5e-113, water_vapour 400.7 p 2.0e-184; lowest_authentic_lot T1 for both; T1 minus others -2.05 / -2.83 within-lot SD. Referee read T-TR4 M4. -->
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
@@ -223,10 +225,14 @@ rule accepts every authentic lot by construction, so its specificity here is a c
 rule was chosen, not evidence for it; its cost in sensitivity is the informative part. Applied to the lot-out predictions, the rule accepted
 all five withheld authentic lots and still flagged 49 of the 50 blends, for each of the five network
 seeds; the one blend missed was the 4 % peanut paste blend of lot T1, which PLS-R alone also missed.
+With the two input variants of Table S12 the rule again accepted all five authentic lots and flagged 47
+and 48 of the 50 blends, missing the 4 % blends of T1 and, with SNV over the retained regions, the 16 %
+sunflower blend of T4.
+<!-- results/consensus_chemsnv.json, consensus_chem700.json (src/s04_consensus.py <regions>): both fp_lots [] all seeds; missed chemsnv [4 peanut T1, 4 sunflower T1, 16 sunflower T4], chem700 [4 peanut T1, 4 sunflower T1]. -->
 With five authentic lots this is a hypothesis, not a validated screening rule, and it will fail for a
 lot that departs along the PLS vector and from the network's training data at the same time. It
-suggests that combining a linear and a non-linear calibration, which costs no extra model, may protect
-specificity where an additional classification head did not, and it should be tested on lots not used here.
+suggests that combining a linear and a non-linear calibration may protect specificity where an additional
+classification head did not, at the cost of maintaining two models, and it should be tested on lots not used here.
 
 A one-class model answers the screening question without seeing either adulterant and might avoid the
 lot problem. As a simple baseline, a principal-component model fitted on the

@@ -24,7 +24,7 @@ The main findings are:
    1180–1280 cm⁻¹, confirmed by second-derivative spectra to involve no shifted band), and PLS
    rejects the lot whose spectral departure lies along its regression vector. Bands that the sample
    does not produce show that the authentic lots were measured under different conditions, so lot and
-   measurement session cannot be separated; the manuscript says so. In an exploratory analysis,
+   measurement session cannot be separated, and the manuscript states this limitation. In an exploratory analysis,
    requiring both models to agree removed the false positives, as it must once they reject different
    lots, at the cost of one 4 % blend.
 

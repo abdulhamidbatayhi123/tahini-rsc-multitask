@@ -219,12 +219,13 @@ if _si.exists():
           ["Indicator", "Lot", "Authentic scans, mean ± SD", "Blends of the lot, mean of sample means"], rows,
           "Source: results/session_indicators.json (src/s08_session.py). CO₂: mean absorbance at 2340–2370 cm⁻¹ minus the "
           "mean of its flanks (2240–2260 and 2400–2420 cm⁻¹); water vapour: SD of the first difference over 3600–3900 cm⁻¹. "
-          f"Differences between authentic lots: one-way ANOVA F = {co['authentic_scan_anova_F']:.0f} (CO₂) and "
-          f"{wv['authentic_scan_anova_F']:.0f} (water vapour), p < 10⁻¹⁰⁰ for both; between the blend groups of the lots: "
-          f"F = {co['blend_sample_means_by_lot_anova_F']:.0f} and {wv['blend_sample_means_by_lot_anova_F']:.0f}, p < 10⁻⁸. "
-          "The data carry no acquisition dates. The authentic lots were therefore not all measured under the same "
-          "optical-path conditions (T1 and T2 low, T3–T5 high; T1 lowest on both indicators), and the blends of all lots lie "
-          "close to T1 and T2, so the effect of a lot cannot be separated from that of its measurement session.")
+          f"The water-vapour indicator also contains detector noise. "
+          f"T1 lies {abs(co['T1_minus_others_in_within_lot_sd']):.1f} (CO₂) and {abs(wv['T1_minus_others_in_within_lot_sd']):.1f} "
+          "(water vapour) pooled within-lot SDs below the mean of the other lots; the replicate scans of one sample per lot "
+          "are not independent, so these figures are descriptive. The data carry no acquisition dates. The authentic lots "
+          "were therefore not all measured under the same optical-path conditions (T1 and T2 low, T3–T5 high), and the "
+          "effect of a lot cannot be separated from that of its measurement session. The blends were not necessarily "
+          "measured with their own lot: their water-vapour values all lie near those of T1 and T2.")
 
 # S12 preprocessing sensitivity (T-TR4 referee read): SNV over retained regions; fingerprint cut at 700 cm-1
 if {"chemsnv", "chem700"} <= set(m[m.scheme == "lolo"].regions):

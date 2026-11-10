@@ -30,5 +30,5 @@ atypical lot (a broad absorbance difference near 1180–1280 cm<sup>−1</sup>),
 whose spectral departure lies along the PLS regression vector, for PLS. A post hoc rule flagging a
 sample only when both composition routes agreed accepted all five authentic lots, as it must once the
 families reject different lots, and detected 49 of 50 blends. Differences between authentic lots, not model architecture, limited screening; here they cannot be separated
-from measurement session.
+from the measurement session.
 <!-- abstract numbers: Table 1 (results/metrics.csv): lolo sample sensitivity PLS-R 0.98, MT-DNN-R 1.00, MT-DNN 1.00; scan RMSEP 3.95 (MT-DNN; 3.9547), 4.87 (PLS); sample specificity 0.60-0.80 (A2 rerun). Consensus: results/consensus.json. Word count checked by build. -->

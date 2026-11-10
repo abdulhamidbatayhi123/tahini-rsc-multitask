@@ -23,7 +23,8 @@ hdr = ["Validation", "RMSEP PLS (%)", "RMSEP MT-DNN (%)", "Specificity PLS-R (%)
        "Specificity MT-DNN class head (%)"]
 lines = ["Table 2 The same models under three validation designs (scan level, chemically informative regions; "
          "cluster-bootstrap 95 % intervals over physical samples; MT-DNN means over five seeds). RMSEP is for the "
-         "tahini fraction.", "", "| " + " | ".join(hdr) + " |", "|" + "|".join(["---"] * len(hdr)) + "|"]
+         "tahini fraction. Lot-out specificity intervals resample the five authentic samples and are indicative only "
+         "(exact sample-level intervals: Table 1).", "", "| " + " | ".join(hdr) + " |", "|" + "|".join(["---"] * len(hdr)) + "|"]
 for s in ("random", "holdout", "lolo"):
     r = m[m.scheme == s].set_index("model")
     if r.empty:
