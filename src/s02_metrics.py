@@ -136,7 +136,7 @@ def main():
         import json
         hashes = json.loads((RESULTS / "metrics_info.json").read_text()).get("inputs_sha256", {})
     for scheme in ("random", "holdout", "lolo"):
-        for regions in ("chem", "full"):
+        for regions in ("chem", "full", "chemsnv", "chem700"):   # last two: sensitivity runs (T-TR4)
             p = RESULTS / f"pred_{scheme}_{regions}.csv"
             if not p.exists() or (ONLY and f"{scheme}_{regions}" not in ONLY):
                 continue
