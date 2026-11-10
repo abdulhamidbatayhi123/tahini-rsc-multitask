@@ -3,3 +3,5 @@ audit/tahini.pkl
 __pycache__/
 *.pyc
 *.bak
+build/submission/
+build/submission_rsc_advances.zip
