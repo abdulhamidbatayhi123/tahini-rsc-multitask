@@ -27,7 +27,7 @@ def ci(r, k, nd=3, pct=False):
 
 
 rows = []
-for scheme, sname in (("holdout", "Grouped hold-out"), ("lolo", "Leave-one-lot-out")):
+for scheme, sname in (("holdout", "Hold-out"), ("lolo", "Lot-out")):
     for level in ("sample", "scan"):
         for model in ("PLS-DA", "PLS-R", "MT-DNN", "MT-DNN-R"):
             r = m[(m.scheme == scheme) & (m.level == level) & (m.model == model)]
@@ -35,17 +35,17 @@ for scheme, sname in (("holdout", "Grouped hold-out"), ("lolo", "Leave-one-lot-o
                 continue
             r = r.iloc[0]
             quant = model in ("PLS-R", "MT-DNN")
-            rows.append([sname, level, model, ci(r, "sensitivity", pct=True), (f"{100 * r['specificity']:.1f} (one authentic sample)" if scheme == "holdout"
+            rows.append([sname, level, model, ci(r, "sensitivity", pct=True), (f"{100 * r['specificity']:.1f}‡" if scheme == "holdout"
                           else exact_spec(r["specificity"]) if level == "sample" else ci(r, "specificity", pct=True)),
                          ci(r, "auc"),
                          ci(r, "rmsep_tahini", 2) if quant else "", ci(r, "r2_tahini") if quant else "",
                          ci(r, "identification", pct=True) if quant else ""])
 hdr = ["Validation", "Level", "Route", "Sensitivity (%)", "Specificity (%)", "AUC", "RMSEP (%)", "R²",
-       "Identification (%)"]
+       "ID (%)"]
 lines = ["Table 1 Screening, quantification and identification on withheld samples (chemically informative "
          "regions). Values are point estimates with cluster-bootstrap 95 % intervals (1000 draws over physical "
          "samples); MT-DNN values are means of the five per-seed values (the figures instead average the predictions of the five seeds per scan). Quantification and identification are properties "
-         "of the composition output and are shown once per model family. No interval is given for hold-out specificity because the hold-out test set contains a single "
+         "of the composition output and are shown once per model family. Hold-out: grouped hold-out; lot-out: leave-one-lot-out; ID: identification of the adulterant. ‡ No interval: the hold-out test set contains a single "
          "authentic lot; in leave-one-lot-out validation five "
          "authentic samples, one per lot, are withheld. † Exact (Clopper–Pearson) 95 % interval for the number of the five "
          "authentic lots accepted; scan-level specificity intervals resample the same five authentic samples and are "

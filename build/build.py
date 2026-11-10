@@ -97,7 +97,7 @@ def main():
         print("WARN: TODO left in text")
     md = OUT / ("esi.md" if ESI else "manuscript.md")
     md.write_text(text, encoding="utf-8")
-    subprocess.run(["pandoc", str(md), "-o", str(OUT / ("esi.docx" if ESI else "manuscript.docx")), "--resource-path", str(ROOT)],
+    subprocess.run(["pandoc", str(md), "-o", str(OUT / ("esi.docx" if ESI else "manuscript.docx")), "--resource-path", str(ROOT), "--reference-doc", str(ROOT / "build" / "reference.docx")],
                    check=True)
     words = len(re.sub(r"## References.*", "", text, flags=re.S).split())
     print(f"built {md.with_suffix('.docx')}; {len(order)} references; ~{words} words incl. captions")

@@ -14,7 +14,7 @@ https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/rsc-adv
 | Data availability after conflicts, before acknowledgements; full URLs; code version | 05_declarations.md (data v2.2.0, code v1.0.0) |
 | Funding and AI tool use declared in Acknowledgements | 05_declarations.md |
 | Cover letter with a statement of importance; no reviewer names in it | cover_letter.md |
-| Preferred reviewers: entered in ScholarOne only | NEEDED FROM AUTHORS |
+| Preferred reviewers: entered in ScholarOne only | none (authors 2026-11-11); fallback list in the private hub if the field is mandatory |
 | ESI submitted with the original submission | esi.docx |
 | TOC entry (required at revision): graphic max 8 x 4 cm, TIFF 600 dpi; text 1–2 sentences, max 250 characters, not a repeat of title/abstract, editable (.docx) | figures/toc_graphic.tif 8.0 x 4.0 cm; manuscript/toc.md 182 characters |
 | Upload: up to 5 files at once, or a ZIP of up to 20 files | |
