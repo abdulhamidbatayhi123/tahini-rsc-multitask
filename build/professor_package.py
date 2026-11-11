@@ -42,8 +42,11 @@ def plain(t):
 
 
 def section(md, head):
-    t = (MS / md).read_text(encoding="utf-8")
-    return t.split(f"## {head}", 1)[1].split("\n## ", 1)[0]
+    # declarations come from the BUILT manuscript, so reference numbers match it ("ref. 15", not a key)
+    t = (ROOT / "build" / "out" / "manuscript.md").read_text(encoding="utf-8")
+    t = t.split(f"## {head}", 1)[1].split("\n## ", 1)[0]
+    t = re.sub(r"\^[0-9,–]+\^", "", t)
+    return re.sub(r"\^(.*?)\^", lambda m: m.group(1).replace("−1", "⁻¹").replace("2", "²"), t)
 
 
 def word_pdf(src, dst):
