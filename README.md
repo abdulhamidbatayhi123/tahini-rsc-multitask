@@ -2,10 +2,13 @@
 
 Code, analysis plan, predictions and manuscript sources for the paper *"Screening tahini for sunflower
 and peanut paste on unseen production lots: a multitask neural network and partial least squares on
-ATR–FTIR spectra"* (in preparation for *RSC Advances*).
+infrared spectra"* (in preparation for *RSC Advances*).
 
-Archived release: v1.1.0, <https://doi.org/10.5281/zenodo.24120431> (all versions: <https://doi.org/10.5281/zenodo.24087710>). Please cite the paper and this archive
+Archived release: v1.1.1, <https://doi.org/10.5281/zenodo.24126434> (all versions: <https://doi.org/10.5281/zenodo.24087710>). Please cite the paper and this archive
 (see `CITATION.cff`).
+
+v1.1.1 (2026-11-11) changes only the manuscript sources and build scripts (submission-checklist pass: abstract,
+AI-use declaration, Word layout, readability); code, predictions and every reported number are as in v1.1.0.
 
 The study reuses the tahini ATR–FTIR spectra released with Batayhi et al., *Foods* 2026, **15**, 3639
 (<https://doi.org/10.3390/foods15203639>; data: <https://doi.org/10.5281/zenodo.23168994>, v2.2.0). It

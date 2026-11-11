@@ -11,7 +11,7 @@ https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/rsc-adv
 | Figures TIFF, 600 dpi or more, 8.3 or 17.1 cm wide, at most 23.3 cm high | all 17.1 cm, 600 dpi (figures/*.tif) |
 | Author contributions (CRediT recommended) | 05_declarations.md |
 | Conflicts of interest ("There are no conflicts to declare") | 05_declarations.md |
-| Data availability after conflicts, before acknowledgements; full URLs; code version | 05_declarations.md (data v2.2.0, code v1.1.0) |
+| Data availability after conflicts, before acknowledgements; full URLs; code version | 05_declarations.md (data v2.2.0, code v1.1.1) |
 | Funding in Acknowledgements; generative-AI use declared in three places as RSC's author-responsibilities page requires (read live 2026-11-11): cover letter, Experimental (Section 2.9, how the tool was used incl. prompts), Acknowledgements (tool and version) | 05_declarations.md, 02_experimental.md §2.9, cover_letter.md |
 | Cover letter with a statement of importance, addressed to the Executive Editor, same title as the manuscript; no reviewer names in it | cover_letter.md |
 | Preferred reviewers: entered in ScholarOne only | none (authors 2026-11-11); fallback list in the private hub if the field is mandatory |

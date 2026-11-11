@@ -109,8 +109,8 @@ def main():
           "Metallurgical Engineering, Yildiz Technical University, 34220 Istanbul, Türkiye; "
           "ORCID 0000-0001-5584-097X; mozgolet@yildiz.edu.tr\n"
           "4. Muhammet Arici, Department of Food Engineering, Faculty of Chemical and Metallurgical Engineering, "
-          "Yildiz Technical University, 34220 Istanbul, Türkiye; ORCID 0000-0003-4126-200X "
-          "(e-mail: add his address)")
+          "Yildiz Technical University, 34220 Istanbul, Türkiye; ORCID 0000-0003-4126-200X; "
+          "muarici@yildiz.edu.tr (as printed in Foods 2026, 15, 3639)")
     field("Author contributions (CRediT)", contrib)
     field("Funding", "No external funding.")
     field("Conflicts of interest", coi)
@@ -141,10 +141,9 @@ Reading_copies has the manuscript and the ESI as PDF (made with Word), for readi
 Later_revision_stage has the table-of-contents graphic and text. RSC asks for them only at revision.
 
 Before submitting, all four authors should read and approve the manuscript.
-Muhammet Arici's e-mail address is not yet on the form sheet; please add it in the form.
 
 Code and results: https://github.com/abdulhamidbatayhi123/tahini-rsc-multitask
-Archive: https://doi.org/10.5281/zenodo.24120431
+Archive: https://doi.org/10.5281/zenodo.24126434
 """
     (PK / "README.txt").write_text(readme, encoding="utf-8")
 
