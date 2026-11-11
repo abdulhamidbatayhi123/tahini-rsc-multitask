@@ -35,9 +35,10 @@ chicken in lamb[@fan2026] by near-infrared spectroscopy, for protein adulterants
 breakdown spectroscopy[@shao2026] and for Fritillaria bulb powder by hyperspectral imaging,[@ding2027] and the coupling between identifying a component and estimating
 its concentration has been treated as a learning problem in its own right.[@ning2026] For screening,
 the two tasks are tied by definition: a sample is adulterated exactly when its tahini fraction is below
-100 %. A network with a classification head and a composition head therefore offers two ways to reach
-the same decision, either directly from the classification head (a qualitative limit test) or by
-comparing the predicted composition with a cut-off (a quantitative test with a decision limit). Which of
+100 %. A network with two output layers (heads), one for the class and one for the composition, can
+therefore reach the decision in two ways. It can take it directly from the classification head (a
+qualitative limit test), or compare the predicted composition with a cut-off (a quantitative test
+with a decision limit). Which of
 the two should make the decision when the network meets material it was not calibrated on has not, to
 our knowledge, been tested. The multitask studies we examined in full report classification accuracy and
 regression error side by side, without deriving a screening decision from the predicted amount or comparing

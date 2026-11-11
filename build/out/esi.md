@@ -1,5 +1,5 @@
 ---
-title: "Electronic supplementary information for: Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on ATR–FTIR spectra"
+title: "Electronic supplementary information for: Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on infrared spectra"
 ---
 
 ## S1 Why the preliminary analysis was rebuilt
@@ -17,7 +17,7 @@ any grouped result was seen (`DESIGN.md`).
 Two amendments were made and are dated in `DESIGN.md`. Amendment A1 was made after seeing only the
 training histories of the random scheme: the class-head loss dominated and rose on unseen samples from
 the first epochs, so the composition loss was weighted by 10, label smoothing (0.05), weight decay
-(10<sup>−4</sup>) and a minimum of 20 epochs were added, and the MT-DNN regression route was added to the
+(10^−4^) and a minimum of 20 epochs were added, and the MT-DNN regression route was added to the
 comparison. Amendment A2 was made after the first lot-out results, when an independent review of the
 code showed that the network never trained on its early-stopping samples, which in lot-out validation
 removed one (15 of the 25 fold–seed fits) or two (5 fits) of the four authentic training lots from training
@@ -42,7 +42,7 @@ regions only and with the fingerprint region starting at 700 cm⁻¹.
 
 ## S4b Second-derivative spectra of the authentic lots
 
-![Fig. S3 Second-derivative spectra (Savitzky–Golay, 13 points = 23 cm<sup>−1</sup>, second-order polynomial, of the SNV spectra) of the five authentic lots, lot means with ±1 SD bands: (a) 1150–1300 cm<sup>−1</sup>, lot T1 against the other lots; (b) 1680–1780 cm<sup>−1</sup> and (c) 690–740 cm<sup>−1</sup>, lot T2 against the other lots. Dotted lines mark the band minima of the other four lots; the shaded band in (b) is 1700–1718 cm<sup>−1</sup>, where free fatty acids absorb. Band positions agree within 0.3 cm<sup>−1</sup> in all lots, and no separate component is resolved near 1215, 1248, 1709 or 717 cm<sup>−1</sup>; windows of 9 and 17 points give the same result (results/derivative_bands.json).](figures/figS3_derivative.png)
+![Fig. S3 Second-derivative spectra (Savitzky–Golay, 13 points = 23 cm^−1^, second-order polynomial, of the SNV spectra) of the five authentic lots, lot means with ±1 SD bands: (a) 1150–1300 cm^−1^, lot T1 against the other lots; (b) 1680–1780 cm^−1^ and (c) 690–740 cm^−1^, lot T2 against the other lots. Dotted lines mark the band minima of the other four lots; the shaded band in (b) is 1700–1718 cm^−1^, where free fatty acids absorb. Band positions agree within 0.3 cm^−1^ in all lots, and no separate component is resolved near 1215, 1248, 1709 or 717 cm^−1^; windows of 9 and 17 points give the same result (results/derivative_bands.json).](figures/figS3_derivative.png)
 
 ## S5 Supplementary tables
 

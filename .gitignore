@@ -5,3 +5,5 @@ __pycache__/
 *.bak
 build/submission/
 build/submission_rsc_advances.zip
+build/professor_package/
+build/tahini_rsc_professor_package.zip

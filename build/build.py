@@ -88,6 +88,13 @@ def main():
     text = re.sub(r"\[#([\w-]+)\]", lambda m: str(num(m.group(1))), text)
     # RSC: superscript after punctuation
     text = re.sub(r"(\^[0-9,–]+\^)([.,;:])", r"\2\1", text)
+    # raw HTML <sup>/<sub> is dropped by pandoc's docx writer (cm-1 came out flat, Word check 2026-11-11):
+    # convert to pandoc super/subscript AFTER the citation step, so "R<sup>2</sup>," is not moved
+    esc = lambda s: s.replace(" ", "\\ ")
+    text = re.sub(r"<sup>(.*?)</sup>", lambda m: "^" + esc(m.group(1)) + "^", text)
+    text = re.sub(r"<sub>(.*?)</sub>", lambda m: "~" + esc(m.group(1)) + "~", text)
+    if re.search(r"</?su[bp]>", text):
+        sys.exit("GATE: unconverted <sup>/<sub> left")
     reflist = "\n".join(f"{i + 1}. {fmt_ref(refs[k])}" for i, k in enumerate(order))
     if order:
         text += "\n\n## References\n\n" + reflist + "\n"

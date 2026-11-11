@@ -23,6 +23,8 @@ PyTorch 2.7.1.
 ## Acknowledgements
 
 <!-- Funding: no external funding (confirmed by the user 2026-11-09). -->
-This research received no external funding. During the preparation of this work the authors used Claude (Anthropic) as a tool to assist with
-code, literature searching and language editing. The authors designed the study, made every
-scientific decision, checked all output, and take full responsibility for the content of the article.
+This research received no external funding. During this study the authors used Claude Opus 5.5 (Anthropic) to
+help write the analysis and figure code, search the literature, compile the references, and draft and edit
+the text (Section 2.9). The authors did the work with the help of this tool, made every scientific decision
+and take full responsibility for the content of this publication.
+

@@ -1,5 +1,5 @@
 ---
-title: "Electronic supplementary information for: Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on ATR–FTIR spectra"
+title: "Electronic supplementary information for: Screening tahini for sunflower and peanut paste on unseen production lots: a multitask neural network and partial least squares on infrared spectra"
 ---
 
 ## S1 Why the preliminary analysis was rebuilt

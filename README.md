@@ -60,7 +60,9 @@ python f1_spectra.py && python f2_workflow.py && python f3_detection.py lolo && 
 python fS1_histories.py && python f4_quantification.py holdout && python fS3_derivative.py && python fTOC.py
 python t1_table.py && python t2_leakage.py && python esi_tables.py
 cd .. && python build/build.py && python build/build.py esi   # needs pandoc
+python build/make_reference_docx.py   # Word style template (line and page numbers)
 python build/package.py            # RSC Advances submission package (build/submission_rsc_advances.zip)
+python build/professor_package.py   # package for the submitting author (numbered files, form sheet, Word PDFs)
 ```
 
 `s07_robust_threshold.py` reads the cross-validated training predictions cached in `audit/robust_cv/` and needs no

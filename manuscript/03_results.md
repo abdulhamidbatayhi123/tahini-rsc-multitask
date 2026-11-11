@@ -32,7 +32,7 @@ put replicate scans of 54 of the 55 physical samples on both sides, although com
 stopping and the decision thresholds were still chosen by grouped cross-validation inside the training
 scans, so only the outer split leaked. On that split the composition was predicted with an RMSEP of
 1.79 % tahini by PLS and 2.75 % by the MT-DNN, and every route except PLS-DA accepted every
-authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 3.95 % and lowered the specificity of
+authentic scan. Withholding whole lots raised the RMSEP to 4.87 and 3.95 % (Fig. 4) and lowered the specificity of
 the same routes to about 80 %, with scan-level bootstrap intervals reaching down to 33–35 %. The random split therefore
 makes the quantification error look 1.4–2.7 times smaller and hides the false positives completely, because
 every authentic lot is represented in training and the test scans of a lot are near-copies of its
@@ -76,7 +76,8 @@ false positives come from whole lots rather than from scattered scans, was also 
 single-task models of the earlier study, where PLS and the multilayer perceptron flagged T1 and T5 and
 other models flagged other lots.[@batayhi2026] It means that the specificity of any of these screens is
 set by how far a new authentic lot lies from the calibration lots, not by the scan-to-scan noise that a
-hold-out estimate measures.
+hold-out estimate measures (whether the lot difference lies in the tahini or in the measurement is
+examined in Section 3.5).
 With the full 600–4000 cm<sup>−1</sup> range as input the same lots were rejected at sample level (T1 by both
 MT-DNN routes and PLS-DA, T5 by PLS-R) and every route reached 80 % sample-level specificity, so the lot
 effect does not depend on the choice of spectral regions. The scan-level picture did change: PLS-R also
@@ -119,8 +120,8 @@ blends) nor the calibration slopes by more than 0.01 (ESI, Table S8).
 
 ### 3.5 Why a withheld authentic lot is rejected
 
-The rejected lots are those whose spectra depart from the other four in the directions that each model
-reads as adulteration (Fig. 5). Lot T1 departs most: the root-mean-square departure of its mean SNV
+PLS rejects the lot whose departure from the other four lies along its regression vector; the network
+appears to reject the lot farthest from its training lots (Fig. 5). Lot T1 departs most: the root-mean-square departure of its mean SNV
 spectrum from the other lots is 1.61 pooled within-lot SDs, against 1.11–1.36 for the others, and the
 departure is concentrated between 1180 and 1280 cm<sup>−1</sup>, where T1 absorbs 4.90 to 8.35 SDs less than the other lots
 at 1215, 1248 and 1273 cm<sup>−1</sup> (Fig. 5b). Lots T4 and T5 depart the other way in the same window (+5.40 SDs at
@@ -182,8 +183,9 @@ to T1; T5, the lot rejected by PLS, shares its optical-path state with the accep
 
 The two model families therefore fail for different reasons. PLS is a linear projection, and a lot is
 rejected when its spectral difference happens to align with the regression vector, whatever the size of
-that difference. The MT-DNN is non-linear and its softmax output is confident wherever the training data
-are dense, so a lot is rejected when it is far from all four training lots in any direction, as T1 is.
+that difference. The MT-DNN is non-linear; we interpret its behaviour as a softmax output that is
+confident only where the training data are dense, so that a lot is rejected when it is far from all four
+training lots in any direction, as T1 is.
 <!-- results/lot_departure.json: rms_d T1 1.61, others 1.11-1.36; top_bands T1 1215 -8.35, 1273 -5.48, 1248 -4.90; T4 1246 +5.40, T5 1213 +4.10; T2 1709 +4.05; pls_adulterant_shift T5 8.92, T1 3.04, T2 0.82, T3 1.51, T4 -12.59; observed MT-DNN T1 authentic_adult_mean 2.92, blend_tahini_bias -5.27 (others -0.74..3.23); PLS-R T5 authentic_adult_mean 10.34. Thresholds: run_info_lolo_chem.json T1 dnnr 0.400-0.781 (other folds 1.82-5.16); T5 plsr 6.08. -->
 <!-- results/derivative_bands.json (src/fS2_derivative.py): sg13 window a minima T1 1161.57/1238.65/1277.93 vs others 1161.59/1238.59/1277.67 (max shift 0.26 cm-1 = 0.13 channel); std_diff_at_section35_bands T1@1215 1.30, @1248 0.62, @1273 1.77, T2@1709 -0.89, T2@717 0.44; max |d| in window a over sg9/13/17: 2.10/1.86/1.82; component_1709 no minimum in any lot, 0 % of scans; window c minimum T2 722.53, others 722.48; lot_departure_600_1800 rms T1 1.10, others 0.65-0.86. Dataset metadata: no acquisition date or temperature. -->
 

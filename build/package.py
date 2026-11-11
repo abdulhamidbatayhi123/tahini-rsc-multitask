@@ -41,7 +41,7 @@ to_docx(ROOT / "manuscript" / "toc.md", SUB / "toc_entry_text.docx")
 front = (ROOT / "manuscript" / "00_front.md").read_text(encoding="utf-8")
 abstract = strip_comments(front.split("## Abstract", 1)[1]).split("\n## ")[0]
 n_abs = len(abstract.split())
-if not 50 <= n_abs <= 250:
+if not 50 <= n_abs <= 240:   # cap 250; margin per checklist 1b rule 4
     problems.append(f"abstract {n_abs} words")
 
 # TOC text (max 250 characters, 1-2 sentences)

@@ -13,7 +13,8 @@ physical samples. Blends were homogenised with a spatula for 2 min. Spectra were
 Tensor 27 FTIR spectrometer (Bruker Optik GmbH, Ettlingen, Germany) with a ZnSe ATR accessory, at
 4 cm<sup>−1</sup> resolution over 4000–600 cm<sup>−1</sup> with 16 co-added scans, and the sample was repositioned on
 the crystal between acquisitions. Each blend was scanned 14 to 17 times and each authentic lot 150 or
-151 times, giving 1554 spectra (754 authentic, 800 blends) of 1762 channels.
+151 times, giving 1554 spectra (754 authentic, 800 blends) of 1762 channels (mean spectra in Fig. 1a). In what follows,
+each such spectrum is called a scan, and "scan-level" refers to these spectra, not to the 16 co-added interferograms.
 <!-- counts: results/f1_numbers.json n_auth=754; audit/check_split.py output (1554, 55 samples); source_repo/data/tahini/README.md -->
 
 Every spectrum carries the three mass fractions (tahini, sunflower paste, peanut paste), which sum to
@@ -47,7 +48,7 @@ most 300 epochs. The number of epochs was chosen by early stopping on the loss o
 set of 20 % of the training samples, drawn by physical sample, with a patience of 30 epochs after a
 minimum of 20. The network was then retrained from the same initialisation on all training samples for
 the chosen number of epochs, so that every training sample, and every training lot, contributed to the
-final model; inputs were standardised channel by channel with the mean and SD of all training samples.
+final model; inputs were standardised channel by channel with the mean and standard deviation (SD) of all training samples.
 Every MT-DNN result is the mean over five random seeds. The network was implemented in
 PyTorch 2.7.1.
 <!-- architecture and settings: src/common.py MTDNN, MTNet; DESIGN.md + amendment A1 -->
@@ -55,7 +56,7 @@ PyTorch 2.7.1.
 ### 2.4 Chemometric reference models
 
 The reference is the standard chemometric pair: partial least-squares discriminant analysis (PLS-DA)
-on the one-hot class and PLS2 regression on the three fractions, without scaling of the SNV inputs
+on the class coded as 0/1 indicator columns, and PLS2 (PLS with several responses fitted together) on the three fractions, without scaling of the SNV inputs
 (scikit-learn 1.7.0). The number of latent variables (1–25) of each model was chosen inside every
 training set by grouped five-fold cross-validation (minimum root-mean-square error of
 cross-validation). PLS2 predictions were clipped at zero and rescaled to sum to 100 %.
@@ -73,7 +74,7 @@ predictions on the training scans themselves would understate their spread; the 
 groups are physical samples, so an authentic training lot is withheld in it while its blends are not,
 and the threshold is then applied to the model refitted on the whole training set. For sample-level
 decisions, the scans of one physical sample were averaged (the predicted adulterant fraction for the
-regression routes, the logit of the MT-DNN class head and the difference of the two PLS-DA responses
+regression routes, the logit (the class score before the sigmoid) of the MT-DNN class head and the difference of the two PLS-DA responses
 for the class routes) and the mean was compared with the same threshold, or with zero. At scan level the
 two classes were nearly balanced (754 authentic and 800 blend spectra), because each authentic lot was
 scanned about ten times as often as each blend, so the 0.5 cut-off of the sigmoid head was kept; at
@@ -120,21 +121,36 @@ fold.
 ### 2.8 Exploratory analyses
 
 Two analyses were added after the leave-one-lot-out results had been seen and are reported as
-exploratory. For each authentic lot, the mean SNV spectrum of the lot minus the mean of the other four
-lot means was divided by the within-lot SD (the mean of the five per-lot SDs), to locate the bands in which the lot departs from
-the others; the same difference was computed on Savitzky–Golay second-derivative spectra (second-order
-polynomial, windows of 9, 13 and 17 points) to separate shifted or additional bands from broad changes
-in absorbance, and the unscaled difference was projected on the tahini coefficient vector of the PLS-R
-model that had withheld that lot, to estimate how far the departure alone moves the PLS prediction. A
+exploratory. For each authentic lot, we subtracted the mean of the other four lot means from the lot's
+mean SNV spectrum and divided the difference by the within-lot SD (the mean of the five per-lot SDs), to
+locate the bands in which the lot departs from the others. We repeated this on Savitzky–Golay
+second-derivative spectra (second-order polynomial, windows of 9, 13 and 17 points), to separate shifted
+or additional bands from broad changes in absorbance. Finally, we projected the unscaled difference on
+the tahini coefficient vector (the regression vector) of the PLS-R model that had withheld that lot, to
+estimate how far the departure alone moves the PLS prediction. A
 sample-level agreement rule, which flags a sample only when both regression routes (PLS-R and MT-DNN-R)
 flag it, was also evaluated. At a later internal review stage we added an exact McNemar test of the
-two decision routes within each model family on the 55 withheld samples, results by nominal level and
-without the two pure-adulterant samples (ESI, Table S8), and a one-class baseline: principal-component
-analysis of the mean-centred authentic training scans (components chosen to explain 99 % of the
-variance, at most 15), flagging a scan when Hotelling's T² or the residual Q exceeded its limit, set at
-mean + 3 SD of the out-of-fold values obtained by leaving out one training lot at a time (ESI, Table S9).
+two decision routes within each model family on the 55 withheld samples. We also report results by
+nominal level and without the two pure-adulterant samples (ESI, Table S8). Finally, we added a one-class
+baseline: principal-component analysis of the mean-centred authentic training scans (components chosen
+to explain 99 % of the variance, at most 15). It flags a scan when Hotelling's T² (the distance within
+the model) or the residual Q (the distance from the model) exceeds its limit. Each limit was set at
+mean + 3 SD of out-of-fold values, that is, values for training lots left out one at a time (ESI, Table S9).
 At the same stage the regression threshold was recomputed from the same cross-validated authentic training
 predictions with four alternative rules (99th and 99.9th percentiles, mean + 3 SD of the sample means, and mean +
 3 SD on the logit scale) and the lot-out decisions were scored again (ESI, Table S10).
 Code, predictions and the analysis plan with its amendments are in the
 repository (Data availability).
+
+### 2.9 Use of an AI tool
+
+<!-- RSC author responsibilities page (read live 2026-11-11): GenAI use declared in the cover letter, a statement in the
+     Experimental section on how the tool was used "including prompts", and tool name/version in the Acknowledgements.
+     Wording per the author's rule (checklist 1b, rule 10): the authors did the work with the help of an AI tool. -->
+The authors did this work with the help of an AI tool, Claude Opus 5.5 (Anthropic), used interactively
+through Claude Code. The tool helped write and test the analysis, figure and build code, search the
+literature and compile the reference list against Crossref records, and draft and edit the text. The
+prompts were plain-language instructions from the authors, for example to implement and test a step of
+the analysis plan, to match a reference to its Crossref record, or to shorten a paragraph. The prompt
+transcripts are not archived. Every reported number is produced by the archived code from the published
+spectra (Data availability), and the tool generated no data or results in any other way.

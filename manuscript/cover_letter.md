@@ -1,9 +1,9 @@
 <!-- Corresponding author M. Özgölet (user, 2026-11-09). Numbers checked against the A2 result files 2026-11-09. -->
 
-Dear Editor,
+Dear Executive Editor,
 
 We submit the manuscript "Screening tahini for sunflower and peanut paste on unseen production lots:
-a multitask neural network and partial least squares on ATR–FTIR spectra" for consideration as an
+a multitask neural network and partial least squares on infrared spectra" for consideration as an
 article in *RSC Advances*.
 
 Tahini is substituted with cheaper oilseed pastes, and substitution with peanut paste introduces an
@@ -26,9 +26,14 @@ The main findings are:
    does not produce show that the authentic lots were measured under different conditions, so lot and
    measurement session cannot be separated, and the manuscript states this limitation. In an exploratory analysis,
    requiring both models to agree removed the false positives, as it must once they reject different
-   lots, at the cost of one 4 % blend.
+   lots, at the cost of one blend with 4 % peanut paste.
 
-**Relation to our earlier work.** The spectra were released with our earlier article (Batayhi et al.,
+The chemistry of the spectra carries the argument. The lot that the network rejects differs from the
+others over the ester C–O and amide III region, and second-derivative spectra show no band shift there,
+so the difference is a broad change in absorbance, not a new or shifted band (Section 3.5). The lot that
+PLS rejects departs along the bands that PLS reads as adulteration.
+
+The spectra were released with our earlier article (Batayhi et al.,
 *Foods*, 2026, 15, 3639, doi:10.3390/foods15203639), which compared six single-output calibration models
 on them. The present manuscript reuses those data, that study's grouped hold-out partition, its
 three-fraction output and its detection-limit convention, and states this in the Introduction and
@@ -46,6 +51,11 @@ Analyses added after the results were seen are labelled exploratory in the manus
 We believe the work fits the analytical and food chemistry scope of *RSC Advances*, and that its
 practical message is useful beyond tahini: the authentic reference set and the conditions under which
 it is measured, not the model architecture, limit infrared screening of food pastes.
+
+Generative AI declaration (RSC policy): the authors did this work with the help of an AI tool, Claude
+Opus 5.5 (Anthropic), which helped write the analysis and figure code, search the literature, compile
+the references, and draft and edit the text. Its use is described in Section 2.9 and in the
+Acknowledgements; every reported number is produced by the archived code.
 
 There are no conflicts of interest to declare.
 

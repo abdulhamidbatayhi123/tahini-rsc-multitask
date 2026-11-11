@@ -12,18 +12,19 @@ stable route of all. A cut-off on the predicted tahini fraction, set from authen
 alone, gives the decision in composition units together with the amount and identity of the
 adulterant.
 
-Second, specificity on new lots, not sensitivity, limits the method. Blends were detected almost
-completely on unseen lots, but every route rejected at least one of five authentic lots. The rejected
+Second, specificity on new lots, not sensitivity, limits the method. The composition routes detected
+almost all blends on unseen lots, but every route rejected at least one of five authentic lots. The rejected
 lot depended on the model: the network rejected the lot that departed most from the others, a broad
 absorbance difference near 1180–1280 cm<sup>−1</sup> rather than a shifted band, and PLS rejected the lot whose departure happened to
 lie along its regression vector. Whether these departures arise in the tahini or in the measurement
 session cannot be decided from these data, because the authentic lots were not all measured under the
-same optical-path conditions. Hold-out estimates with a single authentic lot, and scan-level random
-splits even more so, hide this behaviour completely.
+same optical-path conditions. Hold-out estimates with a single authentic lot hide this behaviour, and
+scan-level random splits hide it entirely and also understate the error.
 
 Third, because the two families fail on different lots, combining them may protect specificity, at
 the cost of maintaining two models. In this set, requiring both composition routes to agree removed every false
-positive at the cost of one 4 % blend; the first part follows by construction once the two families
+positive at the cost of one blend (4 % peanut paste; two or three blends under the input
+variants of Section 3.7); the first part follows by construction once the two families
 reject different lots, so only the cost is informative. This rule was found after the results were known and rests on
 five authentic lots; it needs testing on new lots, each measured in several sessions in interleaved order, other suppliers and a
 second instrument before it
