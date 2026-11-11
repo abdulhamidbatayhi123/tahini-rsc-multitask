@@ -1,7 +1,7 @@
 ## Author contributions
 
 <!-- CRediT roles as the user assigned them 2026-11-08: conceptualization and methodology shared by all;
-     A. Yılmaz the dataset and the food engineering part; A. Batayhi the AI side and the draft; the two professors supervision. -->
+     A. Yılmaz the dataset and the food engineering part (user confirmed 2026-11-11 that she collected and curated the spectra); A. Batayhi the AI side and the draft; the two professors supervision. -->
 A. Yılmaz: conceptualization, methodology, investigation, data curation, writing – review and editing.
 A. Batayhi: conceptualization, methodology, software, validation, formal analysis, visualization,
 writing – original draft. M. Özgölet: conceptualization, methodology, supervision, writing – review and
